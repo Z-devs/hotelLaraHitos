@@ -68,6 +68,14 @@ public class ClienteEntity {
         this.reservaEntities = reservaEntities;
     }
 
+    public LoginEntity getLoginEntity() {
+        return loginEntity;
+    }
+
+    public void setLoginEntity(LoginEntity loginEntity) {
+        this.loginEntity = loginEntity;
+    }
+
     @Override
     public String toString() {
         return "ClienteEntity{" +

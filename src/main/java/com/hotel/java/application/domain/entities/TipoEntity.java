@@ -47,6 +47,14 @@ public class TipoEntity {
         this.descripcion = descripcion;
     }
 
+    public List<HabitacionEntity> getHabitacionEntityList() {
+        return habitacionEntityList;
+    }
+
+    public void setHabitacionEntityList(List<HabitacionEntity> habitacionEntityList) {
+        this.habitacionEntityList = habitacionEntityList;
+    }
+
     @Override
     public String toString() {
         return "TipoEntity{" +

@@ -69,6 +69,14 @@ public class HabitacionEntity {
         this.tipoEntity = tipoEntity;
     }
 
+    public ReservaEntity getReservaEntity() {
+        return reservaEntity;
+    }
+
+    public void setReservaEntity(ReservaEntity reservaEntity) {
+        this.reservaEntity = reservaEntity;
+    }
+
     @Override
     public String toString() {
         return "HabitacionEntity{" +
