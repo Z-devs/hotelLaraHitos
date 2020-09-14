@@ -14,6 +14,13 @@ public class LoginModel {
         setClienteModelList (clienteModelList);
     }
 
+    public LoginModel(long id, String usuario, String password, List<ClienteModel> clienteModelList) {
+        setId(id);
+        setUsuario (usuario);
+        setPassword (password);
+        setClienteModelList (clienteModelList);
+    }
+
     public long getId() {
         return id;
     }

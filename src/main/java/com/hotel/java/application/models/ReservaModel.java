@@ -19,6 +19,15 @@ public class ReservaModel {
         setHabitacionModels (habitacionModels);
     }
 
+    public ReservaModel(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, List<ClienteModel> clienteModelList, List<HabitacionModel> habitacionModels) {
+        setId (id);
+        setFechaIn (fechaIn);
+        setFechaOut (fechaOut);
+        setPrecioTotal (precioTotal);
+        setClienteModelList (clienteModelList);
+        setHabitacionModels (habitacionModels);
+    }
+
     public ReservaModel() {
     }
 

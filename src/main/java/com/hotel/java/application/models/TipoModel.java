@@ -10,6 +10,12 @@ public class TipoModel {
         setDescripcion (descripcion);
     }
 
+    public TipoModel(long id, String nombre, String descripcion) {
+        setId (id);
+        setNombre (nombre);
+        setDescripcion (descripcion);
+    }
+
     public TipoModel() {
     }
 

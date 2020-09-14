@@ -12,6 +12,13 @@ public class ClienteModel {
         setEmail (email);
     }
 
+    public ClienteModel(long id, String nombre, String apellido, String email) {
+        setId (id);
+        setNombre (nombre);
+        setApellido (apellido);
+        setEmail (email);
+    }
+
     public ClienteModel() {
     }
 

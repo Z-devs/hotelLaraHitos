@@ -16,6 +16,14 @@ public class HabitacionModel {
         setTipoModelList (tipoModelList);
     }
 
+    public HabitacionModel(long id, String codigo, String descripcion, float precio, List<TipoModel> tipoModelList) {
+        setId (id);
+        setCodigo (codigo);
+        setDescripcion (descripcion);
+        setPrecio (precio);
+        setTipoModelList (tipoModelList);
+    }
+
     public long getId() {
         return id;
     }
