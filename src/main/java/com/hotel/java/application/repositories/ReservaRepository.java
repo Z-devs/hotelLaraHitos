@@ -1,6 +1,6 @@
 package com.hotel.java.application.repositories;
 
-import com.hotel.java.application.domain.entitiesHB.ReservaEntity;
+import com.hotel.java.application.domain.entities.ReservaEntity;
 
 import java.util.List;
 
