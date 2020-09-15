@@ -1,6 +1,6 @@
 package com.hotel.java.application.domain.factories;
 
-import com.hotel.java.application.domain.entities.ClienteEntity;
+import com.hotel.java.application.domain.entitiesHB.ClienteEntity;
 import com.hotel.java.application.models.ClienteModel;
 
 import java.util.ArrayList;
