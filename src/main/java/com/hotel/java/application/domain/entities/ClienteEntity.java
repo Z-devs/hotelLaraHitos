@@ -19,6 +19,13 @@ public class ClienteEntity {
     @OneToOne (mappedBy = "cliente")
     LoginEntity loginEntity;
 
+    public ClienteEntity(long id, String nombre, String apellido, String email) {
+        setId (id);
+        setNombre (nombre);
+        setApellido (apellido);
+        setEmail (email);
+    }
+
     public ClienteEntity(String nombre, String apellido, String email) {
         setNombre (nombre);
         setApellido (apellido);
@@ -32,7 +39,7 @@ public class ClienteEntity {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

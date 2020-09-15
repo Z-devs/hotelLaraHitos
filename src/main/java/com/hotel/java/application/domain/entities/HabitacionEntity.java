@@ -19,6 +19,14 @@ public class HabitacionEntity {
     @OneToOne(mappedBy = "habitacion")
     private ReservaEntity reservaEntity;
 
+    public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipoEntity) {
+        setId (id);
+        setCodigo (codigo);
+        setDescripcion (descripcion);
+        setPrecio (precio);
+        setTipoEntity (tipoEntity);
+    }
+
     public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipoEntity) {
         setCodigo (codigo);
         setDescripcion (descripcion);

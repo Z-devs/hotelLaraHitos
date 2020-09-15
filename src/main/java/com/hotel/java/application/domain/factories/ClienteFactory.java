@@ -28,7 +28,7 @@ public class ClienteFactory {
         return clienteModel;
     }
 
-    public List<ClienteEntity> clienteListEntity2Model (List<ClienteModel> clienteModels){
+    public List<ClienteEntity> clienteListModel2Entity (List<ClienteModel> clienteModels){
         List<ClienteEntity> clienteEntities = new ArrayList<> ();
         for (ClienteModel cliente : clienteModels){
             ClienteEntity clienteEntity =
@@ -41,7 +41,7 @@ public class ClienteFactory {
         return clienteEntities;
     }
 
-    public List<ClienteModel> clienteListModel2Entity (List<ClienteEntity> clienteEntities){
+    public List<ClienteModel> clienteListEntity2Model (List<ClienteEntity> clienteEntities){
         List<ClienteModel> clienteModels = new ArrayList<> ();
         for (ClienteEntity cliente : clienteEntities){
             ClienteModel clienteModel =

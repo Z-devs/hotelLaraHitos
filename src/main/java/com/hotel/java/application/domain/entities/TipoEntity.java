@@ -8,12 +8,18 @@ import java.util.List;
 public class TipoEntity {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String nombre;
     private String descripcion;
 
     @OneToMany(mappedBy = "habitacion")
     List<HabitacionEntity> habitacionEntityList;
+
+    public TipoEntity(long id, String nombre, String descripcion) {
+        setId (id);
+        setNombre (nombre);
+        setDescripcion (descripcion);
+    }
 
     public TipoEntity(String nombre, String descripcion) {
         setNombre (nombre);
@@ -23,11 +29,11 @@ public class TipoEntity {
     public TipoEntity() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

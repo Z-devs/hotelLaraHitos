@@ -9,23 +9,23 @@ public class ReservaModel {
     private java.sql.Timestamp fechaOut;
     private float precioTotal;
     List<ClienteModel> clienteModelList;
-    List<HabitacionModel> habitacionModels;
+    HabitacionModel habitacionModel;
 
-    public ReservaModel(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, List<ClienteModel> clienteModelList, List<HabitacionModel> habitacionModels) {
+    public ReservaModel(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, List<ClienteModel> clienteModelList, HabitacionModel habitacionModel) {
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
         setClienteModelList (clienteModelList);
-        setHabitacionModels (habitacionModels);
+        setHabitacionModel (habitacionModel);
     }
 
-    public ReservaModel(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, List<ClienteModel> clienteModelList, List<HabitacionModel> habitacionModels) {
+    public ReservaModel(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, List<ClienteModel> clienteModelList, HabitacionModel habitacionModel) {
         setId (id);
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
         setClienteModelList (clienteModelList);
-        setHabitacionModels (habitacionModels);
+        setHabitacionModel (habitacionModel);
     }
 
     public ReservaModel() {
@@ -71,12 +71,12 @@ public class ReservaModel {
         this.clienteModelList = clienteModelList;
     }
 
-    public List<HabitacionModel> getHabitacionModels() {
-        return habitacionModels;
+    public HabitacionModel getHabitacionModel() {
+        return habitacionModel;
     }
 
-    public void setHabitacionModels(List<HabitacionModel> habitacionModels) {
-        this.habitacionModels = habitacionModels;
+    public void setHabitacionModel(HabitacionModel habitacionModel) {
+        this.habitacionModel = habitacionModel;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class ReservaModel {
                 ", fechaOut=" + fechaOut +
                 ", precioTotal=" + precioTotal +
                 ", clienteModelList=" + clienteModelList +
-                ", habitacionModels=" + habitacionModels +
+                ", habitacionModels=" + habitacionModel +
                 '}';
     }
 }

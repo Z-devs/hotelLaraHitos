@@ -1,5 +1,6 @@
 package com.hotel.java.application.services;
 
+import com.hotel.java.application.domain.entities.ReservaEntity;
 import com.hotel.java.application.domain.factories.ReservaFactory;
 import com.hotel.java.application.models.ReservaModel;
 import com.hotel.java.application.repositories.ReservaRepository;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class ReservaServiceImplementation implements ReservaService {
     private ReservaRepository reservaRepository;
-    private ReservaFactory reservaFactory;
+    private ReservaFactory reservaFactory = new ReservaFactory ();
 
     public ReservaServiceImplementation(ReservaRepository reservaRepository) {
         this.reservaRepository = reservaRepository;
@@ -16,7 +17,9 @@ public class ReservaServiceImplementation implements ReservaService {
 
     @Override
     public List<ReservaModel> listarReservas() {
-        return null;
+        List<ReservaEntity> reservaEntities = this.reservaRepository.listarReservas ();
+        List<ReservaModel> reservaModels = this.reservaFactory.reservaListEntity2Model(reservaEntities);
+        return reservaModels;
     }
 
     @Override

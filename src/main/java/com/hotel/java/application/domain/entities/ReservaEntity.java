@@ -21,6 +21,15 @@ public class ReservaEntity {
     @JoinColumn (name="id_habitacion")
     private HabitacionEntity habitacionEntity;
 
+    public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity, HabitacionEntity habitacionEntity) {
+        setId (id);
+        setFechaIn (fechaIn);
+        setFechaOut (fechaOut);
+        setPrecioTotal (precioTotal);
+        setClienteEntity (clienteEntity);
+        setHabitacionEntity (habitacionEntity);
+    }
+
     public ReservaEntity(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity, HabitacionEntity habitacionEntity) {
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
