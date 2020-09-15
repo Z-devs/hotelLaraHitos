@@ -44,22 +44,66 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
 
     @Override
     public ReservaEntity listarReservaById(long id) {
-
-        return null;
+        ReservaEntity reservaEntity = null;
+        session = dbConnection.openSession ();
+        try{
+            reservaEntity = session.get(ReservaEntity.class, id);
+        }catch (Throwable ex) {
+            ex.printStackTrace ();
+        }
+        finally {
+            session.close();
+        }
+        return reservaEntity;
     }
 
     @Override
     public void newReserva(ReservaEntity reservaEntity) {
-
+        session = dbConnection.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.save (reservaEntity);
+            transaction.commit();
+        } catch (Throwable ex) {
+            if (transaction!=null) transaction.rollback();
+            ex.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
     }
 
     @Override
     public void deleteReserva(ReservaEntity reservaEntity) {
-
+        session = dbConnection.openSession();
+        try{
+            transaction = session.beginTransaction ();
+            session.delete (reservaEntity);
+            transaction.commit ();
+        }catch (Throwable ex){
+            if (transaction!=null) transaction.rollback();
+            ex.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
     }
 
     @Override
     public void updateReserva(ReservaEntity reservaEntity) {
-
+        session = dbConnection.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.update (reservaEntity);
+            transaction.commit();
+        } catch (Throwable ex) {
+            if (transaction!=null) transaction.rollback();
+            ex.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
     }
 }
