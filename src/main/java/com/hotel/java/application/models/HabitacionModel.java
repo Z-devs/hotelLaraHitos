@@ -7,13 +7,13 @@ public class HabitacionModel {
     private String codigo;
     private String descripcion;
     private float precio;
-    List<TipoModel> tipoModelList;
+    TipoModel tipoModel;
 
-    public HabitacionModel(String codigo, String descripcion, float precio, List<TipoModel> tipoModelList) {
+    public HabitacionModel(String codigo, String descripcion, float precio, TipoModel tipoModel) {
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
-        setTipoModelList (tipoModelList);
+        setTipoModel (tipoModel);
     }
 
     public HabitacionModel(long id, String codigo, String descripcion, float precio, List<TipoModel> tipoModelList) {
@@ -21,7 +21,7 @@ public class HabitacionModel {
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
-        setTipoModelList (tipoModelList);
+        setTipoModel (tipoModel);
     }
 
     public long getId() {
@@ -56,12 +56,12 @@ public class HabitacionModel {
         this.precio = precio;
     }
 
-    public List<TipoModel> getTipoModelList() {
-        return tipoModelList;
+    public TipoModel getTipoModel() {
+        return tipoModel;
     }
 
-    public void setTipoModelList(List<TipoModel> tipoModelList) {
-        this.tipoModelList = tipoModelList;
+    public void setTipoModel(TipoModel tipoModel) {
+        this.tipoModel = tipoModel;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class HabitacionModel {
                 "codigo='" + codigo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", precio=" + precio +
-                ", tipoModelList=" + tipoModelList +
+                ", tipoModelList=" + tipoModel +
                 '}';
     }
 }

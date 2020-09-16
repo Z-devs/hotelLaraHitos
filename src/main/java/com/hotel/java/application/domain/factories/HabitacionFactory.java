@@ -14,7 +14,7 @@ public class HabitacionFactory {
                         habitacionModel.getCodigo (),
                         habitacionModel.getDescripcion (),
                         habitacionModel.getPrecio (),
-                        tipoFactory.tipoListModel2Entity(habitacionModel.getTipoModelList ())
+                        tipoFactory.tipoModel2Entity(habitacionModel.getTipoModel ())
                 );
         return habitacionEntity;
     }

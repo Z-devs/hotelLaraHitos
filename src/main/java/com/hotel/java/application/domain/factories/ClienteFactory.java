@@ -11,6 +11,7 @@ public class ClienteFactory {
     public ClienteEntity clienteModel2Entity (ClienteModel clienteModel){
         ClienteEntity clienteEntity =
                 new ClienteEntity (
+                    clienteModel.getId (),
                     clienteModel.getNombre (),
                     clienteModel.getApellido (),
                     clienteModel.getEmail ());

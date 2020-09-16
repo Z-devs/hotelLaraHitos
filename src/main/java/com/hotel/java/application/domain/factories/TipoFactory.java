@@ -7,6 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TipoFactory {
+    public TipoEntity tipoModel2Entity (TipoModel tipoModel){
+        TipoEntity tipoEntity = new TipoEntity (
+                tipoModel.getId (),
+                tipoModel.getNombre (),
+                tipoModel.getDescripcion ()
+        );
+        return tipoEntity;
+    }
+
+
     public List<TipoEntity> tipoListModel2Entity (List<TipoModel> tipoModels){
         List<TipoEntity> tipoEntities = new ArrayList<> ();
         for (TipoModel tipo : tipoModels){

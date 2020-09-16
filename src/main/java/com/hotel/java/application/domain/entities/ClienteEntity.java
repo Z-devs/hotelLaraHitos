@@ -24,12 +24,14 @@ public class ClienteEntity {
         setNombre (nombre);
         setApellido (apellido);
         setEmail (email);
+        setReservaEntities (reservaEntities);
     }
 
     public ClienteEntity(String nombre, String apellido, String email) {
         setNombre (nombre);
         setApellido (apellido);
         setEmail (email);
+        setReservaEntities (reservaEntities);
     }
 
     public ClienteEntity() {
