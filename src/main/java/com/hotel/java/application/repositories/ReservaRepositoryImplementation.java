@@ -1,10 +1,11 @@
 package com.hotel.java.application.repositories;
 
-import com.hotel.java.application.domain.entities.ReservaEntity;
+import com.hotel.java.application.domain.entities.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,11 +16,16 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
     private Session session;
     private static SessionFactory dbConnection;
 
-    //Constructor
+    @Autowired
     public ReservaRepositoryImplementation() {
         try{
             Configuration config = new Configuration();
             config.addAnnotatedClass(ReservaEntity.class);
+            config.addAnnotatedClass(ClienteEntity.class);
+            config.addAnnotatedClass(HabitacionEntity.class);
+            config.addAnnotatedClass(TipoEntity.class);
+            config.addAnnotatedClass(LoginEntity.class);
+
             config.configure();
             dbConnection = config.buildSessionFactory();
         } catch (Throwable ex) {

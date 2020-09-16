@@ -32,3 +32,40 @@ CREATE TABLE `hotel`.`tipo` (
                                 `descripcion` VARCHAR(45) NULL,
                                 PRIMARY KEY (`id`));
 
+
+ALTER TABLE `hotel`.`login`
+    ADD INDEX `fk_login_cliente_idx` (`id_cliente` ASC) VISIBLE;
+;
+ALTER TABLE `hotel`.`login`
+    ADD CONSTRAINT `fk_login_cliente`
+        FOREIGN KEY (`id_cliente`)
+            REFERENCES `hotel`.`cliente` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION;
+
+ALTER TABLE `hotel`.`reserva`
+    ADD INDEX `fk_reserva_cliente_idx` (`id_cliente` ASC) VISIBLE;
+;
+ALTER TABLE `hotel`.`reserva`
+    ADD CONSTRAINT `fk_reserva_cliente`
+        FOREIGN KEY (`id_cliente`)
+            REFERENCES `hotel`.`cliente` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION;
+
+ALTER TABLE `hotel`.`reserva`
+    ADD CONSTRAINT `fk_reserva_habitacion`
+        FOREIGN KEY (`id_habitacion`)
+            REFERENCES `hotel`.`habitacion` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION;
+
+ALTER TABLE `hotel`.`habitacion`
+    ADD INDEX `fk_habitacion_tipo_idx` (`id_tipo` ASC) VISIBLE;
+;
+ALTER TABLE `hotel`.`habitacion`
+    ADD CONSTRAINT `fk_habitacion_tipo`
+        FOREIGN KEY (`id_tipo`)
+            REFERENCES `hotel`.`tipo` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION;
