@@ -60,7 +60,6 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
     @Override
     public void newReserva(ReservaEntity reservaEntity) {
         session = dbConnection.openSession();
-        Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
             session.save (reservaEntity);
@@ -93,7 +92,6 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
     @Override
     public void updateReserva(ReservaEntity reservaEntity) {
         session = dbConnection.openSession();
-        Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
             session.update (reservaEntity);
