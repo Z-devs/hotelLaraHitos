@@ -26,7 +26,9 @@ public class ReservaServiceImplementation implements ReservaService {
 
     @Override
     public ReservaModel listReservaById(long id) {
-        return null;
+        ReservaEntity reservaEntity = this.reservaRepository.listarReservaById (id);
+        ReservaModel reservaModel = this.reservaFactory.reservaEntity2Model (reservaEntity);
+        return reservaModel;
     }
 
     @Override
