@@ -8,23 +8,23 @@ public class ReservaModel {
     private java.sql.Timestamp fechaIn;
     private java.sql.Timestamp fechaOut;
     private float precioTotal;
-    List<ClienteModel> clienteModelList;
+    ClienteModel clienteModel;
     HabitacionModel habitacionModel;
 
-    public ReservaModel(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, List<ClienteModel> clienteModelList, HabitacionModel habitacionModel) {
+    public ReservaModel(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteModel clienteModel, HabitacionModel habitacionModel) {
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
-        setClienteModelList (clienteModelList);
+        setClienteModelList (clienteModel);
         setHabitacionModel (habitacionModel);
     }
 
-    public ReservaModel(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, List<ClienteModel> clienteModelList, HabitacionModel habitacionModel) {
+    public ReservaModel(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteModel clienteModel, HabitacionModel habitacionModel) {
         setId (id);
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
-        setClienteModelList (clienteModelList);
+        setClienteModelList (clienteModel);
         setHabitacionModel (habitacionModel);
     }
 
@@ -63,12 +63,12 @@ public class ReservaModel {
         this.precioTotal = precioTotal;
     }
 
-    public List<ClienteModel> getClienteModelList() {
-        return clienteModelList;
+    public ClienteModel getClienteModel() {
+        return clienteModel;
     }
 
-    public void setClienteModelList(List<ClienteModel> clienteModelList) {
-        this.clienteModelList = clienteModelList;
+    public void setClienteModelList(ClienteModel clienteModel) {
+        this.clienteModel = clienteModel;
     }
 
     public HabitacionModel getHabitacionModel() {
@@ -85,7 +85,7 @@ public class ReservaModel {
                 "fechaIn=" + fechaIn +
                 ", fechaOut=" + fechaOut +
                 ", precioTotal=" + precioTotal +
-                ", clienteModelList=" + clienteModelList +
+                ", clienteModel=" + clienteModel +
                 ", habitacionModels=" + habitacionModel +
                 '}';
     }

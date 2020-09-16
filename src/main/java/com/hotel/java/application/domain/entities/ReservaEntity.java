@@ -18,7 +18,7 @@ public class ReservaEntity {
     private ClienteEntity clienteEntity;
 
     @OneToOne
-    @JoinColumn (name="id_habitacion")
+    @JoinColumn (name="reserva_id")
     private HabitacionEntity habitacionEntity;
 
     public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity, HabitacionEntity habitacionEntity) {
