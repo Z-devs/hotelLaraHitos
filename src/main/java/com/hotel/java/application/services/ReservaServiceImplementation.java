@@ -4,6 +4,7 @@ import com.hotel.java.application.domain.entities.ReservaEntity;
 import com.hotel.java.application.domain.factories.ReservaFactory;
 import com.hotel.java.application.models.ReservaModel;
 import com.hotel.java.application.repositories.ReservaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class ReservaServiceImplementation implements ReservaService {
     private ReservaRepository reservaRepository;
     private ReservaFactory reservaFactory = new ReservaFactory ();
 
+    @Autowired
     public ReservaServiceImplementation(ReservaRepository reservaRepository) {
         this.reservaRepository = reservaRepository;
     }
