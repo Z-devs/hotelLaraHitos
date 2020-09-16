@@ -14,3 +14,5 @@ git push
 - [x] Break the code
 - [ ] Write clean code
 - [ ] Be happy
+
+	![alt text](https://github.com/hiitoos/hiitoos/blob/master/break.png)
