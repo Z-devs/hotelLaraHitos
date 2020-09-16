@@ -18,4 +18,17 @@ public class HabitacionFactory {
                 );
         return habitacionEntity;
     }
+
+    public HabitacionModel habitacionEntity2Model (HabitacionEntity habitacionEntity){
+        HabitacionModel habitacionModel =
+                new HabitacionModel (
+                        habitacionEntity.getId (),
+                        habitacionEntity.getCodigo (),
+                        habitacionEntity.getDescripcion (),
+                        habitacionEntity.getPrecio (),
+                        tipoFactory.tipoEntity2Model(habitacionEntity.getTipoEntity ())
+                );
+        return habitacionModel;
+    }
+
 }

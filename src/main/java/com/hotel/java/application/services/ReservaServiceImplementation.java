@@ -16,14 +16,14 @@ public class ReservaServiceImplementation implements ReservaService {
     }
 
     @Override
-    public List<ReservaModel> listarReservas() {
+    public List<ReservaModel> listReservas() {
         List<ReservaEntity> reservaEntities = this.reservaRepository.listarReservas ();
         List<ReservaModel> reservaModels = this.reservaFactory.reservaListEntity2Model(reservaEntities);
         return reservaModels;
     }
 
     @Override
-    public ReservaModel listarReservaById(long id) {
+    public ReservaModel listReservaById(long id) {
         return null;
     }
 

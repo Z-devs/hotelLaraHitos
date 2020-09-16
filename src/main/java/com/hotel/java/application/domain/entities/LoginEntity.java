@@ -11,7 +11,8 @@ public class LoginEntity {
     private String usuario;
     private String password;
 
-    @OneToOne(mappedBy = "login")
+    @OneToOne
+    @JoinColumn(name="cliente_id")
     ClienteEntity clienteEntity;
 
     public LoginEntity(String usuario, String password, ClienteEntity clienteEntity) {

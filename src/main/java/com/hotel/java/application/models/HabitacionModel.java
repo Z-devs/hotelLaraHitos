@@ -16,7 +16,7 @@ public class HabitacionModel {
         setTipoModel (tipoModel);
     }
 
-    public HabitacionModel(long id, String codigo, String descripcion, float precio, List<TipoModel> tipoModelList) {
+    public HabitacionModel(long id, String codigo, String descripcion, float precio, TipoModel tipoModelList) {
         setId (id);
         setCodigo (codigo);
         setDescripcion (descripcion);

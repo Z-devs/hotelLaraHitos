@@ -17,6 +17,16 @@ public class TipoFactory {
     }
 
 
+    public TipoModel tipoEntity2Model (TipoEntity tipoEntity){
+        TipoModel tipoModel = new TipoModel (
+                tipoEntity.getId (),
+                tipoEntity.getNombre (),
+                tipoEntity.getDescripcion ()
+        );
+        return tipoModel;
+    }
+
+
     public List<TipoEntity> tipoListModel2Entity (List<TipoModel> tipoModels){
         List<TipoEntity> tipoEntities = new ArrayList<> ();
         for (TipoModel tipo : tipoModels){
