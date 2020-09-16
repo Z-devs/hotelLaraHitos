@@ -16,7 +16,8 @@ public class ClienteEntity {
     @OneToMany(mappedBy="reserva")
     List<ReservaEntity> reservaEntities;
 
-    @OneToOne (mappedBy = "cliente")
+    @OneToOne
+    @PrimaryKeyJoinColumn
     LoginEntity loginEntity;
 
     public ClienteEntity(long id, String nombre, String apellido, String email) {
