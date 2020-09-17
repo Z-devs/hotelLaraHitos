@@ -2,6 +2,7 @@ package com.hotel.java.application.domain.entities;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="cliente")
@@ -13,9 +14,8 @@ public class ClienteEntity {
     private String apellido;
     private String email;
 
-    @OneToMany
-    @JoinColumn (name= "id_cliente")
-    List<ReservaEntity> reservaEntities;
+    @OneToMany (mappedBy = "id")
+    Set<ReservaEntity> reservaEntities;
 
     @OneToOne
     @PrimaryKeyJoinColumn(name="id")
@@ -71,11 +71,11 @@ public class ClienteEntity {
         this.email = email;
     }
 
-    public List<ReservaEntity> getReservaEntities() {
+    public Set<ReservaEntity> getReservaEntities() {
         return reservaEntities;
     }
 
-    public void setReservaEntities(List<ReservaEntity> reservaEntities) {
+    public void setReservaEntities(Set<ReservaEntity> reservaEntities) {
         this.reservaEntities = reservaEntities;
     }
 
