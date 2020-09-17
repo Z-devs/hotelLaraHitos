@@ -101,4 +101,15 @@ public class ReservaEntity {
                 ", habitacionEntity=" + habitacionEntity +
                 '}';
     }
+
+    @ManyToOne(optional = false)
+    private ClienteEntity clienteEntities;
+
+    public ClienteEntity getClienteEntities() {
+        return clienteEntities;
+    }
+
+    public void setClienteEntities(ClienteEntity clienteEntities) {
+        this.clienteEntities = clienteEntities;
+    }
 }

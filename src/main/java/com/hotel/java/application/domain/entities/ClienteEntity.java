@@ -13,7 +13,7 @@ public class ClienteEntity {
     private String apellido;
     private String email;
 
-    @OneToMany(mappedBy="reserva")
+    @OneToMany(mappedBy= "clienteEntities")
     List<ReservaEntity> reservaEntities;
 
     @OneToOne

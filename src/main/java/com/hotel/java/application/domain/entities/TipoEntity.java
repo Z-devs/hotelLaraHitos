@@ -12,7 +12,7 @@ public class TipoEntity {
     private String nombre;
     private String descripcion;
 
-    @OneToMany(mappedBy = "habitacion")
+    @OneToMany(mappedBy = "tipoEntity")
     List<HabitacionEntity> habitacionEntityList;
 
     public TipoEntity(long id, String nombre, String descripcion) {

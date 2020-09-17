@@ -4,10 +4,11 @@ package com.hotel.java.application.domain.factories;
 
 import com.hotel.java.application.domain.entities.ReservaEntity;
 import com.hotel.java.application.models.ReservaModel;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class ReservaFactory {
     ClienteFactory clienteFactory = new ClienteFactory ();
     HabitacionFactory habitacionFactory = new HabitacionFactory ();
@@ -64,6 +65,7 @@ public class ReservaFactory {
                             clienteFactory.clienteEntity2Model (reserva.getClienteEntity ()),
                             habitacionFactory.habitacionEntity2Model(reserva.getHabitacionEntity ())
                     );
+            reservaModels.add (reservaModel);
         }
         return reservaModels;
     }

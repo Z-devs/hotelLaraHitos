@@ -2,10 +2,12 @@ package com.hotel.java.application.domain.factories;
 
 import com.hotel.java.application.domain.entities.ClienteEntity;
 import com.hotel.java.application.models.ClienteModel;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class ClienteFactory {
 
     public ClienteEntity clienteModel2Entity (ClienteModel clienteModel){

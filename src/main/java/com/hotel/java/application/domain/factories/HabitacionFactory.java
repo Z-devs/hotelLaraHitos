@@ -3,7 +3,9 @@ package com.hotel.java.application.domain.factories;
 
 import com.hotel.java.application.domain.entities.HabitacionEntity;
 import com.hotel.java.application.models.HabitacionModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class HabitacionFactory {
     TipoFactory tipoFactory;
 

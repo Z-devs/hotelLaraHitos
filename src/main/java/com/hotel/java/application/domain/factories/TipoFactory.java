@@ -2,10 +2,12 @@ package com.hotel.java.application.domain.factories;
 
 import com.hotel.java.application.domain.entities.TipoEntity;
 import com.hotel.java.application.models.TipoModel;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class TipoFactory {
     public TipoEntity tipoModel2Entity (TipoModel tipoModel){
         TipoEntity tipoEntity = new TipoEntity (
