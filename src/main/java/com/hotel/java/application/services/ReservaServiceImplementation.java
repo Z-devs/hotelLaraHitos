@@ -14,12 +14,19 @@ import java.util.List;
 @Service
 public class ReservaServiceImplementation implements ReservaService {
     private ReservaRepository reservaRepository;
-    private ReservaFactory reservaFactory = new ReservaFactory ();
-    private ClienteFactory clienteFactory = new ClienteFactory ();
-    private HabitacionFactory habitacionFactory = new HabitacionFactory ();
+    private ReservaFactory reservaFactory;
+    private ClienteFactory clienteFactory;
+    private HabitacionFactory habitacionFactory ;
+
     @Autowired
-    public ReservaServiceImplementation(ReservaRepository reservaRepository) {
+    public ReservaServiceImplementation(ReservaRepository reservaRepository,
+                                        ReservaFactory reservaFactory,
+                                        ClienteFactory clienteFactory,
+                                        HabitacionFactory habitacionFactory) {
         this.reservaRepository = reservaRepository;
+        this.reservaFactory = reservaFactory;
+        this.clienteFactory = clienteFactory;
+        this.habitacionFactory = habitacionFactory;
     }
 
     @Override

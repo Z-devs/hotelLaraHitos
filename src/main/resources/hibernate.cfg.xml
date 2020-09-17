@@ -26,5 +26,6 @@
         <mapping class="com.hotel.java.application.domain.entities.LoginEntity"/>
         <mapping class="com.hotel.java.application.domain.entities.ReservaEntity"/>
         <mapping class="com.hotel.java.application.domain.entities.TipoEntity"/>-->
+
     </session-factory>
 </hibernate-configuration>

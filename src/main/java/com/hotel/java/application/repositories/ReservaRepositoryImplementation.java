@@ -1,12 +1,16 @@
 package com.hotel.java.application.repositories;
 
 import com.hotel.java.application.domain.entities.*;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,21 +18,24 @@ import java.util.List;
 public class ReservaRepositoryImplementation implements ReservaRepository{
     private Transaction transaction = null;
     private Session session;
+    private static CriteriaBuilder cb;
     private static SessionFactory dbConnection;
 
+    @Autowired
     public ReservaRepositoryImplementation() {
         try{
-            Configuration config = new Configuration();
+            Configuration config = new Configuration ();
             config.addAnnotatedClass(ReservaEntity.class);
             config.addAnnotatedClass(ClienteEntity.class);
             config.addAnnotatedClass(HabitacionEntity.class);
             config.addAnnotatedClass(TipoEntity.class);
             config.addAnnotatedClass(LoginEntity.class);
-
             config.configure();
             dbConnection = config.buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
+            ex.printStackTrace ();
+            System.out.println ("______________________________________________________________");
             throw new ExceptionInInitializerError(ex);
         }
     }
@@ -37,8 +44,12 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
     public List<ReservaEntity> listarReservas() {
         List<ReservaEntity> reservaEntities = new ArrayList<> ();
         session = dbConnection.openSession ();
+        cb = session.getCriteriaBuilder();
         try {
-            reservaEntities = session.createQuery("FROM ReservaEntity", ReservaEntity.class).getResultList();
+            //reservaEntities = session.createQuery("FROM ReservaEntity ", ReservaEntity.class).getResultList();
+            CriteriaQuery<ReservaEntity> q = cb.createQuery (ReservaEntity.class);
+            q.select (q.from (ReservaEntity.class));
+            reservaEntities = session.createQuery (q).getResultList ();
         } catch (Throwable ex) {
             if (transaction!=null) transaction.rollback();
             ex.printStackTrace();

@@ -1,11 +1,12 @@
 package com.hotel.java.application.domain.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "reserva")
-public class ReservaEntity {
+public class ReservaEntity implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
@@ -13,13 +14,13 @@ public class ReservaEntity {
     private Timestamp fechaOut;
     private float precioTotal;
 
-    @ManyToOne
-    @JoinColumn (name="id_cliente")
-    private ClienteEntity clienteEntity_id;
+    @ManyToOne()
+    @JoinColumn(name="cliente_id")
+    private ClienteEntity cliente;
 
-    @OneToOne
-    @PrimaryKeyJoinColumn (name="id")
-    private HabitacionEntity habitacionEntity_id;
+   // @OneToOne
+   // @PrimaryKeyJoinColumn (name="id_habitacion")
+    //private HabitacionEntity habitacionEntity_id;
 
     public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacionEntity) {
         setId (id);
@@ -27,7 +28,7 @@ public class ReservaEntity {
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
         setClienteEntity_id (clienteEntity_id);
-        setHabitacionEntity_id (habitacionEntity);
+        //setHabitacionEntity_id (habitacionEntity);
     }
 
     public ReservaEntity(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacionEntity) {
@@ -35,7 +36,7 @@ public class ReservaEntity {
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
         setClienteEntity_id (clienteEntity_id);
-        setHabitacionEntity_id (habitacionEntity);
+        //setHabitacionEntity_id (habitacionEntity);
     }
 
     public ReservaEntity() {
@@ -74,20 +75,20 @@ public class ReservaEntity {
     }
 
     public ClienteEntity getClienteEntity_id() {
-        return clienteEntity_id;
+        return cliente;
     }
 
     public void setClienteEntity_id(ClienteEntity clienteEntity) {
-        this.clienteEntity_id = clienteEntity;
+        this.cliente = clienteEntity;
     }
 
-    public HabitacionEntity getHabitacionEntity_id() {
+    /*public HabitacionEntity getHabitacionEntity_id() {
         return habitacionEntity_id;
     }
 
     public void setHabitacionEntity_id(HabitacionEntity habitacionEntity) {
         this.habitacionEntity_id = habitacionEntity;
-    }
+    }*/
 
 
 
@@ -97,19 +98,9 @@ public class ReservaEntity {
                 "fechaIn=" + fechaIn +
                 ", fechaOut=" + fechaOut +
                 ", precioTotal=" + precioTotal +
-                ", clienteEntity=" + clienteEntity_id +
-                ", habitacionEntity=" + habitacionEntity_id +
+                ", clienteEntity=" + cliente +
+                //", habitacionEntity=" + habitacionEntity_id +
                 '}';
     }
 
-    @ManyToOne(optional = false)
-    private ClienteEntity clienteEntities;
-
-    public ClienteEntity getClienteEntities() {
-        return clienteEntities;
-    }
-
-    public void setClienteEntities(ClienteEntity clienteEntities) {
-        this.clienteEntities = clienteEntities;
-    }
 }

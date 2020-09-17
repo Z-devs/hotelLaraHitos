@@ -4,20 +4,19 @@ import javax.persistence.*;
 
 @Entity
 @Table (name="habitacion")
-public class HabitacionEntity {
+public class HabitacionEntity{
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
     private String codigo;
     private String descripcion;
     private float precio;
+    @ManyToOne()
+    @JoinColumn(name="tipo_id")
+    private TipoEntity tipo;
 
-    @ManyToOne
-    @JoinColumn (name="id_tipo")
-    private TipoEntity tipoEntity_id;
-
-    @OneToOne
-    @PrimaryKeyJoinColumn
+    //@OneToOne
+    //@PrimaryKeyJoinColumn
     private ReservaEntity reservaEntity;
 
     public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipoEntity_id) {
@@ -71,11 +70,11 @@ public class HabitacionEntity {
     }
 
     public TipoEntity getTipoEntity_id() {
-        return tipoEntity_id;
+        return tipo;
     }
 
     public void setTipoEntity_id(TipoEntity tipoEntity) {
-        this.tipoEntity_id = tipoEntity;
+        this.tipo = tipoEntity;
     }
 
     public ReservaEntity getReservaEntity() {
@@ -92,7 +91,7 @@ public class HabitacionEntity {
                 "codigo='" + codigo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", precio=" + precio +
-                ", tipoEntity=" + tipoEntity_id +
+                ", tipoEntity=" + tipo +
                 ", reservaEntity=" + reservaEntity +
                 '}';
     }

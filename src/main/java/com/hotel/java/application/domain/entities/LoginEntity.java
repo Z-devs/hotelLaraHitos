@@ -11,14 +11,14 @@ public class LoginEntity {
     private String usuario;
     private String password;
 
-    @OneToOne
-    @JoinColumn(name="id_cliente")
-    ClienteEntity clienteEntity;
+    //@OneToOne
+    //@JoinColumn(name="id_cliente")
+    //ClienteEntity clienteEntity;
 
     public LoginEntity(String usuario, String password, ClienteEntity clienteEntity) {
         setUsuario (usuario);
         setPassword (password);
-        setClienteEntity (clienteEntity);
+        //setClienteEntity (clienteEntity);
     }
 
     public LoginEntity() {
@@ -48,20 +48,20 @@ public class LoginEntity {
         this.password = password;
     }
 
-    public ClienteEntity getClienteEntity() {
+   /* public ClienteEntity getClienteEntity() {
         return clienteEntity;
     }
 
     public void setClienteEntity(ClienteEntity clienteEntity) {
         this.clienteEntity = clienteEntity;
     }
-
+*/
     @Override
     public String toString() {
         return "LoginEntity{" +
                 "usuario='" + usuario + '\'' +
                 ", password='" + password + '\'' +
-                ", clienteEntity=" + clienteEntity +
+                //", clienteEntity=" + clienteEntity +
                 '}';
     }
 }

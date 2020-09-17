@@ -11,9 +11,8 @@ public class TipoEntity {
     private long id;
     private String nombre;
     private String descripcion;
-
-    @OneToMany(mappedBy = "tipoEntity_id")
-    List<HabitacionEntity> habitacionEntityList;
+    @OneToMany(mappedBy="tipo")
+    private List<HabitacionEntity> habitaciones;
 
     public TipoEntity(long id, String nombre, String descripcion) {
         setId (id);
@@ -54,11 +53,11 @@ public class TipoEntity {
     }
 
     public List<HabitacionEntity> getHabitacionEntityList() {
-        return habitacionEntityList;
+        return habitaciones;
     }
 
     public void setHabitacionEntityList(List<HabitacionEntity> habitacionEntityList) {
-        this.habitacionEntityList = habitacionEntityList;
+        this.habitaciones = habitacionEntityList;
     }
 
     @Override
@@ -66,7 +65,7 @@ public class TipoEntity {
         return "TipoEntity{" +
                 "nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", habitacionEntityList=" + habitacionEntityList +
+                ", habitacionEntityList=" + habitaciones +
                 '}';
     }
 }
