@@ -9,6 +9,7 @@ import java.util.List;
 
 @Component
 public class TipoFactory {
+
     public TipoEntity tipoModel2Entity (TipoModel tipoModel){
         TipoEntity tipoEntity = new TipoEntity (
                 tipoModel.getId (),

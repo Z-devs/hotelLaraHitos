@@ -16,21 +16,21 @@ public class HabitacionEntity{
     private TipoEntity tipo;
 
     @OneToOne (mappedBy = "habitacion")
-    private ReservaEntity reservaEntity;
+    private ReservaEntity reserva;
 
-    public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipoEntity_id) {
+    public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipo) {
         setId (id);
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
-        setTipoEntity_id (tipoEntity_id);
+        setTipo(tipo);
     }
 
-    public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipoEntity_id) {
+    public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipo) {
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
-        setTipoEntity_id (tipoEntity_id);
+        setTipo (tipo);
     }
 
     public HabitacionEntity() {
@@ -68,20 +68,20 @@ public class HabitacionEntity{
         this.precio = precio;
     }
 
-    public TipoEntity getTipoEntity_id() {
+    public TipoEntity getTipo() {
         return tipo;
     }
 
-    public void setTipoEntity_id(TipoEntity tipoEntity) {
-        this.tipo = tipoEntity;
+    public void setTipo(TipoEntity tipo) {
+        this.tipo = tipo;
     }
 
     public ReservaEntity getReservaEntity() {
-        return reservaEntity;
+        return reserva;
     }
 
-    public void setReservaEntity(ReservaEntity reservaEntity) {
-        this.reservaEntity = reservaEntity;
+    public void setReserva(ReservaEntity reserva) {
+        this.reserva = reserva;
     }
 
     @Override
@@ -91,7 +91,7 @@ public class HabitacionEntity{
                 ", descripcion='" + descripcion + '\'' +
                 ", precio=" + precio +
                 ", tipoEntity=" + tipo +
-                ", reservaEntity=" + reservaEntity +
+                ", reservaEntity=" + reserva +
                 '}';
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HabitacionFactory {
-    TipoFactory tipoFactory;
+    TipoFactory tipoFactory = new TipoFactory ();
 
     public HabitacionEntity habitacionModel2Entity (HabitacionModel habitacionModel){
         HabitacionEntity habitacionEntity =
@@ -28,7 +28,7 @@ public class HabitacionFactory {
                         habitacionEntity.getCodigo (),
                         habitacionEntity.getDescripcion (),
                         habitacionEntity.getPrecio (),
-                        tipoFactory.tipoEntity2Model(habitacionEntity.getTipoEntity_id ())
+                        tipoFactory.tipoEntity2Model(habitacionEntity.getTipo ())
                 );
         return habitacionModel;
     }
