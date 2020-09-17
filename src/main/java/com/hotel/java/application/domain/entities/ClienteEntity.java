@@ -13,11 +13,12 @@ public class ClienteEntity {
     private String apellido;
     private String email;
 
-    @OneToMany(mappedBy= "clienteEntity_id")
+    @OneToMany
+    @JoinColumn (name= "id_cliente")
     List<ReservaEntity> reservaEntities;
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @PrimaryKeyJoinColumn(name="id")
     LoginEntity loginEntity;
 
     public ClienteEntity(long id, String nombre, String apellido, String email) {

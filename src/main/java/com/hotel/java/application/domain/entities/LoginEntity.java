@@ -12,13 +12,16 @@ public class LoginEntity {
     private String password;
 
     @OneToOne
-    @JoinColumn(name="cliente_id")
+    @JoinColumn(name="id_cliente")
     ClienteEntity clienteEntity;
 
     public LoginEntity(String usuario, String password, ClienteEntity clienteEntity) {
         setUsuario (usuario);
         setPassword (password);
         setClienteEntity (clienteEntity);
+    }
+
+    public LoginEntity() {
     }
 
     public long getId() {

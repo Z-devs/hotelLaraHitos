@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -16,7 +17,6 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
     private Session session;
     private static SessionFactory dbConnection;
 
-    @Autowired
     public ReservaRepositoryImplementation() {
         try{
             Configuration config = new Configuration();
@@ -36,7 +36,7 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
 
     @Override
     public List<ReservaEntity> listarReservas() {
-        List<ReservaEntity> reservaEntities = null;
+        List<ReservaEntity> reservaEntities = new ArrayList<> ();
         session = dbConnection.openSession ();
         try {
             reservaEntities = session.createQuery("FROM ReservaEntity", ReservaEntity.class).getResultList();
