@@ -50,8 +50,8 @@ public class ReservaServiceImplementation implements ReservaService {
                 reservaModel.getFechaIn (),
                 reservaModel.getFechaOut (),
                 reservaModel.getPrecioTotal (),
-                this.clienteFactory.clienteModel2Entity (reservaModel.getClienteModel ()),
-                this.habitacionFactory.habitacionModel2Entity (reservaModel.getHabitacionModel ())
+                this.clienteFactory.clienteModel2Entity (reservaModel.getCliente ()),
+                this.habitacionFactory.habitacionModel2Entity (reservaModel.getHabitacion ())
         );
         if (modo.equals ("new"))
             this.reservaRepository.newReserva (reservaEntity);

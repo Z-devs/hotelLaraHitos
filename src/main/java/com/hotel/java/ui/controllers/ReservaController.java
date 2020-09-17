@@ -16,12 +16,10 @@ import java.util.List;
 @RequestMapping("/reservas")
 public class ReservaController {
 
-
     private final ReservaService reservaService;
 
     @Autowired
     public ReservaController(ReservaService reservaService) {
-
         this.reservaService = reservaService;
     }
 
@@ -30,7 +28,6 @@ public class ReservaController {
         List<ReservaModel> reservas = reservaService.listReservas ();
         ModelAndView mav = new ModelAndView("reservas");
         mav.addObject("reservas", reservas);
-        System.out.println("ControllerRepositoryImplementation " + hashCode());
         return mav;
     }
 

@@ -21,8 +21,8 @@ public class ReservaFactory {
                         reservaModel.getFechaIn (),
                         reservaModel.getFechaOut (),
                         reservaModel.getPrecioTotal (),
-                        clienteFactory.clienteModel2Entity (reservaModel.getClienteModel ()),
-                        habitacionFactory.habitacionModel2Entity (reservaModel.getHabitacionModel ())
+                        clienteFactory.clienteModel2Entity (reservaModel.getCliente ()),
+                        habitacionFactory.habitacionModel2Entity (reservaModel.getHabitacion ())
                         );
         return reservaEntity;
     }

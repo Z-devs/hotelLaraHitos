@@ -1,31 +1,30 @@
 package com.hotel.java.application.models;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 public class ReservaModel {
     private long id;
     private java.sql.Timestamp fechaIn;
     private java.sql.Timestamp fechaOut;
     private float precioTotal;
-    ClienteModel clienteModel;
-    HabitacionModel habitacionModel;
+    ClienteModel cliente;
+    HabitacionModel habitacion;
 
-    public ReservaModel(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteModel clienteModel, HabitacionModel habitacionModel) {
+    public ReservaModel(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteModel cliente, HabitacionModel habitacion) {
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
-        setClienteModelList (clienteModel);
-        setHabitacionModel (habitacionModel);
+        setCliente (cliente);
+        setHabitacion (habitacion);
     }
 
-    public ReservaModel(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteModel clienteModel, HabitacionModel habitacionModel) {
+    public ReservaModel(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteModel cliente, HabitacionModel habitacion) {
         setId (id);
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
-        setClienteModelList (clienteModel);
-        setHabitacionModel (habitacionModel);
+        setCliente (cliente);
+        setHabitacion (habitacion);
     }
 
     public ReservaModel() {
@@ -63,20 +62,20 @@ public class ReservaModel {
         this.precioTotal = precioTotal;
     }
 
-    public ClienteModel getClienteModel() {
-        return clienteModel;
+    public ClienteModel getCliente() {
+        return cliente;
     }
 
-    public void setClienteModelList(ClienteModel clienteModel) {
-        this.clienteModel = clienteModel;
+    public void setCliente(ClienteModel clienteModel) {
+        this.cliente = clienteModel;
     }
 
-    public HabitacionModel getHabitacionModel() {
-        return habitacionModel;
+    public HabitacionModel getHabitacion() {
+        return habitacion;
     }
 
-    public void setHabitacionModel(HabitacionModel habitacionModel) {
-        this.habitacionModel = habitacionModel;
+    public void setHabitacion(HabitacionModel habitacion) {
+        this.habitacion = habitacion;
     }
 
     @Override
@@ -85,8 +84,8 @@ public class ReservaModel {
                 "fechaIn=" + fechaIn +
                 ", fechaOut=" + fechaOut +
                 ", precioTotal=" + precioTotal +
-                ", clienteModel=" + clienteModel +
-                ", habitacionModels=" + habitacionModel +
+                ", clienteModel=" + cliente +
+                ", habitacionModels=" + habitacion +
                 '}';
     }
 }

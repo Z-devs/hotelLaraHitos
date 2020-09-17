@@ -8,9 +8,10 @@
 <body>
 <h2>Todas las reservas</h2>
     <ul th:each="reserva: ${reservas}">
-       <li th:text="${reserva.fechaIn}"></li>
-       <li th:text="${reserva.fechaOut}"></li>
-       <li th:text="${reserva.precioTotal}"></li>
+        <li th:text="${reserva.fechaIn}"></li>
+        <li th:text="${reserva.fechaOut}"></li>
+        <li th:text="${reserva.precioTotal}"></li>
+        <li th:text="${reserva.getCliente().getNombre()}"></li>
     </ul>
 </body>
 </html>
