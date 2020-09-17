@@ -18,9 +18,8 @@ public class ClienteEntity implements Serializable {
     @OneToMany(mappedBy="cliente")
     private Set<ReservaEntity> reservas;
 
-    //@OneToOne
-   // @PrimaryKeyJoinColumn(name="login_id")
-    //private LoginEntity login_id;
+    @OneToOne(mappedBy="cliente")
+    private LoginEntity login;
 
     public ClienteEntity(long id, String nombre, String apellido, String email) {
         setId (id);
@@ -80,13 +79,13 @@ public class ClienteEntity implements Serializable {
         this.reservas = reservas_id;
     }
 
-   // public LoginEntity getLoginEntity() {
-     //   return login_id;
-    //}
+    public LoginEntity getLoginEntity() {
+        return login;
+    }
 
-    //public void setLoginEntity(LoginEntity login_id) {
-     //   this.login_id = login_id;
-    //}
+    public void setLoginEntity(LoginEntity login) {
+        this.login = login;
+    }
 
     @Override
     public String toString() {

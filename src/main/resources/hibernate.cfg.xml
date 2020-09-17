@@ -19,6 +19,7 @@
         <property name = "hibernate.connection.password">
             secret1234
         </property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- List of XML mapping files -->
         <!-- <mapping resource = "Employee.hbm.xml"/> -->
         <!--<mapping class="com.hotel.java.application.domain.entities.ClienteEntity"/>
