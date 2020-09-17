@@ -18,17 +18,16 @@ public class ReservaEntity implements Serializable {
     @JoinColumn(name="cliente_id")
     private ClienteEntity cliente;
 
-   // @OneToOne
-   // @PrimaryKeyJoinColumn (name="id_habitacion")
-    //private HabitacionEntity habitacionEntity_id;
+    @OneToOne
+    private HabitacionEntity habitacion;
 
-    public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacionEntity) {
+    public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacion) {
         setId (id);
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
         setClienteEntity_id (clienteEntity_id);
-        //setHabitacionEntity_id (habitacionEntity);
+        setHabitacionEntity_id (habitacion);
     }
 
     public ReservaEntity(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacionEntity) {
@@ -82,14 +81,13 @@ public class ReservaEntity implements Serializable {
         this.cliente = clienteEntity;
     }
 
-    /*public HabitacionEntity getHabitacionEntity_id() {
-        return habitacionEntity_id;
+    public HabitacionEntity getHabitacion() {
+        return habitacion;
     }
 
-    public void setHabitacionEntity_id(HabitacionEntity habitacionEntity) {
-        this.habitacionEntity_id = habitacionEntity;
-    }*/
-
+    public void setHabitacionEntity_id(HabitacionEntity habitacion) {
+        this.habitacion = habitacion;
+    }
 
 
     @Override
