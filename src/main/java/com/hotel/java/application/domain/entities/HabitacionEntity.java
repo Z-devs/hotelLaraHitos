@@ -14,25 +14,25 @@ public class HabitacionEntity {
 
     @ManyToOne
     @JoinColumn (name="id_tipo")
-    private TipoEntity tipoEntity;
+    private TipoEntity tipoEntity_id;
 
     @OneToOne
     @PrimaryKeyJoinColumn
     private ReservaEntity reservaEntity;
 
-    public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipoEntity) {
+    public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipoEntity_id) {
         setId (id);
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
-        setTipoEntity (tipoEntity);
+        setTipoEntity_id (tipoEntity_id);
     }
 
-    public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipoEntity) {
+    public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipoEntity_id) {
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
-        setTipoEntity (tipoEntity);
+        setTipoEntity_id (tipoEntity_id);
     }
 
     public HabitacionEntity() {
@@ -70,12 +70,12 @@ public class HabitacionEntity {
         this.precio = precio;
     }
 
-    public TipoEntity getTipoEntity() {
-        return tipoEntity;
+    public TipoEntity getTipoEntity_id() {
+        return tipoEntity_id;
     }
 
-    public void setTipoEntity(TipoEntity tipoEntity) {
-        this.tipoEntity = tipoEntity;
+    public void setTipoEntity_id(TipoEntity tipoEntity) {
+        this.tipoEntity_id = tipoEntity;
     }
 
     public ReservaEntity getReservaEntity() {
@@ -92,7 +92,7 @@ public class HabitacionEntity {
                 "codigo='" + codigo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", precio=" + precio +
-                ", tipoEntity=" + tipoEntity +
+                ", tipoEntity=" + tipoEntity_id +
                 ", reservaEntity=" + reservaEntity +
                 '}';
     }

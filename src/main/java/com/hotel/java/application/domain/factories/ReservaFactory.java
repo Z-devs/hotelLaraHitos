@@ -34,8 +34,8 @@ public class ReservaFactory {
                         reservaEntity.getFechaIn (),
                         reservaEntity.getFechaOut (),
                         reservaEntity.getPrecioTotal (),
-                        clienteFactory.clienteEntity2Model (reservaEntity.getClienteEntity ()),
-                        habitacionFactory.habitacionEntity2Model (reservaEntity.getHabitacionEntity ())
+                        clienteFactory.clienteEntity2Model (reservaEntity.getClienteEntity_id ()),
+                        habitacionFactory.habitacionEntity2Model (reservaEntity.getHabitacionEntity_id ())
                 );
         return reservaModel;
     }
@@ -62,8 +62,8 @@ public class ReservaFactory {
                             reserva.getFechaIn (),
                             reserva.getFechaOut (),
                             reserva.getPrecioTotal (),
-                            clienteFactory.clienteEntity2Model (reserva.getClienteEntity ()),
-                            habitacionFactory.habitacionEntity2Model(reserva.getHabitacionEntity ())
+                            clienteFactory.clienteEntity2Model (reserva.getClienteEntity_id ()),
+                            habitacionFactory.habitacionEntity2Model(reserva.getHabitacionEntity_id ())
                     );
             reservaModels.add (reservaModel);
         }

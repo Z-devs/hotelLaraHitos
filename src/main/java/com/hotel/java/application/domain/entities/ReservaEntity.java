@@ -15,27 +15,27 @@ public class ReservaEntity {
 
     @ManyToOne
     @JoinColumn (name="id_cliente")
-    private ClienteEntity clienteEntity;
+    private ClienteEntity clienteEntity_id;
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    private HabitacionEntity habitacionEntity;
+    private HabitacionEntity habitacionEntity_id;
 
-    public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity, HabitacionEntity habitacionEntity) {
+    public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacionEntity) {
         setId (id);
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
-        setClienteEntity (clienteEntity);
-        setHabitacionEntity (habitacionEntity);
+        setClienteEntity_id (clienteEntity_id);
+        setHabitacionEntity_id (habitacionEntity);
     }
 
-    public ReservaEntity(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity, HabitacionEntity habitacionEntity) {
+    public ReservaEntity(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacionEntity) {
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
-        setClienteEntity (clienteEntity);
-        setHabitacionEntity (habitacionEntity);
+        setClienteEntity_id (clienteEntity_id);
+        setHabitacionEntity_id (habitacionEntity);
     }
 
     public ReservaEntity() {
@@ -73,20 +73,20 @@ public class ReservaEntity {
         this.precioTotal = precioTotal;
     }
 
-    public ClienteEntity getClienteEntity() {
-        return clienteEntity;
+    public ClienteEntity getClienteEntity_id() {
+        return clienteEntity_id;
     }
 
-    public void setClienteEntity(ClienteEntity clienteEntity) {
-        this.clienteEntity = clienteEntity;
+    public void setClienteEntity_id(ClienteEntity clienteEntity) {
+        this.clienteEntity_id = clienteEntity;
     }
 
-    public HabitacionEntity getHabitacionEntity() {
-        return habitacionEntity;
+    public HabitacionEntity getHabitacionEntity_id() {
+        return habitacionEntity_id;
     }
 
-    public void setHabitacionEntity(HabitacionEntity habitacionEntity) {
-        this.habitacionEntity = habitacionEntity;
+    public void setHabitacionEntity_id(HabitacionEntity habitacionEntity) {
+        this.habitacionEntity_id = habitacionEntity;
     }
 
 
@@ -97,8 +97,8 @@ public class ReservaEntity {
                 "fechaIn=" + fechaIn +
                 ", fechaOut=" + fechaOut +
                 ", precioTotal=" + precioTotal +
-                ", clienteEntity=" + clienteEntity +
-                ", habitacionEntity=" + habitacionEntity +
+                ", clienteEntity=" + clienteEntity_id +
+                ", habitacionEntity=" + habitacionEntity_id +
                 '}';
     }
 
