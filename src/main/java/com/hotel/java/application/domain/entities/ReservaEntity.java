@@ -19,6 +19,7 @@ public class ReservaEntity implements Serializable {
     private ClienteEntity cliente;
 
     @OneToOne
+    @JoinColumn(name="id_habitacion")
     private HabitacionEntity habitacion;
 
     public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacion) {

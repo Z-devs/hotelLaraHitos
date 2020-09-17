@@ -15,8 +15,7 @@ public class HabitacionEntity{
     @JoinColumn(name="tipo_id")
     private TipoEntity tipo;
 
-    //@OneToOne
-    //@PrimaryKeyJoinColumn
+    @OneToOne (mappedBy = "habitacion")
     private ReservaEntity reservaEntity;
 
     public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipoEntity_id) {
