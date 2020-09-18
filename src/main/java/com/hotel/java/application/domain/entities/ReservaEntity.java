@@ -15,11 +15,11 @@ public class ReservaEntity implements Serializable {
     private Timestamp fechaOut;
     private float precioTotal;
 
-    @ManyToOne()
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="cliente_id")
     private ClienteEntity cliente;
 
-    @OneToOne
+    @OneToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="id_habitacion")
     private HabitacionEntity habitacion;
 

@@ -11,11 +11,11 @@ public class HabitacionEntity{
     private String codigo;
     private String descripcion;
     private float precio;
-    @ManyToOne()
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="tipo_id")
     private TipoEntity tipo;
 
-    @OneToOne (mappedBy = "habitacion")
+    @OneToOne (mappedBy = "habitacion", fetch=FetchType.EAGER)
     private ReservaEntity reserva;
 
     public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipo) {

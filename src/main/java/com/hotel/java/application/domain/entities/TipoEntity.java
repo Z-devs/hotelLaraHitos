@@ -11,7 +11,7 @@ public class TipoEntity {
     private long id;
     private String nombre;
     private String descripcion;
-    @OneToMany(mappedBy="tipo")
+    @OneToMany(mappedBy="tipo", fetch=FetchType.EAGER)
     private List<HabitacionEntity> habitaciones;
 
     public TipoEntity(long id, String nombre, String descripcion) {
