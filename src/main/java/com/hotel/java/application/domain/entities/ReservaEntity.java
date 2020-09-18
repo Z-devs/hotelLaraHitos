@@ -36,7 +36,7 @@ public class ReservaEntity implements Serializable {
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
         setClienteEntity_id (clienteEntity_id);
-        //setHabitacionEntity_id (habitacionEntity);
+        setHabitacionEntity_id (habitacionEntity);
     }
 
     public ReservaEntity() {

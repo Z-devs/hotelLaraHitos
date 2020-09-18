@@ -1,6 +1,7 @@
 package com.hotel.java.application.repositories;
 
 import com.hotel.java.application.domain.entities.ClienteEntity;
+import com.hotel.java.application.domain.entities.ReservaEntity;
 import com.hotel.java.conection.Conection;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,11 +21,6 @@ public class ClienteRepositoryImplementation implements ClienteRepository {
     @Autowired
     public ClienteRepositoryImplementation(SessionFactory dbConnection) {
         this.dbConnection = Conection.conectar(dbConnection);
-    }
-
-    public static void crearClienteNuevo() {
-        ClienteEntity cliente  =new ClienteEntity ("nombre", "apellido", "email");
-        Conection.crearObjeto(cliente);
     }
 
     @Override
