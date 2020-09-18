@@ -9,34 +9,36 @@ import java.util.List;
 
 @Repository
 public class ClienteRepositoryImplementation implements ClienteRepository {
+    Conection function;
 
     @Autowired
     public ClienteRepositoryImplementation(SessionFactory dbConnection) {
-        Conection.conectar(dbConnection);
+        function = new Conection ();
+        function.conectar(dbConnection);
     }
 
     @Override
     public void newCliente(ClienteEntity cliente) {
-        Conection.crudObjeto(cliente, true);
+        function.crudObjeto(cliente, true);
     }
 
     @Override
     public List<ClienteEntity> listarClientes() {
-        return (List<ClienteEntity>)(List<?>) Conection.findAll (ClienteEntity.class);
+        return (List<ClienteEntity>)(List<?>) function.findAll (ClienteEntity.class);
     }
 
     @Override
     public ClienteEntity listarClienteById(long id) {
-        return (ClienteEntity) Conection.findById (ClienteEntity.class, id);
+        return (ClienteEntity) function.findById (ClienteEntity.class, id);
     }
 
     @Override
     public void deleteCliente(ClienteEntity clienteEntity) {
-        Conection.crudObjeto (clienteEntity, false);
+        function.crudObjeto (clienteEntity, false);
     }
 
     @Override
     public void updateCliente(ClienteEntity clienteEntity) {
-        Conection.crudObjeto (clienteEntity, true);
+        function.crudObjeto (clienteEntity, true);
     }
 }
