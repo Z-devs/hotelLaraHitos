@@ -17,7 +17,7 @@ public class Conection {
     private static CriteriaBuilder cb;
 
 
-    public static void conectar(SessionFactory dbConnection) {
+    public void conectar(SessionFactory dbConnection) {
         try{
             setDbConnection (dbConnection);
         } catch (Throwable ex) {
@@ -32,7 +32,7 @@ public class Conection {
         Conection.dbConnection = dbConnection;
     }
 
-    public static void crudObjeto (Object object, boolean saveOrUpdate){
+    public void crudObjeto (Object object, boolean saveOrUpdate){
         session = dbConnection.openSession();
         try {
             transaction = session.beginTransaction();
@@ -50,7 +50,7 @@ public class Conection {
         }
     }
 
-    public static List<Object> findAll(Class classEntity){
+    public List<Object> findAll(Class classEntity){
         List<Object> objects = new ArrayList<> ();
         session = dbConnection.openSession ();
         cb = session.getCriteriaBuilder();
@@ -67,7 +67,7 @@ public class Conection {
         return objects;
     }
 
-    public static Object findById(Class classEntity, long id){
+    public Object findById(Class classEntity, long id){
         Object object = null;
         session = dbConnection.openSession ();
         try{

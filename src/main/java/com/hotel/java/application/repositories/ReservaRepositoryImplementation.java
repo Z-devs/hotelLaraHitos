@@ -12,13 +12,13 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
     Conection function;
     @Autowired
     public ReservaRepositoryImplementation(SessionFactory dbConnection) {
-        Conection.conectar(dbConnection);
         function = new Conection ();
+        function.conectar(dbConnection);
     }
 
     @Override
     public void newReserva(ReservaEntity reservaEntity) {
-        Conection.crudObjeto (reservaEntity, true);
+        function.crudObjeto (reservaEntity, true);
     }
 
     @Override
@@ -33,11 +33,11 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
 
     @Override
     public void deleteReserva(ReservaEntity reservaEntity) {
-        Conection.crudObjeto (reservaEntity, false);
+        function.crudObjeto (reservaEntity, false);
     }
 
     @Override
     public void updateReserva(ReservaEntity reservaEntity) {
-        Conection.crudObjeto (reservaEntity, true);
+        function.crudObjeto (reservaEntity, true);
     }
 }
