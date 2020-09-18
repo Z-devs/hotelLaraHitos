@@ -15,10 +15,10 @@ public class ClienteEntity implements Serializable {
     private String apellido;
     private String email;
 
-    @OneToMany(mappedBy="cliente")
+    @OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
     private Set<ReservaEntity> reservas;
 
-    @OneToOne(mappedBy="cliente")
+    @OneToOne(mappedBy="cliente", fetch=FetchType.EAGER)
     private LoginEntity login;
 
     public ClienteEntity(long id, String nombre, String apellido, String email) {

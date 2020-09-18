@@ -59,12 +59,25 @@ public class Conection {
             q.select (q.from (classEntity));
             objects = session.createQuery (q).getResultList ();
         } catch (Throwable ex) {
-            if (transaction!=null) transaction.rollback();
             ex.printStackTrace();
         }
         finally {
             session.close();
         }
         return objects;
+    }
+
+    public static Object findById(Class classEntity, long id){
+        Object object = null;
+        session = dbConnection.openSession ();
+        try{
+            object = session.get(classEntity, id);
+        }catch (Throwable ex) {
+            ex.printStackTrace ();
+        }
+        finally {
+            session.close();
+        }
+        return object;
     }
 }
