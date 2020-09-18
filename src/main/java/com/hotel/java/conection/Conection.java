@@ -59,7 +59,6 @@ public class Conection {
             q.select (q.from (classEntity));
             objects = session.createQuery (q).getResultList ();
         } catch (Throwable ex) {
-            if (transaction!=null) transaction.rollback();
             ex.printStackTrace();
         }
         finally {

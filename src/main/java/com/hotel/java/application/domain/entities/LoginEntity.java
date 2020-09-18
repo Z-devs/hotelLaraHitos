@@ -11,7 +11,7 @@ public class LoginEntity {
     private String usuario;
     private String password;
 
-    @OneToOne(fetch=FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_cliente")
     ClienteEntity cliente;
 

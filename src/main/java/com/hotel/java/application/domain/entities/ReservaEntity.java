@@ -19,7 +19,7 @@ public class ReservaEntity implements Serializable {
     @JoinColumn(name="cliente_id")
     private ClienteEntity cliente;
 
-    @OneToOne(fetch=FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_habitacion")
     private HabitacionEntity habitacion;
 

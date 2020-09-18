@@ -9,10 +9,11 @@ import java.util.List;
 
 @Repository
 public class ReservaRepositoryImplementation implements ReservaRepository{
-
+    Conection function;
     @Autowired
     public ReservaRepositoryImplementation(SessionFactory dbConnection) {
         Conection.conectar(dbConnection);
+        function = new Conection ();
     }
 
     @Override
@@ -22,12 +23,12 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
 
     @Override
     public List<ReservaEntity> listarReservas() {
-        return (List<ReservaEntity>)(List<?>) Conection.findAll (ReservaEntity.class);
+        return (List<ReservaEntity>)(List<?>) function.findAll (ReservaEntity.class);
     }
 
     @Override
     public ReservaEntity listarReservaById(long id) {
-        return (ReservaEntity) Conection.findById (ReservaEntity.class, id);
+        return (ReservaEntity) function.findById (ReservaEntity.class, id);
     }
 
     @Override

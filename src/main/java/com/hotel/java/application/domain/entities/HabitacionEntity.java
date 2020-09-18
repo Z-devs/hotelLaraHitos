@@ -15,7 +15,7 @@ public class HabitacionEntity{
     @JoinColumn(name="tipo_id")
     private TipoEntity tipo;
 
-    @OneToOne (mappedBy = "habitacion", fetch=FetchType.EAGER)
+    @OneToOne (mappedBy = "habitacion", fetch = FetchType.EAGER)
     private ReservaEntity reserva;
 
     public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipo) {
