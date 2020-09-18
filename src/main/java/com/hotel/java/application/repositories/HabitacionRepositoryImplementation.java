@@ -10,34 +10,36 @@ import java.util.List;
 
 @Repository
 public class HabitacionRepositoryImplementation implements HabitacionRepository {
+    Conection function;
     @Autowired
     public HabitacionRepositoryImplementation(SessionFactory dbConnection) {
-        Conection.conectar(dbConnection);
+        function = new Conection ();
+        function.conectar(dbConnection);
     }
 
     @Override
     public void newReserva(HabitacionEntity habitacionEntity) {
-        Conection.crudObjeto (habitacionEntity, true);
+        function.crudObjeto (habitacionEntity, true);
     }
 
     @Override
     public List<HabitacionEntity> listarHabitaciones() {
-        return (List<HabitacionEntity>)(List<?>) Conection.findAll (HabitacionEntity.class);
+        return (List<HabitacionEntity>)(List<?>) function.findAll (HabitacionEntity.class);
     }
 
     @Override
     public HabitacionEntity listarHabitacionById(long id) {
-        return (HabitacionEntity) Conection.findById (HabitacionEntity.class, id);
+        return (HabitacionEntity) function.findById (HabitacionEntity.class, id);
     }
 
     @Override
     public void deleteHabitacion(HabitacionEntity habitacionEntity) {
-        Conection.crudObjeto (habitacionEntity, false);
+        function.crudObjeto (habitacionEntity, false);
     }
 
     @Override
     public void updateHabitacion(HabitacionEntity habitacionEntity) {
-        Conection.crudObjeto (habitacionEntity, true);
+        function.crudObjeto (habitacionEntity, true);
     }
 
 }
