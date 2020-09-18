@@ -1,10 +1,10 @@
 package com.hotel.java.application.repositories;
 
 import com.hotel.java.application.domain.entities.*;
+import com.hotel.java.conection.Conection;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,14 +22,7 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
 
     @Autowired
     public ReservaRepositoryImplementation(SessionFactory dbConnection) {
-        try{
-            this.dbConnection = dbConnection;
-        } catch (Throwable ex) {
-            System.err.println("Failed to create sessionFactory object." + ex);
-            ex.printStackTrace ();
-            System.out.println ("______________________________________________________________");
-            throw new ExceptionInInitializerError(ex);
-        }
+        this.dbConnection = Conection.conectar(dbConnection);
     }
 
     @Override
@@ -69,18 +62,7 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
 
     @Override
     public void newReserva(ReservaEntity reservaEntity) {
-        session = dbConnection.openSession();
-        try {
-            transaction = session.beginTransaction();
-            session.save (reservaEntity);
-            transaction.commit();
-        } catch (Throwable ex) {
-            if (transaction!=null) transaction.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            session.close();
-        }
+        Conection.crearObjeto (reservaEntity);
     }
 
     @Override
