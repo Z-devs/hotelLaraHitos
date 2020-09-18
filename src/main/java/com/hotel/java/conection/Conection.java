@@ -67,4 +67,18 @@ public class Conection {
         }
         return objects;
     }
+
+    public static Object findById(Class classEntity, long id){
+        Object object = null;
+        session = dbConnection.openSession ();
+        try{
+            object = session.get(classEntity, id);
+        }catch (Throwable ex) {
+            ex.printStackTrace ();
+        }
+        finally {
+            session.close();
+        }
+        return object;
+    }
 }
