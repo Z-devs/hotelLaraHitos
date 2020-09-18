@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -22,27 +23,13 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
 
     @Autowired
     public ReservaRepositoryImplementation(SessionFactory dbConnection) {
-        this.dbConnection = Conection.conectar(dbConnection);
+        Conection.conectar(dbConnection);
     }
 
     @Override
     public List<ReservaEntity> listarReservas() {
-        List<ReservaEntity> reservaEntities = new ArrayList<> ();
-        session = dbConnection.openSession ();
-        cb = session.getCriteriaBuilder();
-        try {
-            //reservaEntities = session.createQuery("FROM ReservaEntity ", ReservaEntity.class).getResultList();
-            CriteriaQuery<ReservaEntity> q = cb.createQuery (ReservaEntity.class);
-            q.select (q.from (ReservaEntity.class));
-            reservaEntities = session.createQuery (q).getResultList ();
-        } catch (Throwable ex) {
-            if (transaction!=null) transaction.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            session.close();
-        }
-        return reservaEntities;
+        List<ReservaEntity> lista = (List<ReservaEntity>)(List<?>) Conection.findAll (ReservaEntity.class);
+        return lista;
     }
 
     @Override
@@ -62,38 +49,17 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
 
     @Override
     public void newReserva(ReservaEntity reservaEntity) {
-        Conection.crearObjeto (reservaEntity);
+        Conection.crudObjeto (reservaEntity, true);
     }
 
     @Override
     public void deleteReserva(ReservaEntity reservaEntity) {
-        session = dbConnection.openSession();
-        try{
-            transaction = session.beginTransaction ();
-            session.delete (reservaEntity);
-            transaction.commit ();
-        }catch (Throwable ex){
-            if (transaction!=null) transaction.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            session.close();
-        }
+        Conection.crudObjeto (reservaEntity, false);
     }
 
     @Override
     public void updateReserva(ReservaEntity reservaEntity) {
-        session = dbConnection.openSession();
-        try {
-            transaction = session.beginTransaction();
-            session.update (reservaEntity);
-            transaction.commit();
-        } catch (Throwable ex) {
-            if (transaction!=null) transaction.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            session.close();
-        }
+        Conection.crudObjeto (reservaEntity, true);
     }
+
 }
