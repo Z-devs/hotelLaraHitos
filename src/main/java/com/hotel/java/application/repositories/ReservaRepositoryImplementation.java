@@ -1,7 +1,6 @@
 package com.hotel.java.application.repositories;
 
 import com.hotel.java.application.domain.entities.*;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -22,16 +21,9 @@ public class ReservaRepositoryImplementation implements ReservaRepository{
     private static SessionFactory dbConnection;
 
     @Autowired
-    public ReservaRepositoryImplementation() {
+    public ReservaRepositoryImplementation(SessionFactory dbConnection) {
         try{
-            Configuration config = new Configuration ();
-            config.addAnnotatedClass(ReservaEntity.class);
-            config.addAnnotatedClass(ClienteEntity.class);
-            config.addAnnotatedClass(HabitacionEntity.class);
-            config.addAnnotatedClass(TipoEntity.class);
-            config.addAnnotatedClass(LoginEntity.class);
-            config.configure();
-            dbConnection = config.buildSessionFactory();
+            this.dbConnection = dbConnection;
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
             ex.printStackTrace ();
