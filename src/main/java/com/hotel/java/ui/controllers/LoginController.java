@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/")
@@ -16,10 +17,10 @@ public class LoginController {
         this.reservaService = reservaService;
     }
 
-    @GetMapping("login2")
-    public Model login(Model model) {
+    @GetMapping("login")
+    public ModelAndView login() {
 
-        return model;
+        return new ModelAndView ("login2");
 
     }
 
