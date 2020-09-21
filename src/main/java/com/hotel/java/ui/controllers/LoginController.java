@@ -16,7 +16,7 @@ public class LoginController {
         this.reservaService = reservaService;
     }
 
-    @GetMapping("login")
+    @GetMapping("login2")
     public Model login(Model model) {
 
         return model;
