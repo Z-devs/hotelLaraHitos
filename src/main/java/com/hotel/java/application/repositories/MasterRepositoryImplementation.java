@@ -1,28 +1,32 @@
-package com.hotel.java.conection;
+package com.hotel.java.application.repositories;
 
+import com.hotel.java.conection.Conection;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-public class Conection {
-    private static SessionFactory dbConnection;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import java.util.ArrayList;
+import java.util.List;
 
-    public void conectar(SessionFactory dbConnection) {
-        try{
-            setDbConnection (dbConnection);
-        } catch (Throwable ex) {
-            System.err.println("Failed to create sessionFactory object." + ex);
-            ex.printStackTrace ();
-            System.out.println ("______________________________________________________________");
-            throw new ExceptionInInitializerError(ex);
-        }
+
+@Repository
+public class MasterRepositoryImplementation implements MasterRepository{
+    Session session;
+    Transaction transaction;
+    SessionFactory dbConnection;
+    private static CriteriaBuilder cb;
+
+    @Autowired
+    public MasterRepositoryImplementation (SessionFactory dbConnection) {
+        this.dbConnection = dbConnection;
     }
 
-    public static SessionFactory getDbConnection() { return dbConnection; }
-
-    public static void setDbConnection(SessionFactory dbConnection) {
-        Conection.dbConnection = dbConnection;
-    }
-
-    /*public void crudObjeto (Object object, boolean saveOrUpdate){
+    @Override
+    public void newObject(Object object, boolean saveOrUpdate) {
         session = dbConnection.openSession();
         try {
             transaction = session.beginTransaction();
@@ -40,7 +44,8 @@ public class Conection {
         }
     }
 
-    public List<Object> findAll(Class classEntity){
+    @Override
+    public List<Object> listarTodo(Class classEntity) {
         List<Object> objects = new ArrayList<> ();
         session = dbConnection.openSession ();
         cb = session.getCriteriaBuilder();
@@ -57,7 +62,8 @@ public class Conection {
         return objects;
     }
 
-    public Object findById(Class classEntity, long id){
+    @Override
+    public Object listarById(long id, Class classEntity) {
         Object object = null;
         session = dbConnection.openSession ();
         try{
@@ -70,6 +76,4 @@ public class Conection {
         }
         return object;
     }
-
-*/
 }
