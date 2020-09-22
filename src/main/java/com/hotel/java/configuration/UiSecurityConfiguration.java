@@ -20,7 +20,7 @@ public class UiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-			.antMatchers("/").permitAll()
+			.antMatchers("/reservas/showall").permitAll()
 			.anyRequest().authenticated()
 		.and()
 			.formLogin()

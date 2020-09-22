@@ -15,8 +15,8 @@ public class HabitacionEntity{
     @JoinColumn(name="tipo_id")
     private TipoEntity tipo;
 
-    @OneToOne (mappedBy = "habitacion", fetch = FetchType.EAGER)
-    private ReservaEntity reserva;
+    /*@OneToOne (mappedBy = "habitacion", fetch = FetchType.LAZY)
+    private ReservaEntity reserva;*/
 
     public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipo) {
         setId (id);
@@ -76,14 +76,14 @@ public class HabitacionEntity{
         this.tipo = tipo;
     }
 
-    public ReservaEntity getReservaEntity() {
+   /* public ReservaEntity getReservaEntity() {
         return reserva;
     }
 
     public void setReserva(ReservaEntity reserva) {
         this.reserva = reserva;
     }
-
+*/
     @Override
     public String toString() {
         return "HabitacionEntity{" +
@@ -91,7 +91,7 @@ public class HabitacionEntity{
                 ", descripcion='" + descripcion + '\'' +
                 ", precio=" + precio +
                 ", tipoEntity=" + tipo +
-                ", reservaEntity=" + reserva +
+                //", reservaEntity=" + reserva +
                 '}';
     }
 }

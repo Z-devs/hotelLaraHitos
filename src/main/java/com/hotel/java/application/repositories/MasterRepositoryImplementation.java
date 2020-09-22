@@ -1,6 +1,5 @@
 package com.hotel.java.application.repositories;
 
-import com.hotel.java.conection.Conection;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
