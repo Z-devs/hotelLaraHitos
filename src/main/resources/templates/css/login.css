@@ -11,55 +11,12 @@ body {
    }
 
 
-/* animation */
-/* .large-header {
-    position: relative;
-    width: 100%;
-    background: #111;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    z-index: 1;
- } */
- 
- /* .demo .large-header {
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg");
- } */
- 
- /* .main-title {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    color: #fa7f04;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0);
- } */
- 
- /* .demo .main-title {
-    text-transform: uppercase;
-    font-size: 4.2em;
-    letter-spacing: 0.1em;
- } */
- 
- /* .main-title .thin {
-    font-weight: 200;
- }
-  */
- @media  (max-width: 768px) {
-        .container {
-      
-    }
- }
 
-
-
-/* animation */
-
-
-
+@media only screen and (max-width: 768px) {
+   .demo .main-title {
+      font-size: 3em;
+   }
+}
 .container {
     width: 100%;
     padding-top: 100px;
@@ -91,14 +48,14 @@ body {
 }
 
 .nav-brand {
-    padding-top: 30px;
+    padding-top: -30px;
     padding-left: 60px;
 }
 
 .nav {
     width: 100%;
     height: 100px;
-    padding-top: 20px;
+    padding-top: 40px;
     opacity: 1;
     transition: all .5s ease
 }
@@ -152,12 +109,12 @@ li {
 
 .form-signin {
     width: 430px;
-    height: 400px;
+    height: 425px;
     font-size: 16px;
-    font-weight: 30;
+    font-weight: 300;
     padding-left: 37px;
     padding-right: 37px;
-    padding-top: 70px;
+    padding-top: 100px;
     transition: opacity .5s ease, transform .5s ease
 }
 
@@ -168,7 +125,7 @@ li {
 
 .form-signup {
     width: 430px;
-    height: 400px;
+    height: 425px;
     font-size: 16px;
     font-weight: 300;
     padding-left: 37px;

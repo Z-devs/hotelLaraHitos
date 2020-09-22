@@ -35,6 +35,9 @@
 
 /* :: 1.0 Import Fonts */
 @import url('https://fonts.googleapis.com/css?family=Numans');
+@import url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js');
+@import url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js');
+@import url('ttps://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo.js');
 @import url(css/bootstrap.min.css);
 @import url(css/classy-nav.css);
 @import url(css/owl.carousel.min.css);
