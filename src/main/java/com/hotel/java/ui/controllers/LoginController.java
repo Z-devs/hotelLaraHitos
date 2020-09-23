@@ -20,7 +20,7 @@ public class LoginController {
     @GetMapping("login")
     public ModelAndView login() {
 
-        return new ModelAndView ("login2");
+        return new ModelAndView ("login");
 
     }
 
