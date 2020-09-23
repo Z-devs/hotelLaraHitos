@@ -1,150 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=“en” xmlns:th=“http://www.thymeleaf.org”>
 
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+    
     <!-- Title -->
-    <title>The Palatin - Hotel &amp; Resort Template</title>
+    <title>Elysium - The Space Hotel</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="img/core-img/favicon.png">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
+    <link rel=“stylesheet” th:href=“@{~/css/login.css}“>
+    
 </head>
 
 <body>
-<!-- Preloader -->
-<div class="preloader d-flex align-items-center justify-content-center">
-    <div class="cssload-container">
-        <div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
-    </div>
-</div>
+    
+    <div id ="fondo" class="container">    
+        <canvas id="demo-canvas" style="position:relative;"></canvas>
+             <div id="frame" class="frame" style="position: absolute;
+                top: 8vw;
+                left: 0;
+                right: 0;
+                margin: 0 auto;">
 
-<!-- ##### Header Area Start ##### -->
-<header class="header-area">
-    <!-- Navbar Area -->
-    <div class="palatin-main-menu">
-        <div class="classy-nav-container breakpoint-off">
-            <div class="ml-5">
-                <!-- Menu -->
-                <nav class="classy-navbar justify-content-between" id="palatinNav">
-
-                    <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
-
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Menu -->
-                    <div class="classy-menu">
-
-                        <!-- close btn -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
-
-
-                        <!-- Nav End -->
-                    </div>
-                </nav>
+             <div class="nav">
+                <a href="index.html" class="nav-brand"><img src="th:href=“@{~/img/core-img/logo.png}" alt=""></a>
+                <ul class="links">
+                    <li class="signin-active"><a class="btn">Sign in</a></li>
+                    <li class="signup-inactive"><a class="btn">Sign up </a></li>
+                </ul>
             </div>
-        </div>
-    </div>
-</header>
-<!-- ##### Header Area End ##### -->
-
-<!-- ##### Hero Area Start ##### -->
-<section class="hero-area">
-    <div class="hero-slides owl-carousel">
-
-        <!-- Single Hero Slide -->
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="bg-img" style="background-image: url(img/bg-img/bg-1.jpg);"></div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-5">
-                        <!-- Slide Content -->
-                        <div class="container"></div>
-                        <div class="d-flex justify-content-center h-100">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3>Sign In</h3>
-                                </div>
-
-                                <div class="card-body">
-                                    <form>
-                                        <div class="input-group form-group">
-                                            <div class="input-group">
-                                                <span class="input-group rounded-0"></span>
-                                            </div>
-                                            <input type="text" class="form-control rounded-0" placeholder="username">
-
-                                        </div>
-                                        <div class="input-group form-group">
-                                            <div class="input-group">
-                                                <span class="input-group rounded-0"></span>
-                                            </div>
-                                            <input type="password" class="form-control rounded-0"
-                                                   placeholder="password">
-                                        </div>
-
-                                        <div class="row align-items-center remember">
-                                            <input type="checkbox"> Remember Me
-                                        </div>
-                                        <br>
-                                        <div class="form-group">
-                                            <input type="submit" value="Login"
-                                                   class="btn float-right login_btn rounded-0">
-                                        </div>
-                                        <br>
-                                    </form>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="d-flex justify-content-center links">
-                                        Don't have an account?<a href="#">Sign Up</a>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <a href="#">Forgot your password?</a>
-                                    </div>
-                                </div>
-                            </div>
+                <div ng-app ng-init="checked = false">
+                 <form class="form-signin" action="" method="post" name="form"> <label for="username">Usuario</label> <input class="form-styling" type="text" id="username" placeholder="" /> <label for="password">Password</label> <input class="form-styling" type="text" id="password" placeholder="" />
+                     <div class="btn-animate"> <a class="btn-signin">Sign in</a> </div>
+                 </form>
+                 <form class="form-signup" action="" method="post" name="form"> <label for="fullname">Full name</label> <input class="form-styling" type="text" id="fullname" placeholder="" /> <label for="email">Email</label> <input class="form-styling" type="text" id="email" placeholder="" /> <label for="password">Password</label> <input class="form-styling" type="text" name="password" placeholder="" /> <label for="confirmpassword">Confirma el password</label> <input class="form-styling" type="text" id="confirmpassword" placeholder="" /> <a ng-click="checked = !checked" class="btn-signup">Sign Up</a> </form>
+                    <div class="success"> <svg width="270" height="270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" id="check" ng-class="checked ? 'checked' : ''" ></svg>
+                        <path fill="#ffffff" d="M40.61,23.03L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314 c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042 c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
+                        <div class="successtext">
+                            <p> Gracias por registrarte! Revisa tu email de confirmacion.</p>
                         </div>
                     </div>
                 </div>
+                 <div class="forgot"> <a href="#"></a> </div>
+            <div>
+                <div class="cover-photo"></div>
+                <div class="profile-photo"></div>
+                <h1 class="welcome">Bienvenido, Invitado</h1> <a class="btn-goback" value="Refresh" onClick="history.go()">Volver</a>
             </div>
         </div>
 
-        </div>
     </div>
-</section>
-<!-- ##### Hero Area End ##### -->
+    
 
-<!-- ##### All Javascript Script ##### -->
-<!-- jQuery-2.2.4 js -->
-<script src="js/jquery/jquery-2.2.4.min.js"></script>
-<!-- Popper js -->
-<script src="js/bootstrap/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="js/bootstrap/bootstrap.min.js"></script>
-<!-- All Plugins js -->
-<script src="js/plugins/plugins.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo.js"></script>
-
-<!-- Active js -->
-<script src="js/active.js"></script>
+       <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="th:href=“@{~/js/jquery/jquery-2.2.4.min.js}"></script>
+    <!-- Popper js -->
+    <script src="th:href=“@{~/js/bootstrap/popper.min.js}"></script>
+    <!-- Bootstrap js -->
+    <script src="th:href=“@{~/js/bootstrap/bootstrap.min.js}"></script>
+    <!-- All Plugins js -->
+    <script src="th:href=“@{~/js/plugins/plugins.js}"></script>
+    <!-- Active js -->
+    <script src="th:href=“@{~/js/active.js}"></script>
+    <script src="th:href=“@{~/js/login.js}"></script>
+    <!-- Animation background js -->
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
+    <script src="th:href=“@{~/js/animation.js}"></script>
 </body>
 
 </html>
