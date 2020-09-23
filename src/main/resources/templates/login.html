@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang=“en” xmlns:th=“http://www.thymeleaf.org”>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Title -->
     <title>Elysium - The Space Hotel</title>
 
@@ -14,13 +14,13 @@
     <link rel="icon" href="img/core-img/favicon.png">
 
     <!-- Core Stylesheet -->
-    <link rel=“stylesheet” th:href=“@{~/css/login.css}“>
-    
+    <link rel="stylesheet" th:href="@{~/css/login.css}">
+
 </head>
 
 <body>
-    
-    <div id ="fondo" class="container">    
+
+    <div id ="fondo" class="container">
         <canvas id="demo-canvas" style="position:relative;"></canvas>
              <div id="frame" class="frame" style="position: absolute;
                 top: 8vw;
@@ -29,14 +29,14 @@
                 margin: 0 auto;">
 
              <div class="nav">
-                <a href="index.html" class="nav-brand"><img src="th:href=“@{~/img/core-img/logo.png}" alt=""></a>
+                <a href="index.html" class="nav-brand"><img src="th:href='@{~/img/core-img/logo.png}'" alt=""></a>
                 <ul class="links">
                     <li class="signin-active"><a class="btn">Sign in</a></li>
                     <li class="signup-inactive"><a class="btn">Sign up </a></li>
                 </ul>
             </div>
                 <div ng-app ng-init="checked = false">
-                 <form class="form-signin" action="" method="post" name="form"> <label for="username">Usuario</label> <input class="form-styling" type="text" id="username" placeholder="" /> <label for="password">Password</label> <input class="form-styling" type="text" id="password" placeholder="" />
+                 <form class="form-signin" action="authenticateTheUser" method="post" name="form"> <label for="username">Usuario</label> <input class="form-styling" type="text" id="username" placeholder="" /> <label for="password">Password</label> <input class="form-styling" type="text" id="password" placeholder="" />
                      <div class="btn-animate"> <a class="btn-signin">Sign in</a> </div>
                  </form>
                  <form class="form-signup" action="" method="post" name="form"> <label for="fullname">Full name</label> <input class="form-styling" type="text" id="fullname" placeholder="" /> <label for="email">Email</label> <input class="form-styling" type="text" id="email" placeholder="" /> <label for="password">Password</label> <input class="form-styling" type="text" name="password" placeholder="" /> <label for="confirmpassword">Confirma el password</label> <input class="form-styling" type="text" id="confirmpassword" placeholder="" /> <a ng-click="checked = !checked" class="btn-signup">Sign Up</a> </form>
@@ -56,24 +56,24 @@
         </div>
 
     </div>
-    
+
 
        <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="th:href=“@{~/js/jquery/jquery-2.2.4.min.js}"></script>
+    <script src="th:href='@{~/js/jquery/jquery-2.2.4.min.js}'"></script>
     <!-- Popper js -->
-    <script src="th:href=“@{~/js/bootstrap/popper.min.js}"></script>
+    <script src="th:href='@{~/js/bootstrap/popper.min.js}'"></script>
     <!-- Bootstrap js -->
-    <script src="th:href=“@{~/js/bootstrap/bootstrap.min.js}"></script>
+    <script src="th:href='@{~/js/bootstrap/bootstrap.min.js}'"></script>
     <!-- All Plugins js -->
-    <script src="th:href=“@{~/js/plugins/plugins.js}"></script>
+    <script src="th:href='@{~/js/plugins/plugins.js}'"></script>
     <!-- Active js -->
-    <script src="th:href=“@{~/js/active.js}"></script>
-    <script src="th:href=“@{~/js/login.js}"></script>
+    <script src="th:href='@{~/js/active.js}'"></script>
+    <script src="th:href='@{~/js/login.js}'"></script>
     <!-- Animation background js -->
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
-    <script src="th:href=“@{~/js/animation.js}"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js'"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js'"></script>
+    <script src="th:href='@{~/js/animation.js}'"></script>
 </body>
 
 </html>
