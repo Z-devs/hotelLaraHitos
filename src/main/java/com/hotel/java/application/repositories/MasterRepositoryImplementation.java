@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.hotel.java.application.repositories;
 
 
@@ -77,7 +76,7 @@ public class MasterRepositoryImplementation implements MasterRepository{
         }
         return object;
     }
-}
+}/*
 =======
 package com.hotel.java.application.repositories;
 
@@ -158,3 +157,4 @@ public class MasterRepositoryImplementation implements MasterRepository{
     }
 }
 >>>>>>> 6d64d62217f09efbd6db44783daa9616f9dd10ee
+*/
