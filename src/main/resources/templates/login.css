@@ -1,15 +1,53 @@
 html,
 body * {
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
-    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg");
-    /*background: url(img/bg-img/bg-1.jpg) no-repeat center;*/
-    background-size: cover;
 
-   }
+    
+    /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg"); */
+    /*background: url(img/bg-img/bg-1.jpg) no-repeat center;*/
+    /* background-size: cover;
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground 10s linear infinite alternate; */
+    background: url(img/core-img/background2.jpg);
+    -webkit-animation: 60s linear 0s normal none infinite animate;
+	-moz-animation: 60s linear 0s normal none infinite animate;
+	-ms-animation: 60s linear 0s normal none infinite animate;
+	-o-animation: 60s linear 0s normal none infinite animate;
+	animation: 60s linear 0s normal none infinite animate;
+ 
+}
+ 
+@-webkit-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+ 
+@-moz-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+ 
+@-ms-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+ 
+@-o-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+ 
+@keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 1000px 0;}
+}
+
+   
 
 
 /* animation */
@@ -59,7 +97,8 @@ body {
 
 /* animation */
 
-
+  
+/* animation */
 
 .container {
     width: 100%;
@@ -142,7 +181,7 @@ li {
     cursor: pointer;
     color: #ffffff !important;
     text-decoration: none;
-    border-bottom: solid 2px #1059FF;
+    border-bottom: solid 2px #ff1010;
     padding-bottom: 10px
 }
 
@@ -321,7 +360,7 @@ textarea:focus {
 }
 
 [type="checkbox"]:checked+label:before {
-    background: #0F4FE6
+    background: #ff8410
 }
 
 [type="checkbox"]:checked+label:after {
@@ -366,22 +405,22 @@ textarea:focus {
     font-size: 13px;
     text-align: center;
     color: #ffffff;
-    padding-top: 8px;
+    padding-top: 10px;
     width: 100%;
     height: 35px;
     border: none;
     border-radius: 20px;
     margin-top: 23px;
-    background-color: #1059FF
+    background-color: #ff8410
 }
 
 .btn-signin {
     float: left;
-    padding-top: 8px;
+    padding-top: 10px;
     width: 100%;
     height: 35px;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     margin-top: -8px
 }
 
@@ -396,9 +435,9 @@ textarea:focus {
     width: 100%;
     height: 35px;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     margin-top: 23px;
-    background-color: rgba(16, 89, 255, 1);
+    background-color: #ff8410;
     left: 0px;
     top: 0px;
     transition: all .5s ease, top .5s ease .5s, height .5s ease .5s, background-color .5s ease .75s
@@ -417,7 +456,7 @@ textarea:focus {
 a.btn-signup:hover,
 a.btn-signin:hover {
     cursor: pointer;
-    background-color: #0F4FE6;
+    background-color:#ffb310;
     transition: background-color .5s
 }
 
@@ -452,6 +491,7 @@ a.btn-signin:hover {
     width: 100%;
     height: 50px;
     position: relative;
+    top: 20px;
     color: rgba(35, 43, 85, 0.75);
     opacity: 0;
     transition: transform 1.5s ease .25s, opacity .1s ease 1s
@@ -467,7 +507,7 @@ a.btn-signin:hover {
     position: relative;
     left: 0px;
     top: -900px;
-    background: linear-gradient(rgba(35, 43, 85, 0.75), rgba(35, 43, 85, 0.95)), url(https://img.icons8.com/bubbles/100/000000/user.png);
+    background: linear-gradient(rgba(117, 54, 17, 0.75), rgba(117, 54, 17, 0.95));
     background-size: cover;
     opacity: 0;
     transition: all 1.5s ease 0.55s
@@ -485,7 +525,7 @@ a.btn-signin:hover {
     border-radius: 70px;
     left: 155px;
     top: -1000px;
-    background: url(https://img.icons8.com/bubbles/100/000000/user.png);
+    background: url(/img/core-img/senbei.jpg);
     background-size: 100% 135%;
     background-position: 100% 100%;
     opacity: 0;
@@ -494,7 +534,7 @@ a.btn-signin:hover {
 }
 
 .profile-photo-down {
-    top: -636px;
+    top: -712px;
     opacity: 1
 }
 
@@ -520,9 +560,9 @@ h1 {
     text-transform: uppercase;
     font-size: 13px;
     text-align: center;
-    color: #1059FF;
+    color: #ff8410;
     margin-top: -8px;
-    border: solid 1px #1059FF;
+    border: solid 1px #ff8410;
     opacity: 0;
     transition: top 1.5s ease 0.35s, opacity .75s ease .5s
 }
@@ -534,7 +574,7 @@ h1 {
 
 a.btn-goback:hover {
     cursor: pointer;
-    background-color: #0F4FE6;
+    background-color:#ff8410;
     transition: all .5s;
     color: #ffffff
 }
