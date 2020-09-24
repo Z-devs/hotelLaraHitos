@@ -117,5 +117,4 @@ public class MasterRepositoryImplementation implements MasterRepository{
         }
         return objects;
     }
-
 }

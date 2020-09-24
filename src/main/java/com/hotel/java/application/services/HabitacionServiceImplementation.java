@@ -8,9 +8,11 @@ import com.hotel.java.application.domain.factories.ReservaFactory;
 import com.hotel.java.application.models.HabitacionModel;
 import com.hotel.java.application.repositories.MasterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class HabitacionServiceImplementation implements HabitacionService{
     private MasterRepository masterRepository;
     private ReservaFactory reservaFactory;
