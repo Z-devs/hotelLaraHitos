@@ -14,11 +14,11 @@ body {
     background-repeat: repeat-x;
     animation: animatedBackground 10s linear infinite alternate; */
     background-image: url("../img/core-img/background2.jpg");
-    -webkit-animation: 60s linear 0s normal none infinite animate;
-	-moz-animation: 60s linear 0s normal none infinite animate;
-	-ms-animation: 60s linear 0s normal none infinite animate;
-	-o-animation: 60s linear 0s normal none infinite animate;
-	animation: 60s linear 0s normal none infinite animate;
+    -webkit-animation: 130s linear 0s normal none infinite animate;
+	-moz-animation: 130s linear 0s normal none infinite animate;
+	-ms-animation: 130s linear 0s normal none infinite animate;
+	-o-animation: 130s linear 0s normal none infinite animate;
+	animation: 130s linear 0s normal none infinite animate;
  
 }
  
@@ -51,6 +51,117 @@ body {
 
 /* animation */
 
+.station{
+    position: absolute;
+    bottom:40%;
+    left: 45%;
+    
+   -webkit-animation: station 10s linear infinite;
+   -moz-animation: station 10s linear infinite;
+   -ms-animation: station 10s linear infinite;
+   -o-animation: station 10s linear infinite;
+   animation: station 60s linear infinite;
+
+}
+@-webkit-keyframes station {
+    0%{
+        transform:rotate(0deg)
+                  translate(-200px)
+                  rotate(0deg);
+      
+      }
+      100%{
+        transform:rotate(360deg)
+                  translate(-300px)
+                  rotate(-360deg);
+      }
+    }
+    
+
+ 
+@-moz-keyframes station {
+    0%{
+        transform:rotate(0deg)
+                  translate(-200px)
+                  rotate(0deg);
+      
+      }
+      100%{
+        transform:rotate(360deg)
+                  translate(-200px)
+                  rotate(-360deg);
+      }
+}
+ 
+@-ms-keyframes station {
+    0%{
+        transform:rotate(0deg)
+                  translate(-200px)
+                  rotate(0deg);
+      
+      }
+      100%{
+        transform:rotate(360deg)
+                  translate(-200px)
+                  rotate(-360deg);
+      }
+}
+ 
+@-o-keyframes station {
+    0% { left: 0px;}
+    100%{ left : 100%;}
+}
+ 
+@keyframes station {
+    0%{
+        transform:rotate(0deg)
+                  translate(-200px)
+                  rotate(0deg);
+      
+      }
+      100%{
+        transform:rotate(360deg)
+                  translate(-300px)
+                  rotate(-360deg);
+      }
+}
+.earth{
+
+     position: absolute;
+     
+     bottom: 30%;
+    -webkit-animation: 90s linear 0s normal  infinite earth;
+	-moz-animation: 90s linear 0s normal  infinite earth;
+	-ms-animation: 90s linear 0s normal  infinite earth;
+	-o-animation: 90s linear 0s normal  infinite earth;
+	animation: 90s linear 0s normal  infinite earth;
+
+}
+
+@-webkit-keyframes earth {
+    0% { left: -400px;}
+    100%{ left : 100%;}
+}
+ 
+@-moz-keyframes earth {
+    0% { left: -400px;}
+    100%{ left : 100%;}
+}
+ 
+@-ms-keyframes earth {
+    0% { left: -400px;}
+    100%{ left : 100%;}
+}
+ 
+@-o-keyframes earth {
+    0% { left: -400px;}
+    100%{ left : 100%;}
+}
+ 
+@keyframes earth {
+    0% { left: -400px;}
+    100%{ left : 100%;}
+}
   
 /* animation */
 
@@ -63,7 +174,7 @@ body {
 .frame {
     height: 575px;
     width: 430px;
-    background-color: rgba(0, 0, 0, 0.50);
+    background-color: rgba(83, 78, 77, 0.253);
     /* background: linear-gradient(rgba(35, 43, 85, 0.75), rgba(35, 43, 85, 0.95)),url(img/bg-img/bg-1.jpg) no-repeat center center; */
     background-size: cover;
     margin-left: auto;
@@ -356,7 +467,8 @@ textarea:focus {
     float: left;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 16px;
+    font-weight: bold;
     text-align: center;
     color: #ffffff;
     padding-top: 10px;
@@ -370,12 +482,17 @@ textarea:focus {
 
 .btn-signin {
     float: left;
-    padding-top: 10px;
+    padding-top: 4px;
     width: 100%;
     height: 35px;
     border: none;
     border-radius: 15px;
-    margin-top: -8px
+    margin-top: -8px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #ff8410;
 }
 
 .btn-animate {
@@ -385,7 +502,7 @@ textarea:focus {
     font-size: 13px;
     text-align: center;
     color: rgba(255, 255, 255, 1);
-    padding-top: 8px;
+    padding-top: 4px;
     width: 100%;
     height: 35px;
     border: none;
@@ -452,7 +569,7 @@ a.btn-signin:hover {
 }
 
 .welcome-left {
-    transform: translateY(-780px);
+    transform: translateY(-380px);
     opacity: 1
 }
 
@@ -479,7 +596,7 @@ a.btn-signin:hover {
     border-radius: 70px;
     left: 155px;
     top: -1000px;
-    background: url(/img/core-img/senbei.jpg);
+    background: url(../img/core-img/senbei.jpg);
     background-size: 100% 135%;
     background-position: 100% 100%;
     opacity: 0;
