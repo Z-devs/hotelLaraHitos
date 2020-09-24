@@ -8,15 +8,15 @@ public class LoginEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String usuario;
+    private String username;
     private String password;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_cliente")
     ClienteEntity cliente;
 
-    public LoginEntity(String usuario, String password, ClienteEntity clienteEntity) {
-        setUsuario (usuario);
+    public LoginEntity(String username, String password, ClienteEntity clienteEntity) {
+        setUsername (username);
         setPassword (password);
         setClienteEntity (clienteEntity);
     }
@@ -32,12 +32,12 @@ public class LoginEntity {
         this.id = id;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsername(String usuario) {
+        this.username = usuario;
     }
 
     public String getPassword() {
@@ -59,7 +59,7 @@ public class LoginEntity {
     @Override
     public String toString() {
         return "LoginEntity{" +
-                "usuario='" + usuario + '\'' +
+                "usuario='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", clienteEntity=" + cliente +
                 '}';

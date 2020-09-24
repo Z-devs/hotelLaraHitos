@@ -1,9 +1,10 @@
 package com.hotel.java.configuration;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Description;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -38,7 +39,7 @@ Con solo meter la dependencias en el pom spring ya mete un login
     //Necesario para evitar que la seguridad se aplique a los resources estaticos
     //Como los css, imagenes y javascripts
     String[] resources = new String[]{
-            "/css/**","/fonts/**","/images/**","/js/**","/**"
+            "/css/**","/fonts/**","/img/**","/js/**","/**","/home/**", "/scss/**"
     };
 
     @Override
@@ -46,8 +47,8 @@ Con solo meter la dependencias en el pom spring ya mete un login
 
         // uso de jdbc para encontrar username, password, role y enabled
         auth.jdbcAuthentication().dataSource(securityDataSource)
-                .usersByUsernameQuery("select usuario,password, enabled from login where usuario=?")
-                .authoritiesByUsernameQuery("select usuario, rol from login where usuario=?");
+                .usersByUsernameQuery("select username,password, enabled from login where username=?")
+                .authoritiesByUsernameQuery("select username, role from login where username=?");
         //.passwordEncoder(new NoOpPasswordEncoder.getInstance());
     }
 
@@ -58,29 +59,30 @@ Con solo meter la dependencias en el pom spring ya mete un login
     }
 
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/reservas/**").hasRole("CLIENT") //protegido por el rol
+                .antMatchers("/reservas/**").hasRole("USER") //protegido por el role
+                .antMatchers("/reservafinal/**").hasRole("USER") //protegido por el role
+                .antMatchers("/finalbooking/**").hasRole("USER")
                 .antMatchers(resources).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")  // entrypoint que pasar el form de login
+                .loginPage("/loginMain")  // entrypoint que pasar el form de login
                 //.loginPage("/contact.html") // de ser un static para hacerlo asin
                 .loginProcessingUrl("/authenticateTheUser") //entrypoint gestionado por spring
-                .defaultSuccessUrl("/login?ok") // no me redirige quizas por el handler
+                //.defaultSuccessUrl("/login?ok") // no me redirige quizas por el handler
+                .defaultSuccessUrl("/defaultbooknow")
                 .successHandler(successHandler)
                 .failureHandler(failureHandler)
                 .permitAll()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/showMyLoginPage?logout")
                 .permitAll()
         ;
 
@@ -92,7 +94,7 @@ Con solo meter la dependencias en el pom spring ya mete un login
     public void configure(WebSecurity web) throws Exception {
 
         web.ignoring().antMatchers("/resources/**","/login/**","/static/**","/Script/**","/Style/**","/Icon/**",
-                "/js/**","/vendor/**","/bootstrap/**","/Image/**","/rooms/**");
+                "/js/**","/vendor/**","/bootstrap/**","/img/**","/rooms/**");
 
         //logoutSuccessUrl("/customLogout")
     }
@@ -107,6 +109,8 @@ Con solo meter la dependencias en el pom spring ya mete un login
 
         return jdbcUserDetailsManager;
     }
+
+
 
 
 }

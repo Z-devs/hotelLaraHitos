@@ -4,6 +4,7 @@ import com.hotel.java.application.services.ReservaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,25 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 
 public class LoginController {
-    private final ReservaService reservaService;
 
-    public LoginController(ReservaService reservaService) {
-        this.reservaService = reservaService;
-    }
-
-    @GetMapping("login")
+    @GetMapping("/loginMain")
     public ModelAndView login() {
 
         return new ModelAndView ("login");
 
     }
 
-    @GetMapping("protected")
-    public Model resource(Model model) {
+    @GetMapping("index")
+    public ModelAndView index() {
 
-        this.reservaService.listReservas ();
-
-        return model;
+        return new ModelAndView ("index");
 
     }
 }

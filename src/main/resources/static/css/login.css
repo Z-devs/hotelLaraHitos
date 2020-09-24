@@ -13,7 +13,7 @@ body {
     background-position: 0px 0px;
     background-repeat: repeat-x;
     animation: animatedBackground 10s linear infinite alternate; */
-    background: url(img/core-img/background2.jpg);
+    background-image: url("../img/core-img/background2.jpg");
     -webkit-animation: 60s linear 0s normal none infinite animate;
 	-moz-animation: 60s linear 0s normal none infinite animate;
 	-ms-animation: 60s linear 0s normal none infinite animate;
