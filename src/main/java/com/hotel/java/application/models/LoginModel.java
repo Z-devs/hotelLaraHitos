@@ -4,19 +4,19 @@ import java.util.List;
 
 public class LoginModel {
     private long id;
-    private String usuario;
+    private String username;
     private String password;
     List<ClienteModel> clienteModelList;
 
-    public LoginModel(String usuario, String password, List<ClienteModel> clienteModelList) {
-        setUsuario (usuario);
+    public LoginModel(String username, String password, List<ClienteModel> clienteModelList) {
+        setUsername (username);
         setPassword (password);
         setClienteModelList (clienteModelList);
     }
 
-    public LoginModel(long id, String usuario, String password, List<ClienteModel> clienteModelList) {
+    public LoginModel(long id, String username, String password, List<ClienteModel> clienteModelList) {
         setId(id);
-        setUsuario (usuario);
+        setUsername (username);
         setPassword (password);
         setClienteModelList (clienteModelList);
     }
@@ -29,12 +29,12 @@ public class LoginModel {
         this.id = id;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -56,7 +56,7 @@ public class LoginModel {
     @Override
     public String toString() {
         return "LoginModel{" +
-                "usuario='" + usuario + '\'' +
+                "usuario='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", clienteModelList=" + clienteModelList +
                 '}';
