@@ -34,21 +34,21 @@
 
 
 /* :: 1.0 Import Fonts */
-@import url('https://fonts.googleapis.com/css?family=Numans');
-@import url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js');
-@import url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js');
-@import url('ttps://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo.js');
-@import url(css/bootstrap.min.css);
-@import url(css/classy-nav.css);
-@import url(css/owl.carousel.min.css);
-@import url(css/animate.css);
-@import url(css/magnific-popup.css);
-@import url(css/font-awesome.min.css);
-@import url(css/nice-select.css);
-@import url(css/travel-icon.css);
+@import url("https://fonts.googleapis.com/css?family=Numans");
+@import url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js");
+@import url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js");
+@import url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo.js");
+@import url("../css/bootstrap.min.css");
+@import url("../css/classy-nav.css");
+@import url("../css/owl.carousel.min.css");
+@import url("../css/animate.css");
+@import url("../css/magnific-popup.css");
+@import url("../css/font-awesome.min.css");
+@import url("../css/nice-select.css");
+@import url("../css/travel-icon.css");
 @font-face {
   font-family: 'FuturaLT-Book';
-  src: url("fonts/FuturaLT-Book.eot?#iefix") format("embedded-opentype"), url("fonts/FuturaLT-Book.woff") format("woff"), url("fonts/FuturaLT-Book.ttf") format("truetype"), url("fonts/FuturaLT-Book.svg#FuturaLT-Book") format("svg");
+  src: url("../fonts/FuturaLT-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaLT-Book.woff") format("woff"), url("../fonts/FuturaLT-Book.ttf") format("truetype"), url("../fonts/FuturaLT-Book.svg#FuturaLT-Book") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* :: 2.0 Import All CSS */
@@ -189,7 +189,7 @@ img {
   .section-heading .line- {
     width: 90px;
     height: 2px;
-    background-color: #0426bb;
+    background-color: #f08306;
     display: block;
     margin-bottom: 40px; }
   .section-heading h2 {
@@ -230,7 +230,7 @@ img {
     height: 19px;
     display: inline-block;
     border-radius: 50%;
-    background: #0426bb; }
+    background: #f08306; }
   .preloader .cssload-loading i:first-child {
     opacity: 0;
     animation: cssload-loading-ani2 0.58s linear infinite;
@@ -352,7 +352,7 @@ img {
 
 /* :: 3.7.0 ScrollUp */
 #scrollUp {
-  background-color: #0426bb;
+  background-color: #f08306;
   border-radius: 0;
   bottom: 50px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
@@ -382,7 +382,7 @@ img {
 
 .input-group-prepend span{
   width: 50px;
-  background-color: #f5a30a;
+  background-color:#f58f09;
   color: rgb(6, 96, 231);
   border:0 !important;
   }
@@ -406,7 +406,7 @@ input:focus {
 
 .login_btn {
   color: black;
-  background-color: #f5a30a;
+  background-color: #f06f06;
   width: 100px;
 }
 
@@ -424,7 +424,7 @@ input:focus {
 }
 /* :: 3.8.0 Palatin Button */
 .palatin-btn {
-  background-color: #0426bb;
+  background-color: #f08306;
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms;
   position: relative;
@@ -436,7 +436,7 @@ input:focus {
   border: none;
   border-radius: 0;
   padding: 0 30px;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 53px;
   text-transform: capitalize; }
   .palatin-btn:hover, .palatin-btn:focus {
@@ -448,17 +448,17 @@ input:focus {
     color: #ffffff; }
     .palatin-btn.btn-2:hover, .palatin-btn.btn-2:focus {
       font-size: 16px;
-      background-color: #0426bb;
+      background-color: #f08306;
       color: #ffffff; }
   .palatin-btn.btn-3 {
     background-color: #ffffff;
-    color: #0426bb;
-    border: 2px solid #0426bb;
+    color: #f08306;
+    border: 2px solid #f08306;
     height: 49px;
     line-height: 48px; }
     .palatin-btn.btn-3:hover, .palatin-btn.btn-3:focus {
       font-size: 16px;
-      background-color: #0426bb;
+      background-color: #f08306;
       color: #ffffff; }
 
 /* :: 4.0 Header Area CSS */
@@ -473,7 +473,7 @@ input:focus {
     position: relative;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.63);
-    border-bottom: 2px solid rgba(100, 30, 230, 0.63); }
+    border-bottom: 2px solid rgba(230, 70, 30, 0.63); }
     .header-area .palatin-main-menu .classy-nav-container {
       background-color: transparent; }
     .header-area .palatin-main-menu .classy-navbar {
@@ -498,19 +498,19 @@ input:focus {
         background-color: transparent; }
         .header-area .palatin-main-menu .classy-navbar .classynav ul li a:hover, .header-area .palatin-main-menu .classy-navbar .classynav ul li a:focus {
           color: #ffffff;
-          background-color: #0426bb; }
+          background-color: #f08306; }
         @media only screen and (min-width: 992px) and (max-width: 1199px) {
           .header-area .palatin-main-menu .classy-navbar .classynav ul li a {
             font-size: 14px; } }
         @media only screen and (min-width: 768px) and (max-width: 991px) {
           .header-area .palatin-main-menu .classy-navbar .classynav ul li a {
-            background-color: #0426bb; } }
+            background-color: #f08306; } }
         @media only screen and (max-width: 767px) {
           .header-area .palatin-main-menu .classy-navbar .classynav ul li a {
-            background-color: #0426bb; } }
+            background-color: #f08306; } }
       .header-area .palatin-main-menu .classy-navbar .classynav ul li.active a {
         color: #ffffff;
-        background-color: #0426bb; }
+        background-color: #f08306; }
       .header-area .palatin-main-menu .classy-navbar .classynav ul li.megamenu-item > a::after,
       .header-area .palatin-main-menu .classy-navbar .classynav ul li.has-down > a::after {
         color: #ffffff; }
@@ -561,10 +561,10 @@ input:focus {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .breakpoint-on .classy-navbar .classy-menu {
-    background-color: #0426bb; } }
+    background-color: #f08306; } }
 @media only screen and (max-width: 767px) {
   .breakpoint-on .classy-navbar .classy-menu {
-    background-color: #0426bb; } }
+    background-color: #f08306; } }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .classynav ul li .megamenu .single-mega.cn-col-4 {
@@ -612,7 +612,7 @@ input:focus {
       .hero-slides .owl-dots .owl-dot.active, .hero-slides .owl-dots .owl-dot:hover, .hero-slides .owl-dots .owl-dot:focus {
         color: #ffffff;
         background-color: #1b3f4c;
-        border: 2px solid #0426bb;
+        border: 2px solid #f08306;
         box-shadow: none; }
 
 .single-hero-slide {
@@ -643,7 +643,7 @@ input:focus {
     display: inline-block;
     padding: 60px 50px;
     background-color: rgba(0, 0, 0, 0.63);
-    border: 2px solid #0426bb;
+    border: 2px solid #f08306;
     text-align: center; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .single-hero-slide .hero-slides-content {
@@ -657,7 +657,7 @@ input:focus {
     .single-hero-slide .hero-slides-content .line {
       width: 90px;
       height: 2px;
-      background-color: #0426bb;
+      background-color: #f08306;
       margin: 0 auto 30px; }
     .single-hero-slide .hero-slides-content h2 {
       position: relative;
@@ -747,9 +747,9 @@ input:focus {
       width: 20%;
       height: 174px;
       background-color: #363636;
-      border-left: 2px solid #0426bb;
-      border-top: 2px solid #0426bb;
-      border-bottom: 2px solid #0426bb;
+      border-left: 2px solid #f08306;
+      border-top: 2px solid #f08306;
+      border-bottom: 2px solid #f08306;
       margin-bottom: 0;
       padding: 0 30px; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -766,16 +766,16 @@ input:focus {
           width: 100%;
           height: 100px;
           border-bottom: 0 solid transparent;
-          border-right: 2px solid #0426bb; } }
+          border-right: 2px solid #f08306; } }
     .book-now-form form .form-group label {
-      color: #0426bb;
+      color: #f08306;
       display: block;
       font-size: 14px;
       width: 100%; }
     .book-now-form form button {
-      border-right: 2px solid #0426bb;
+      border-right: 2px solid #f08306;
       font-size: 16px;
-      background-color: #0426bb;
+      background-color: #f08306;
       text-transform: uppercase;
       color: #ffffff;
       cursor: pointer;
@@ -888,7 +888,7 @@ input:focus {
       height: 30px;
       text-align: center;
       font-size: 12px;
-      background-color: #0426bb;
+      background-color: #f08306;
       border-radius: 50%;
       line-height: 30px;
       color: #ffffff; }
@@ -899,7 +899,7 @@ input:focus {
   z-index: 1;
   width: 100%;
   padding: 70px 50px;
-  border: 2px solid #0426bb;
+  border: 2px solid #f08306;
   background-color: rgba(0, 0, 0, 0.63); }
   @media only screen and (max-width: 767px) {
     .pool-content {
@@ -913,7 +913,7 @@ input:focus {
         margin-top: 30px; } }
     .pool-content .pool-feature i {
       font-size: 70px;
-      color: #0426bb;
+      color: #f08306;
       margin-bottom: 15px;
       display: block; }
     .pool-content .pool-feature p {
@@ -948,7 +948,7 @@ input:focus {
     transform: translateX(-50%);
     padding: 10px 15px;
     background-color: #181818;
-    border: 2px solid #0426bb;
+    border: 2px solid #f08306;
     display: inline-block;
     margin-bottom: 0;
     line-height: 1;
@@ -963,14 +963,14 @@ input:focus {
     right: 20px;
     bottom: 20px;
     width: calc(100% - 40px);
-    border: 2px solid #0426bb;
+    border: 2px solid #f08306;
     text-align: center;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms; }
     .single-rooms-area .rooms-text .line {
       width: 90px;
       height: 2px;
-      background-color: #0426bb;
+      background-color: #f08306;
       display: block;
       margin: 0 auto 20px; }
     .single-rooms-area .rooms-text h4 {
@@ -1010,7 +1010,7 @@ input:focus {
       .pagination-area .pagination .page-item .page-link:hover, .pagination-area .pagination .page-item .page-link:focus {
         color: #ffffff;
         background-color: #616161;
-        border: 2px solid #0426bb;
+        border: 2px solid #f08306;
         box-shadow: none; }
     .pagination-area .pagination .page-item:first-child .page-link {
       margin-left: 0;
@@ -1022,7 +1022,7 @@ input:focus {
     .pagination-area .pagination .page-item.active .page-link {
       color: #ffffff;
       background-color: #616161;
-      border: 2px solid #0426bb; }
+      border: 2px solid #f08306; }
 
 /* :: 10.0 Services Area CSS */
 .services-intro {
@@ -1054,7 +1054,7 @@ input:focus {
       left: 50%;
       z-index: 50;
       background-color: rgba(255, 255, 255, 0.85);
-      border: 2px solid #0426bb;
+      border: 2px solid #f08306;
       padding: 30px;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
@@ -1063,7 +1063,7 @@ input:focus {
           width: 85%; } }
       .core-features-area .single-core-feature .feature-content i {
         font-size: 60px;
-        color: #0426bb;
+        color: #f08306;
         margin-bottom: 30px;
         display: block; }
       .core-features-area .single-core-feature .feature-content h3 {
@@ -1086,7 +1086,7 @@ input:focus {
   .single-service-area i {
     display: block;
     margin-bottom: 30px;
-    color: #0426bb;
+    color: #f08306;
     font-size: 60px; }
   .single-service-area h4 {
     font-size: 30px;
@@ -1133,7 +1133,7 @@ input:focus {
         height: 30px;
         text-align: center;
         font-size: 12px;
-        background-color: #0426bb;
+        background-color: #f08306;
         border-radius: 50%;
         line-height: 30px;
         color: #ffffff; }
@@ -1142,7 +1142,7 @@ input:focus {
 .testimonial-content {
   position: relative;
   z-index: 1;
-  border: 2px solid #0426bb;
+  border: 2px solid #f08306;
   background-color: #ffffff;
   padding: 100px;
   width: 100%; }
@@ -1164,7 +1164,7 @@ input:focus {
       margin-top: 55px;
       margin-bottom: 60px; }
       .testimonial-content .single-testimonial h6 span {
-        color: #0426bb; }
+        color: #f08306; }
       @media only screen and (max-width: 767px) {
         .testimonial-content .single-testimonial h6 {
           margin-top: 25px;
@@ -1194,7 +1194,7 @@ input:focus {
       width: 100%;
       height: 46px;
       background-color: transparent;
-      border: 2px solid #0426bb;
+      border: 2px solid #f08306;
       padding: 0 15px;
       color: #ffffff; }
     .footer-area .footer-widget-area .subscribe-form button {
@@ -1207,7 +1207,7 @@ input:focus {
       margin-top: 15px;
       color: #ffffff;
       cursor: pointer;
-      background-color: #0426bb; }
+      background-color: #f08306; }
       .footer-area .footer-widget-area .subscribe-form button:hover, .footer-area .footer-widget-area .subscribe-form button:focus {
         background-color: #363636; }
   .footer-area .copywrite-text {
@@ -1243,7 +1243,7 @@ input:focus {
       color: #ffffff;
       margin-bottom: 0;
       padding: 5px 30px;
-      border: 2px solid #0426bb;
+      border: 2px solid #f08306;
       background-color: rgba(0, 0, 0, 0.63); }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .breadcumb-area .bradcumbContent h2 {
@@ -1263,7 +1263,7 @@ input:focus {
     position: relative;
     z-index: 1;
     width: 80%;
-    border: 2px solid #0426bb;
+    border: 2px solid #f08306;
     padding: 50px 40px 30px;
     left: 10%;
     text-align: center;
@@ -1286,7 +1286,7 @@ input:focus {
       display: block;
       margin-bottom: 10px; }
       .single-blog-post .post-content .post-title:hover, .single-blog-post .post-content .post-title:focus {
-        color: #0426bb; }
+        color: #f08306; }
       @media only screen and (max-width: 767px) {
         .single-blog-post .post-content .post-title {
           font-size: 20px;
@@ -1362,7 +1362,7 @@ input:focus {
       display: inline-block;
       margin-right: 15px; }
       .contact-area .contact-info .social-info a:hover, .contact-area .contact-info .social-info a:focus {
-        color: #0426bb; }
+        color: #f08306; }
 
 .single-contact-information {
   position: relative;
@@ -1389,7 +1389,7 @@ input:focus {
       margin-bottom: 0; }
     .single-contact-information .contact-content p:first-child {
       font-size: 18px;
-      color: #0426bb;
+      color: #f08306;
       margin-bottom: 0;
       -webkit-box-flex: 0;
       -ms-flex: 0 0 90px;
@@ -1430,7 +1430,7 @@ input:focus {
       height: 52px; }
       .contact-form-area form input:focus,
       .contact-form-area form textarea:focus {
-        border-color: #0426bb;
+        border-color: #f08306;
         box-shadow: none; }
     .contact-form-area form textarea {
       height: 180px; }
@@ -1472,10 +1472,10 @@ input:focus {
   position: relative;
   z-index: 1;
   padding: 50px 30px;
-  border: 2px solid #0426bb;
+  border: 2px solid #f08306;
   text-align: center; }
   .single-icon i {
-    color: #0426bb;
+    color: #f08306;
     font-size: 70px;
     display: block;
     margin-bottom: 30px; }
@@ -1488,7 +1488,7 @@ input:focus {
   z-index: 1;
   width: 200px;
   padding: 35px 15px;
-  border: 2px solid #0426bb;
+  border: 2px solid #f08306;
   text-align: center;
   background-color: #363636;
   margin: 0 auto;
@@ -1500,7 +1500,7 @@ input:focus {
     display: block;
     font-size: 70px;
     margin-bottom: 10px;
-    color: #0426bb; }
+    color: #f08306; }
   .single-cool-fact .scf-text h2 {
     font-size: 48px;
     margin-bottom: 5px;
@@ -1520,7 +1520,7 @@ input:focus {
     color: #ffffff;
     line-height: 1; }
   .single-cool-fact:hover, .single-cool-fact:focus {
-    background-color: #0426bb; }
+    background-color: #f08306; }
     .single-cool-fact:hover .scf-text i, .single-cool-fact:focus .scf-text i {
       color: #ffffff; }
 
@@ -1536,9 +1536,9 @@ input:focus {
 .single-accordion h6 {
   margin-bottom: 0; }
   .single-accordion h6 a {
-    background-color: #0426bb;
+    background-color: #f08306;
     border-radius: 0;
-    border: 2px solid #0426bb;
+    border: 2px solid #f08306;
     color: #ffffff;
     display: block;
     margin: 0;
@@ -1566,7 +1566,7 @@ input:focus {
       transition-duration: 500ms;
       background-color: #ffffff;
       color: #7d7d7d;
-      border: 2px solid #0426bb; }
+      border: 2px solid #f08306; }
       .single-accordion h6 a.collapsed span {
         color: #7d7d7d; }
         .single-accordion h6 a.collapsed span.accor-close {
@@ -1589,7 +1589,7 @@ input:focus {
     margin-bottom: 30px; }
     .palatin-tabs-content .nav-tabs .nav-link {
       background-color: #ffffff;
-      border: 2px solid #0426bb;
+      border: 2px solid #f08306;
       padding: 0 20px;
       height: 58px;
       line-height: 58px;
@@ -1608,7 +1608,7 @@ input:focus {
         .palatin-tabs-content .nav-tabs .nav-link {
           padding: 0 15px; } }
       .palatin-tabs-content .nav-tabs .nav-link.active {
-        background-color: #0426bb;
+        background-color: #f08306;
         color: #ffffff; }
   .palatin-tabs-content .palatin-tab-text p {
     margin-bottom: 0; }
