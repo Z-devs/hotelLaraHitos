@@ -31,7 +31,7 @@ public class HibernateConfiguration {
         dataSourceBuilder.driverClassName ("com.mysql.cj.jdbc.Driver");
         dataSourceBuilder.url ("jdbc:mysql://localhost:3306/hotel?serverTimezone=UTC");
         dataSourceBuilder.username ("root");
-        dataSourceBuilder.password ("secret1234");
+        dataSourceBuilder.password ("secret1234");  //Esto hay que ponerlo en el properties!!!!!!!!
 
         return dataSourceBuilder.build ();
     }
@@ -49,7 +49,7 @@ public class HibernateConfiguration {
         hibernateProperties.setProperty (
                 "hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty (
-                "hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+                "hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
 
         return hibernateProperties;
     }
