@@ -2,8 +2,13 @@ package com.hotel.java.application.domain.factories;
 
 
 import com.hotel.java.application.domain.entities.HabitacionEntity;
+import com.hotel.java.application.domain.entities.ReservaEntity;
 import com.hotel.java.application.models.HabitacionModel;
+import com.hotel.java.application.models.ReservaModel;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class HabitacionFactory {
@@ -31,6 +36,22 @@ public class HabitacionFactory {
                         tipoFactory.tipoEntity2Model(habitacionEntity.getTipo ())
                 );
         return habitacionModel;
+    }
+
+    public List<HabitacionModel> habitacionListEntity2Model(List<HabitacionEntity> habitacionEntities){
+        List<HabitacionModel> habitacionModels = new ArrayList<> ();
+        for (HabitacionEntity habitacion : habitacionEntities){
+            HabitacionModel habitacionModel =
+                    new HabitacionModel (
+                            habitacion.getId (),
+                            habitacion.getCodigo (),
+                            habitacion.getDescripcion (),
+                            habitacion.getPrecio (),
+                            tipoFactory.tipoEntity2Model (habitacion.getTipo ())
+                    );
+            habitacionModels.add (habitacionModel);
+        }
+        return habitacionModels;
     }
 
 }
