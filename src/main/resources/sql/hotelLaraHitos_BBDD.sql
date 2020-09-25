@@ -81,14 +81,14 @@ DROP TABLE IF EXISTS `login`;
 CREATE TABLE `login` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `password` varchar(255) DEFAULT NULL,
-  `usuario` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
   `id_cliente` bigint DEFAULT NULL,
-  `rol` varchar(45) DEFAULT NULL,
+  `role` varchar(45) DEFAULT NULL,
   `enabled` tinyint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK1cfu8vpuvyfr3pq6cyvng4j0k` (`id_cliente`),
   CONSTRAINT `FK1cfu8vpuvyfr3pq6cyvng4j0k` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `login` (
 
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES (1,'1234','1234',1,'user',1);
+INSERT INTO `login` VALUES (1,'1234','adrian',1,'ROLE_USER',1),(2,'taribo','taribo',2,'ROLE_USER',1);
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-22 15:43:58
+-- Dump completed on 2020-09-25  8:27:47
