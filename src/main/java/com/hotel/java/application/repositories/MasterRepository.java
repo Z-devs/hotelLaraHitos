@@ -8,4 +8,5 @@ public interface MasterRepository {
     Object listarById(long id, Class classEntity);
     List<Object> listCampoGT(Class classEntity, int valor, String campo);
     List<Object> listCampoLT(Class classEntity, int valor, String campo);
+    long newSignUp(Object object);
 }

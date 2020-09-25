@@ -49,21 +49,31 @@
                     <input class="form-styling" type="password" id="password" name="password" placeholder="" />
                     <div class="btn-animate">
                         <button type="submit" class="btn-signin">Sign In</button>
-                        
+                    </div>
+
+                </form>
+                <form class="form-signup" method="post" th:action="@{/newUser}" modelAttribute="signUP" name="form2">
+                    <label for="nombre">Nombre</label>
+                    <input class="form-styling" type="text" name="nombre" id="nombre" placeholder="" />
+                    <label for="apellido">Apellidos</label>
+                    <input class="form-styling" type="text" name="apellido" id="apellido" placeholder="" />
+                    <label for="email">Email</label>
+                    <input class="form-styling" type="email" name="email" id="email" placeholder="" />
+                    <label for="newUsername">Usuario</label>
+                    <input class="form-styling" type="text" name="newUsername" id="newUsername" placeholder="" />
+                    <label for="newPassword">Password</label>
+                    <input class="form-styling" type="password" id="newPassword" name="newPassword" placeholder="" />
+                    <label for="confirmpassword">Confirma el password</label>
+                    <input class="form-styling" type="password" name="confirmpassword" id="confirmpassword" placeholder="" />
+                    <div>
+                        <button type="submit" class="btn-signup">Sign UP</button>
                     </div>
                 </form>
-                <form class="form-signup" action="" method="post" name="form"> <label for="fullname">Full name</label>
-                    <input class="form-styling" type="text" id="fullname" placeholder="" /> <label
-                        for="email">Email</label> <input class="form-styling" type="text" id="email" placeholder="" />
-                    <label for="password">Password</label> <input class="form-styling" type="text" name="password"
-                        placeholder="" /> <label for="confirmpassword">Confirma el password</label> <input
-                        class="form-styling" type="text" id="confirmpassword" placeholder="" /> <a
-                        ng-click="checked = !checked" class="btn-signup">Sign Up</a> </form>
                 <div class="success"> <svg width="270" height="270" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" id="check"
                         ng-class="checked ? 'checked' : ''"></svg>
                     <path fill="#ffffff"
-                        d="M40.61,23.03L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314 c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042 c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
+                        d="M40.61,23.0g3L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314 c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042 c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
                     <div class="successtext">
                         <p> Gracias por registrarte! Revisa tu email de confirmacion.</p>
                     </div>
@@ -97,6 +107,7 @@
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
     <script src="/js/animation.js"></script>
+    <script src="/js/sendData.js"></script>
 </body>
 
 </html>

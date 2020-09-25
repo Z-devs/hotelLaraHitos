@@ -188,7 +188,8 @@ body {
 }
 
 .frame-long {
-    height: 615px
+    height: 815px;
+    width: 800px;
 }
 
 .frame-short {
