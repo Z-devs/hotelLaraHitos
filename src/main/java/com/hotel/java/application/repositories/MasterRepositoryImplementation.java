@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,61 +77,17 @@ public class MasterRepositoryImplementation implements MasterRepository{
         }
         return object;
     }
-}/*
-=======
-package com.hotel.java.application.repositories;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import java.util.ArrayList;
-import java.util.List;
-
-
-@Repository
-public class MasterRepositoryImplementation implements MasterRepository{
-    Session session;
-    Transaction transaction;
-    SessionFactory dbConnection;
-    private static CriteriaBuilder cb;
-
-    @Autowired
-    public MasterRepositoryImplementation (SessionFactory dbConnection) {
-        this.dbConnection = dbConnection;
-    }
 
     @Override
-    public void newObject(Object object, boolean saveOrUpdate) {
-        session = dbConnection.openSession();
-        try {
-            transaction = session.beginTransaction();
-            if (saveOrUpdate)
-                session.saveOrUpdate (object);
-            else
-                session.delete (object);
-            transaction.commit();
-        } catch (Throwable ex) {
-            if (transaction!=null) transaction.rollback();
-            ex.printStackTrace();
-        }
-        finally {
-            session.close();
-        }
-    }
-
-    @Override
-    public List<Object> listarTodo(Class classEntity) {
+    public List<Object> listCampoGT(Class classEntity, int valor, String campo) {
         List<Object> objects = new ArrayList<> ();
         session = dbConnection.openSession ();
         cb = session.getCriteriaBuilder();
         try {
             CriteriaQuery<Object> q = cb.createQuery (classEntity);
-            q.select (q.from (classEntity));
+            Root<Object> from = q.from (classEntity);
+            q.select (from);
+            q.where (cb.gt (from.get (campo), valor));
             objects = session.createQuery (q).getResultList ();
         } catch (Throwable ex) {
             ex.printStackTrace();
@@ -142,19 +99,22 @@ public class MasterRepositoryImplementation implements MasterRepository{
     }
 
     @Override
-    public Object listarById(long id, Class classEntity) {
-        Object object = null;
+    public List<Object> listCampoLT(Class classEntity, int valor, String campo) {
+        List<Object> objects = new ArrayList<> ();
         session = dbConnection.openSession ();
-        try{
-            object = session.get(classEntity, id);
-        }catch (Throwable ex) {
-            ex.printStackTrace ();
+        cb = session.getCriteriaBuilder();
+        try {
+            CriteriaQuery<Object> q = cb.createQuery (classEntity);
+            Root<Object> from = q.from (classEntity);
+            q.select (from);
+            q.where (cb.lt (from.get (campo), valor-1));
+            objects = session.createQuery (q).getResultList ();
+        } catch (Throwable ex) {
+            ex.printStackTrace();
         }
         finally {
             session.close();
         }
-        return object;
+        return objects;
     }
 }
->>>>>>> 6d64d62217f09efbd6db44783daa9616f9dd10ee
-*/
