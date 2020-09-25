@@ -77,7 +77,7 @@ Con solo meter la dependencias en el pom spring ya mete un login
                 //.loginPage("/contact.html") // de ser un static para hacerlo asin
                 .loginProcessingUrl("/authenticateTheUser") //entrypoint gestionado por spring
                 //.defaultSuccessUrl("/login?ok") // no me redirige quizas por el handler
-                .defaultSuccessUrl("/defaultbooknow")
+               // .defaultSuccessUrl("/defaultbooknow")
                 .successHandler(successHandler)
                 .failureHandler(failureHandler)
                 .permitAll()
