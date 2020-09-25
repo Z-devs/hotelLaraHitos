@@ -16,6 +16,6 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
         System.out.println("onAuthenticationFailure: "+e.getMessage());
         //TODO redirigir cuando las credenciales son incorrectas
         //e.printStackTrace();
-        httpServletResponse.sendRedirect("/showMyLoginPage?badcredentials");
+        httpServletResponse.sendRedirect("/loginMain?badcredentials");
     }
 }
