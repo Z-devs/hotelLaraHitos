@@ -17,6 +17,16 @@ public class LoginEntity {
     @JoinColumn(name="id_cliente")
     ClienteEntity cliente;
 
+    public LoginEntity(long id, String username, String password, String role, boolean enabled, ClienteEntity clienteEntity) {
+        setId (id);
+        setUsername (username);
+        setPassword (password);
+        setRole (role);
+        setEnabled (enabled);
+        setClienteEntity (clienteEntity);
+    }
+
+
     public LoginEntity(String username, String password, String role, boolean enabled, ClienteEntity clienteEntity) {
         setUsername (username);
         setPassword (password);

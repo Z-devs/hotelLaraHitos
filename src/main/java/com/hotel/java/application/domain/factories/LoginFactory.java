@@ -13,14 +13,17 @@ public class LoginFactory {
 
 
     public LoginEntity loginModel2Entity (LoginModel loginModel){
-        LoginEntity loginEntity =
-                new LoginEntity (
-                        loginModel.getUsername (),
-                        loginModel.getPassword (),
-                        loginModel.getRole (),
-                        loginModel.isEnabled (),
-                        clienteFactory.clienteModel2EntityWO (loginModel.getClienteModel ())
-                );
+        LoginEntity loginEntity=new LoginEntity ();
+        if(loginModel.getId () != 0) {
+             loginEntity = new LoginEntity (
+                     loginModel.getId (),
+                     loginModel.getUsername (),
+                     loginModel.getPassword (),
+                     loginModel.getRole (),
+                     loginModel.isEnabled (),
+                     clienteFactory.clienteModel2Entity (loginModel.getClienteModel ())
+             );
+        }
         return loginEntity;
     }
 
