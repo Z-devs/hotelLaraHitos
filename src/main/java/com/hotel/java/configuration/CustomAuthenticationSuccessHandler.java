@@ -36,7 +36,5 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             //redireccion directa cuando se accede directamente a sigin
             httpServletResponse.sendRedirect("/index");
         }
-
-
     }
 }

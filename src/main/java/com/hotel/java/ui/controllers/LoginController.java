@@ -29,22 +29,14 @@ public class LoginController {
 
     @GetMapping("loginMain")
     public ModelAndView login() {
-
         return new ModelAndView ("login");
-
     }
 
     @PostMapping("newUser")
     public String submit(@Valid @ModelAttribute("signUP") SignupFormModel signupFormModel){
-//        System.out.println (signupFormModel.getNombre ());
-//        System.out.println (signupFormModel.getEmail ());
-//        System.out.println (signupFormModel.getNewUsername ());
-//        System.out.println (signupFormModel.getNewPassword ());
         ClienteModel cliente = new ClienteModel (signupFormModel.getNombre (), signupFormModel.getApellido (), signupFormModel.getEmail ());
         long res = clienteService.createCliente (cliente);
         cliente.setId (res);
-        //ClienteModel newCliente = clienteService.buscaId(res);
-        //newCliente.setId (res);
         LoginModel login = new LoginModel (signupFormModel.getNewUsername (), signupFormModel.getNewPassword (), "ROLE_USER", true, cliente);
         loginService.createLogin(login);
         return "redirect:/loginMain?q=Registrado+Correctamente!";
@@ -52,8 +44,6 @@ public class LoginController {
 
     @GetMapping("index")
     public ModelAndView index() {
-
         return new ModelAndView ("index");
-
     }
 }
