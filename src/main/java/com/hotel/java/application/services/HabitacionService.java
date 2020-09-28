@@ -7,4 +7,5 @@ import java.util.List;
 public interface HabitacionService {
     List<HabitacionModel> showAllHabitaciones();
     List<HabitacionModel> showHabitacionesByGuest(int numGuest);
+    List<HabitacionModel> showHabitacionesByTipo();
 }
