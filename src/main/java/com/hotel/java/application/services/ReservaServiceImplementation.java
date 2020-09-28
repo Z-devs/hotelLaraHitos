@@ -13,10 +13,10 @@ import java.util.List;
 
 @Service
 public class ReservaServiceImplementation implements ReservaService {
-    private MasterRepository masterRepository;
-    private ReservaFactory reservaFactory;
-    private ClienteFactory clienteFactory;
-    private HabitacionFactory habitacionFactory ;
+    private final MasterRepository masterRepository;
+    private final ReservaFactory reservaFactory;
+    private final ClienteFactory clienteFactory;
+    private final HabitacionFactory habitacionFactory ;
 
     @Autowired
     public ReservaServiceImplementation(MasterRepository masterRepository,
@@ -32,15 +32,13 @@ public class ReservaServiceImplementation implements ReservaService {
     @Override
     public List<ReservaModel> listReservas() {
         List<ReservaEntity> reservaEntities = (List<ReservaEntity>)(List<?>)this.masterRepository.listarTodo (ReservaEntity.class);
-        List<ReservaModel> reservaModels = this.reservaFactory.reservaListEntity2Model(reservaEntities);
-        return reservaModels;
+        return this.reservaFactory.reservaListEntity2Model(reservaEntities);
     }
 
     @Override
     public ReservaModel listReservaById(long id) {
         ReservaEntity reservaEntity = (ReservaEntity) this.masterRepository.listarById (id, ReservaEntity.class);
-        ReservaModel reservaModel = this.reservaFactory.reservaEntity2Model (reservaEntity);
-        return reservaModel;
+        return this.reservaFactory.reservaEntity2Model (reservaEntity);
     }
 
     @Override

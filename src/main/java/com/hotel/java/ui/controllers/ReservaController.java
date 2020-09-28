@@ -1,6 +1,5 @@
 package com.hotel.java.ui.controllers;
 
-import com.hotel.java.application.dto.SignupFormModel;
 import com.hotel.java.application.models.ReservaModel;
 import com.hotel.java.application.services.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -29,9 +29,7 @@ public class LoginController {
 
     @GetMapping("loginMain")
     public ModelAndView login() {
-
         return new ModelAndView ("login");
-
     }
 
     @PostMapping("newUser")
@@ -46,8 +44,6 @@ public class LoginController {
 
     @GetMapping("index")
     public ModelAndView index() {
-
         return new ModelAndView ("index");
-
     }
 }
