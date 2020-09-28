@@ -13,9 +13,7 @@ public class LoginFactory {
 
 
     public LoginEntity loginModel2Entity (LoginModel loginModel){
-        LoginEntity loginEntity=new LoginEntity ();
-        if(loginModel.getId () != 0) {
-             loginEntity = new LoginEntity (
+        LoginEntity loginEntity = new LoginEntity (
                      loginModel.getId (),
                      loginModel.getUsername (),
                      loginModel.getPassword (),
@@ -23,7 +21,6 @@ public class LoginFactory {
                      loginModel.isEnabled (),
                      clienteFactory.clienteModel2Entity (loginModel.getClienteModel ())
              );
-        }
         return loginEntity;
     }
 

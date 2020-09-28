@@ -20,15 +20,6 @@ public class ClienteFactory {
         return clienteEntity;
     }
 
-    public ClienteEntity clienteModel2EntityWO (ClienteModel clienteModel){
-        ClienteEntity clienteEntity =
-                new ClienteEntity (
-                        clienteModel.getNombre (),
-                        clienteModel.getApellido (),
-                        clienteModel.getEmail ());
-        return clienteEntity;
-    }
-
     public ClienteModel clienteEntity2Model (ClienteEntity clienteEntity){
         ClienteModel clienteModel =
                 new ClienteModel (

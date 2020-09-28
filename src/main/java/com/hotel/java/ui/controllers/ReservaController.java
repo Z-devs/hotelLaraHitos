@@ -21,6 +21,7 @@ public class ReservaController {
     public ReservaController(ReservaService reservaService) {
         this.reservaService = reservaService;
     }
+
     @GetMapping("showall")
     public ModelAndView viewList(){
         List<ReservaModel> reservas = reservaService.listReservas ();
