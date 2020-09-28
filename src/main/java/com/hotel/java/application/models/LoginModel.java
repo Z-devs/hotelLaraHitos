@@ -53,7 +53,7 @@ public class LoginModel {
         return clienteModel;
     }
 
-    public void setClienteModel(ClienteModel clienteModelList) {
+    public void setClienteModel(ClienteModel clienteModel) {
         this.clienteModel = clienteModel;
     }
 

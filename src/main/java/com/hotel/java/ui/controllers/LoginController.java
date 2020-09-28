@@ -42,10 +42,10 @@ public class LoginController {
 //        System.out.println (signupFormModel.getNewPassword ());
         ClienteModel cliente = new ClienteModel (signupFormModel.getNombre (), signupFormModel.getApellido (), signupFormModel.getEmail ());
         long res = clienteService.createCliente (cliente);
-        ClienteModel client = new ClienteModel (res, signupFormModel.getNombre (), signupFormModel.getApellido (), signupFormModel.getEmail ());
+        cliente.setId (res);
         //ClienteModel newCliente = clienteService.buscaId(res);
         //newCliente.setId (res);
-        LoginModel login = new LoginModel (signupFormModel.getNewUsername (), signupFormModel.getNewPassword (), "ROLE_USER", true, client);
+        LoginModel login = new LoginModel (signupFormModel.getNewUsername (), signupFormModel.getNewPassword (), "ROLE_USER", true, cliente);
         loginService.createLogin(login);
         return "redirect:/loginMain?q=Registrado+Correctamente!";
     }
