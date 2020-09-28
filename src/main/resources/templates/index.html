@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -31,6 +32,7 @@
     <header class="header-area">
         <!-- Navbar Area -->
         <div class="palatin-main-menu">
+            
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
                     <!-- Menu -->
@@ -38,6 +40,11 @@
 
                         <!-- Nav brand -->
                         <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        
+                            <p style="text-transform: uppercase; color: white" th:text ="${#authentication.getPrincipal().username} + ' logged In as ' + ${#authentication.getPrincipal().authorities}"></p>
+                        
+                        
+                        
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -54,6 +61,8 @@
 
                             <!-- Nav Start -->
                                 <div class="classynav">
+                                   
+                                    
                                 <!-- <ul>
                                     <li class="active"><a href="index.html">Home</a></li>
                                     <li><a href="about-us.html">About Us</a></li>
@@ -114,7 +123,9 @@
 
                                 <!-- Button -->
                                 <div class="menu-btn">
+                                    
                                     <a href="/loginMain"  class="btn palatin-btn">Login</a>
+                                    
                                 </div>
 
                             </div> -->
@@ -331,115 +342,45 @@
     </section>
     <!-- ##### Pool Area End ##### -->
 
-    <!-- ##### Rooms Area Start ##### -->
-    <section class="rooms-area section-padding-100-0">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-6">
-                    <div class="section-heading text-center">
-                        <div class="line-"></div>
-                        <h2>Elije un tipo de habitación</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien.</p>
-                    </div>
-                </div>
-            </div>
+   <!-- ##### Rooms Area Start ##### -->
+<section class="rooms-area section-padding-100-0">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-6">
+				<div class="section-heading text-center">
+					<div class="line-"></div>
+					<h2>Elije un tipo de habitación</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque, at rutrum nulla dictum. Ut ac ligula sapien.</p>
+				</div>
+			</div>
+		</div>
 
-            <div class="row justify-content-center">
+		<div class="row justify-content-center">
 
-                <!-- Single Rooms Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Thumbnail -->
-                        <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/1.jpg);"></div>
-                        <!-- Price -->
-                        <p class="price-from">Desde 200€/noche</p>
-                        <!-- Rooms Text -->
-                        <div class="rooms-text">
-                            <div class="line"></div>
-                            <h4>Habitacion Deluxe</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque.</p>
-                        </div>
-                        <!-- Book Room -->
-                        <a href="#" class="book-room-btn btn palatin-btn">Reserva</a>
-                    </div>
-                </div>
+			<!-- Single Rooms Area -->
+			<div th:each="hab: ${habitaciones}" class="col-12 col-md-6 col-lg-4">
+				<div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
+					<!-- Thumbnail -->
+					
+					<div class="bg-thumbnail bg-img" th:style="'background-image: url(/img/bg-img/hab/' + ${hab.getTipoModel().getId()} + '.jpg)'"></div>
+					<!-- Price  -->
+					<p class="price-from" th:text="'Desde ' + ${#numbers.formatDecimal(hab.getPrecio(),3,'POINT',0,'COMMA')} + ' €/noche'"></p>
+					<!-- Rooms Text -->
+					<div class="rooms-text">
+						<div class="line"></div>
+						<h4 th:text="${hab.getTipoModel().getNombre()}"></h4>
+						<p th:text="${hab.getTipoModel().getDescripcion()}"></p>
+					
+					</div>
+					<!-- Book Room -->
+					<a href="#" class="book-room-btn btn palatin-btn">Reserva</a>
+				</div>
+			</div>
 
-                <!-- Single Rooms Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-rooms-area wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Thumbnail -->
-                        <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/8.jpg);"></div>
-                        <!-- Price -->
-                        <p class="price-from">Desde 150€/noche</p>
-                        <!-- Rooms Text -->
-                        <div class="rooms-text">
-                            <div class="line"></div>
-                            <h4>Doble Suite</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque.</p>
-                        </div>
-                        <!-- Book Room -->
-                        <a href="#" class="book-room-btn btn palatin-btn">Reserva</a>
-                    </div>
-                </div>
-
-                <!-- Single Rooms Area -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-rooms-area wow fadeInUp" data-wow-delay="500ms">
-                        <!-- Thumbnail -->
-                        <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/9.jpg);"></div>
-                        <!-- Price -->
-                        <p class="price-from">Desde 100€/noche</p>
-                        <!-- Rooms Text -->
-                        <div class="rooms-text">
-                            <div class="line"></div>
-                            <h4>Habitación Simple</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque.</p>
-                        </div>
-                        <!-- Book Room -->
-                        <a href="#" class="book-room-btn btn palatin-btn">Reserva</a>
-                    </div>
-                </div>
-<!-- Single Rooms Area -->
-<div class="col-12 col-md-6 col-lg-4">
-    <div class="single-rooms-area wow fadeInUp" data-wow-delay="500ms">
-        <!-- Thumbnail -->
-        <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/9.jpg);"></div>
-        <!-- Price -->
-        <p class="price-from">Desde 100€/noche</p>
-        <!-- Rooms Text -->
-        <div class="rooms-text">
-            <div class="line"></div>
-            <h4>Habitación Simple</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque.</p>
-        </div>
-        
-        <!-- Book Room -->
-        <a href="#" class="book-room-btn btn palatin-btn">Reserva</a>
-    </div>
-</div>
-<!-- Single Rooms Area -->
-<div class="col-12 col-md-6 col-lg-4">
-    <div class="single-rooms-area wow fadeInUp" data-wow-delay="500ms">
-        <!-- Thumbnail -->
-        <div class="bg-thumbnail bg-img" style="background-image: url(img/bg-img/9.jpg);"></div>
-        <!-- Price -->
-        <p class="price-from">Desde 100€/noche</p>
-        <!-- Rooms Text -->
-        <div class="rooms-text">
-            <div class="line"></div>
-            <h4>Habitación Simple</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris sceleri sque.</p>
-        </div>
-        <!-- Book Room -->
-        <a href="#" class="book-room-btn btn palatin-btn">Reserva</a>
-    </div>
-</div>
-
-
-            </div>
-        </div>
-    </section>
-    <!-- ##### Rooms Area End ##### -->
+		</div>
+	</div>
+</section>
+<!-- ##### Rooms Area End ##### -->
 
     <!-- ##### Contact Area Start ##### -->
     <section class="contact-area d-flex flex-wrap align-items-center">

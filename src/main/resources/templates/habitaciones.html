@@ -12,7 +12,7 @@
 	<title>Eliysium - The Space Hotel &amp; Resort</title>
 
 	<!-- Favicon -->
-	<link rel="icon" href="img/core-img/favicon.png">
+	<link rel="icon" href="/img/core-img/favicon.png">
 
 	<!-- Core Stylesheet -->
 	<link rel="stylesheet" href="/css/style.css">
@@ -43,12 +43,13 @@
 					
 					<div class="bg-thumbnail bg-img" th:style="'background-image: url(/img/bg-img/hab/' + ${hab.getTipoModel().getId()} + '.jpg)'"></div>
 					<!-- Price  -->
-					<p class="price-from" th:text="'Desde ' + ${hab.getPrecio()} + '€/noche'"></p>
+					<p class="price-from" th:text="'Desde ' + ${#numbers.formatDecimal(hab.getPrecio(),3,'POINT',0,'COMMA')} + ' €/noche'"></p>
 					<!-- Rooms Text -->
 					<div class="rooms-text">
 						<div class="line"></div>
 						<h4 th:text="${hab.getTipoModel().getNombre()}"></h4>
-						<p th:text="${hab.getTipoModel().getDescripcion()}"></p>					
+						<p th:text="${hab.getTipoModel().getDescripcion()}"></p>
+					
 					</div>
 					<!-- Book Room -->
 					<a href="#" class="book-room-btn btn palatin-btn">Reserva</a>
