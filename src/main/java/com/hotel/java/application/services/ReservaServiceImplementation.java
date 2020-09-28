@@ -53,12 +53,13 @@ public class ReservaServiceImplementation implements ReservaService {
                 this.clienteFactory.clienteModel2Entity (reservaModel.getCliente ()),
                 this.habitacionFactory.habitacionModel2Entity (reservaModel.getHabitacion ())
         );
-        if (modo.equals ("new"))
-            this.masterRepository.newObject (reservaEntity, true);
-        if (modo.equals ("delete"))
-            this.masterRepository.newObject (reservaEntity, false);
-        if (modo.equals ("update"))
-            this.masterRepository.newObject (reservaEntity, true);
-
+        switch (modo){
+            case "new": this.masterRepository.newObject (reservaEntity, true);
+            case "delete": this.masterRepository.newObject (reservaEntity, false);
+            case "update": this.masterRepository.newObject (reservaEntity, true);
+            default: System.out.println (
+                    "Error de modo: ReservaImplementation -> operateReserva -> variable \"modo\" mal pasada"
+                    );
+        }
     }
 }

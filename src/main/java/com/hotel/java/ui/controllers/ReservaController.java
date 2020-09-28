@@ -1,13 +1,16 @@
 package com.hotel.java.ui.controllers;
 
+import com.hotel.java.application.dto.SignupFormModel;
 import com.hotel.java.application.models.ReservaModel;
 import com.hotel.java.application.services.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -30,5 +33,8 @@ public class ReservaController {
         return mav;
     }
 
-
+    @GetMapping("newReserva")
+    public void newReserva(@Valid @ModelAttribute("reserva") ReservaModel reservaModel) {
+        this.reservaService.operateReserva (reservaModel, "new");
+    }
 }
