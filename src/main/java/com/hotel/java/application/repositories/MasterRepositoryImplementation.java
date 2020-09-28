@@ -45,6 +45,8 @@ public class MasterRepositoryImplementation implements MasterRepository{
         }
     }
 
+
+
     @Override
     public List<Object> listarTodo(Class classEntity) {
         List<Object> objects = new ArrayList<> ();
@@ -117,4 +119,24 @@ public class MasterRepositoryImplementation implements MasterRepository{
         }
         return objects;
     }
+
+    @Override
+    public long newSignUp(Object object) {
+        session = dbConnection.openSession();
+        long res=0;
+        try {
+            transaction = session.beginTransaction();
+            res=(long)session.save (object);
+            transaction.commit();
+        } catch (Throwable ex) {
+            if (transaction!=null) transaction.rollback();
+            ex.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return res;
+    }
+
+
 }

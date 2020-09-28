@@ -10,14 +10,28 @@ public class LoginEntity {
     private long id;
     private String username;
     private String password;
+    private String role;
+    private boolean enabled;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_cliente")
     ClienteEntity cliente;
 
-    public LoginEntity(String username, String password, ClienteEntity clienteEntity) {
+    public LoginEntity(long id, String username, String password, String role, boolean enabled, ClienteEntity clienteEntity) {
+        setId (id);
         setUsername (username);
         setPassword (password);
+        setRole (role);
+        setEnabled (enabled);
+        setClienteEntity (clienteEntity);
+    }
+
+
+    public LoginEntity(String username, String password, String role, boolean enabled, ClienteEntity clienteEntity) {
+        setUsername (username);
+        setPassword (password);
+        setRole (role);
+        setEnabled (enabled);
         setClienteEntity (clienteEntity);
     }
 
@@ -54,6 +68,30 @@ public class LoginEntity {
 
     public void setClienteEntity(ClienteEntity clienteEntity) {
         this.cliente = clienteEntity;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public ClienteEntity getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
     }
 
     @Override

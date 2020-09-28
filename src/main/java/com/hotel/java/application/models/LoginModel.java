@@ -6,19 +6,23 @@ public class LoginModel {
     private long id;
     private String username;
     private String password;
-    List<ClienteModel> clienteModelList;
+    private String role;
+    private boolean enabled;
+    ClienteModel clienteModel;
 
-    public LoginModel(String username, String password, List<ClienteModel> clienteModelList) {
+    public LoginModel(String username, String password, String role, boolean enabled, ClienteModel clienteModel) {
         setUsername (username);
         setPassword (password);
-        setClienteModelList (clienteModelList);
+        setRole (role);
+        setEnabled (enabled);
+        setClienteModel (clienteModel);
     }
 
-    public LoginModel(long id, String username, String password, List<ClienteModel> clienteModelList) {
+    public LoginModel(long id, String username, String password, ClienteModel clienteModel) {
         setId(id);
         setUsername (username);
         setPassword (password);
-        setClienteModelList (clienteModelList);
+        setClienteModel (clienteModel);
     }
 
     public long getId() {
@@ -45,12 +49,28 @@ public class LoginModel {
         this.password = password;
     }
 
-    public List<ClienteModel> getClienteModelList() {
-        return clienteModelList;
+    public ClienteModel getClienteModel() {
+        return clienteModel;
     }
 
-    public void setClienteModelList(List<ClienteModel> clienteModelList) {
-        this.clienteModelList = clienteModelList;
+    public void setClienteModel(ClienteModel clienteModel) {
+        this.clienteModel = clienteModel;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override
@@ -58,7 +78,7 @@ public class LoginModel {
         return "LoginModel{" +
                 "usuario='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", clienteModelList=" + clienteModelList +
+                ", clienteModel=" + clienteModel +
                 '}';
     }
 }

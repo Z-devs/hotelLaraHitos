@@ -13,8 +13,6 @@ import java.util.List;
 
 @Service
 public class HabitacionServiceImplementation implements HabitacionService{
-    //private ReservaFactory reservaFactory;
-    //private ClienteFactory clienteFactory;
     private final MasterRepository masterRepository;
     private final HabitacionFactory habitacionFactory ;
     private List<HabitacionEntity> habitacionEntities;
@@ -22,13 +20,10 @@ public class HabitacionServiceImplementation implements HabitacionService{
 
     @Autowired
     public HabitacionServiceImplementation(MasterRepository masterRepository,
-                                        /*ReservaFactory reservaFactory,
-                                        ClienteFactory clienteFactory,*/
+
                                         HabitacionFactory habitacionFactory) {
         this.masterRepository = masterRepository;
         this.habitacionFactory = habitacionFactory;
-        //this.reservaFactory = reservaFactory;
-        //this.clienteFactory = clienteFactory;
     }
 
     @Override
