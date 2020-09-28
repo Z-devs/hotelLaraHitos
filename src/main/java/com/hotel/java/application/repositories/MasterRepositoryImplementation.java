@@ -138,5 +138,26 @@ public class MasterRepositoryImplementation implements MasterRepository{
         return res;
     }
 
+    @Override
+    public List<Object> showByType(Class classEntity, String campo) {
+        List<Object> objects = new ArrayList<> ();
+        session = dbConnection.openSession ();
+        cb = session.getCriteriaBuilder();
+        try {
+            CriteriaQuery<Object> q = cb.createQuery (classEntity);
+            Root<Object> from = q.from (classEntity);
+            q.select (from);
+            q.where (from.get (campo));
+            q.orderBy (cb.asc(from.get(campo)));
+            objects = session.createQuery (q).getResultList ();
+        } catch (Throwable ex) {
+            ex.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return objects;
+    }
+
 
 }
