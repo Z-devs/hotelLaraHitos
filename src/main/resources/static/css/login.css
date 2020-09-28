@@ -56,17 +56,17 @@ body {
     bottom:40%;
     left: 45%;
     
-   -webkit-animation: station 10s linear infinite;
-   -moz-animation: station 10s linear infinite;
-   -ms-animation: station 10s linear infinite;
-   -o-animation: station 10s linear infinite;
+   -webkit-animation: station 60s linear infinite;
+   -moz-animation: station 60s linear infinite;
+   -ms-animation: station 60s linear infinite;
+   -o-animation: station 60s linear infinite;
    animation: station 60s linear infinite;
 
 }
 @-webkit-keyframes station {
     0%{
         transform:rotate(0deg)
-                  translate(-200px)
+                  translate(-300px)
                   rotate(0deg);
       
       }
@@ -82,13 +82,13 @@ body {
 @-moz-keyframes station {
     0%{
         transform:rotate(0deg)
-                  translate(-200px)
+                  translate(-300px)
                   rotate(0deg);
       
       }
       100%{
         transform:rotate(360deg)
-                  translate(-200px)
+                  translate(-300px)
                   rotate(-360deg);
       }
 }
@@ -96,13 +96,13 @@ body {
 @-ms-keyframes station {
     0%{
         transform:rotate(0deg)
-                  translate(-200px)
+                  translate(-300px)
                   rotate(0deg);
       
       }
       100%{
         transform:rotate(360deg)
-                  translate(-200px)
+                  translate(-300px)
                   rotate(-360deg);
       }
 }
@@ -115,7 +115,7 @@ body {
 @keyframes station {
     0%{
         transform:rotate(0deg)
-                  translate(-200px)
+                  translate(-300px)
                   rotate(0deg);
       
       }
