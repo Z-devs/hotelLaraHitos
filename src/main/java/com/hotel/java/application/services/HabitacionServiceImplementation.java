@@ -2,6 +2,7 @@ package com.hotel.java.application.services;
 
 import com.hotel.java.application.domain.entities.HabitacionEntity;
 //import com.hotel.java.application.domain.factories.ClienteFactory;
+import com.hotel.java.application.domain.entities.TipoEntity;
 import com.hotel.java.application.domain.factories.HabitacionFactory;
 //import com.hotel.java.application.domain.factories.ReservaFactory;
 import com.hotel.java.application.models.HabitacionModel;
@@ -42,9 +43,8 @@ public class HabitacionServiceImplementation implements HabitacionService{
 
     @Override
     public List<HabitacionModel> showHabitacionesByTipo() {
-        habitacionEntities = (List<HabitacionEntity>)(List<?>)this.masterRepository.showByType(HabitacionEntity.class, "tipo");
-        List<HabitacionModel> habitacionModels = this.habitacionFactory.habitacionListEntity2Model (habitacionEntities);
-        return habitacionModels;
+        habitacionEntities = (List<HabitacionEntity>)(List<?>)this.masterRepository.showByType(TipoEntity.class, "nombre");
+        return this.habitacionFactory.habitacionListEntity2Model (habitacionEntities);
     }
 
 
