@@ -25,6 +25,6 @@ public class TipoServiceImplementation implements TipoService{
     public List<TipoModel> showAllTipos() {
         tipoEntities = (List<TipoEntity>)(List<?>)this.masterRepository.listarTodo (TipoEntity.class);
         List<TipoModel> tipoModels = this.tipoFactory.tipoListEntity2Model(tipoEntities);
-        return null;
+        return tipoModels;
     }
 }
