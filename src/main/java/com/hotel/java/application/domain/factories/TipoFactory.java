@@ -39,7 +39,22 @@ public class TipoFactory {
                             tipo.getNombre (),
                             tipo.getDescripcion ()
                     );
+            tipoEntities.add (tipoEntity);
         }
         return tipoEntities;
+    }
+
+    public List<TipoModel> tipoListEntity2Model (List<TipoEntity> tipoEntities){
+        List<TipoModel> tipoModels = new ArrayList<> ();
+        for (TipoEntity tipo : tipoEntities){
+            TipoModel tipoModel =
+                    new TipoModel (
+                            tipo.getId (),
+                            tipo.getNombre (),
+                            tipo.getDescripcion ()
+                    );
+            tipoModels.add (tipoModel);
+        }
+        return tipoModels;
     }
 }

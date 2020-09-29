@@ -4,9 +4,11 @@ import com.hotel.java.application.models.ClienteModel;
 import com.hotel.java.application.models.HabitacionModel;
 import com.hotel.java.application.models.LoginModel;
 import com.hotel.java.application.dto.SignupFormModel;
+import com.hotel.java.application.models.TipoModel;
 import com.hotel.java.application.services.ClienteService;
 import com.hotel.java.application.services.HabitacionService;
 import com.hotel.java.application.services.LoginService;
+import com.hotel.java.application.services.TipoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,13 +24,13 @@ public class LoginController {
 
     private final ClienteService clienteService;
     private final LoginService loginService;
-    private final HabitacionService habitacionService;
+    private final TipoService tipoService;
 
     @Autowired
-    public LoginController(ClienteService client, LoginService loginService, HabitacionService habitacionService) {
+    public LoginController(ClienteService client, LoginService loginService, TipoService tipoService) {
         this.clienteService = client;
         this.loginService = loginService;
-        this.habitacionService = habitacionService;
+        this.tipoService = tipoService;
     }
 
     @GetMapping("loginMain")
@@ -48,10 +50,10 @@ public class LoginController {
 
     @GetMapping("index")
     public ModelAndView index() {
-        List<HabitacionModel> habitacionesPorTipo = this.habitacionService.showHabitacionesByTipo();
-        System.out.println (habitacionesPorTipo);
-        ModelAndView model = new ModelAndView ("habitaciones");
-        model.addObject ("habitaciones", habitacionesPorTipo);
-        return new ModelAndView ("index");
+        List<TipoModel> tipos = this.tipoService.showAllTipos ();
+        System.out.println (tipos);
+        ModelAndView model = new ModelAndView ("index");
+        model.addObject ("tipos", tipos);
+        return model;
     }
 }
