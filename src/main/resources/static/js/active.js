@@ -164,3 +164,18 @@
     }
 
 })(jQuery);
+
+var paxSum = function () {
+    var adults = document.getElementById("adults"),
+        adultsValue = adults.value;
+
+    var kids = document.getElementById("kids"),
+        kidsValue = kids.value;
+
+    var sum = 0;
+    var a = parseInt(adultsValue);
+    var b = parseInt(kidsValue);
+
+    sum = a + b;
+    document.getElementById("pax").value = "PAX: " + sum;
+};

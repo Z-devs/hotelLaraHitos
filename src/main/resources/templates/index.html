@@ -15,6 +15,7 @@
     <link rel="icon" href="img/core-img/favicon.png">
 
     <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="/css/solarsystem.css">
     <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -34,7 +35,7 @@
         <div class="palatin-main-menu">
             
             <div class="classy-nav-container breakpoint-off">
-                <span style="text-transform: uppercase; color: white; text-align: right;" th:text ="${#authentication.getPrincipal().username} + ' logged In'"></span>
+                
                 <div class="container">
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="palatinNav">
@@ -62,6 +63,7 @@
 
                             <!-- Nav Start -->
                                 <div class="classynav">
+                                    <p style="text-transform: uppercase; color: white; text-align: right;" th:text ="${#authentication.getPrincipal().username} + ' logged In'"></p>
                                    
                                     
                                 <!-- <ul>
@@ -210,12 +212,12 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="book-now-form">
-                        <form action="#">
+                        <form th:action="@{/}">
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select1">Check In</label>
                                 <select class="form-control" id="select1">
-                                    <input type="date" class="form-control" id="CheckIn" name="CheckIn">
+                                    <input type="date" class="form-control" id="CheckIn" th:name="CheckIn">
                                 </select>
                             </div>
 
@@ -223,36 +225,37 @@
                             <div class="form-group">
                                 <label for="select2">Check Out</label>
                                 <select class="form-control" id="select2">
-                                    <input type="date" class="form-control" id="CheckOut" name="CheckOut">
+                                    <input type="date" class="form-control" id="CheckOut" th:name="CheckOut">
                                 </select>
                             </div>
 
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select3">Adultos</label>
-                                <select class="form-control" id="select3">
-                                  <option>02</option>
-                                  <option>03</option>
-                                  <option>04</option>
-                                  <option>05</option>
-                                  <option>06</option>
+                                <select class="form-control" id="adults" th:name="adults" onchange="paxSum()">
+                                  <option value="2">02</option>
+                                  <option value="3">03</option>
+                                  <option value="4">04</option>
+                                  <option value="5">05</option>
+                                  <option value="6">06</option>
                                 </select>
                             </div>
 
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select4">Niños</label>
-                                <select class="form-control" id="select4">
-                                  <option>01</option>
-                                  <option>02</option>
-                                  <option>03</option>
-                                  <option>04</option>
-                                  <option>05</option>
+                                <select class="form-control" id="kids" th:name="kids" onchange="paxSum()">
+                                  <option value="1">01</option>
+                                  <option value="2">02</option>
+                                  <option value="3">03</option>
+                                  <option value="4">04</option>
+                                  <option value="5">05</option>
                                 </select>
                             </div>
 
                             <!-- Button -->
                             <button type="submit">Book Now</button>
+                            <input id="pax" value="" readonly style="border: 0px">
                         </form>
                     </div>
                 </div>
@@ -365,7 +368,7 @@
 					
 					<div class="bg-thumbnail bg-img" th:style="'background-image: url(/img/bg-img/hab/' + ${hab.getTipoModel().getId()} + '.jpg)'"></div>
 					<!-- Price  -->
-					<p class="price-from" th:text="'Desde ' + ${#numbers.formatDecimal(hab.getPrecio(),3,'POINT',0,'COMMA')} + ' €/noche'"></p>
+					<!-- <p class="price-from" th:text="'Desde ' + ${#numbers.formatDecimal(hab.getPrecio(),3,'POINT',0,'COMMA')} + ' €/noche'"></p> -->
 					<!-- Rooms Text -->
 					<div class="rooms-text">
 						<div class="line"></div>
@@ -386,8 +389,14 @@
     <!-- ##### Contact Area Start ##### -->
     <section class="contact-area d-flex flex-wrap align-items-center">
         <div class="home-map-area">
-            <iframe src="https://www.solarsystemscope.com/iframe" width="600" height="400" style="min-width:500px; min-height: 400px;" allowfullscreen></iframe>
-             <!-- <iframe  src="https://thumbsdb.herokuapp.com/solarsystem/" frameborder="0" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" scrolling="no"  allowfullscreen="false" allow="false"></iframe> -->
+            <!-- <iframe src="https://www.solarsystemscope.com/iframe" width="600" height="400" style="min-width:500px; min-height: 400px;" allowfullscreen></iframe> -->
+ 
+            <!-- <iframe  src="https://thumbsdb.herokuapp.com/solarsystem/" frameborder="0" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" scrolling="no"  allowfullscreen="false" allow="false"></iframe> -->
+ 
+
+
+
+            
         </div>
         <!-- Contact Info -->
         <div class="contact-info">
@@ -456,6 +465,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- ##### Footer Area End ##### -->
+    
+    
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
@@ -468,6 +479,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="../js/active.js"></script>
+    <!-- Active js -->
+    <script src="../js/solarsystem.js"></script>
 </body>
 
 </html>
