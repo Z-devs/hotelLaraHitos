@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/listRooms")
+@RequestMapping("/habitaciones")
 public class HabitacionController {
     private final HabitacionService habitacionService;
 

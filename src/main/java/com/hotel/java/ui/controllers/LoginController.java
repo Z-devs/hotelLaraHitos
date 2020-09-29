@@ -50,6 +50,8 @@ public class LoginController {
     public ModelAndView index() {
         List<HabitacionModel> habitacionesPorTipo = this.habitacionService.showHabitacionesByTipo();
         System.out.println (habitacionesPorTipo);
+        ModelAndView model = new ModelAndView ("habitaciones");
+        model.addObject ("habitaciones", habitacionesPorTipo);
         return new ModelAndView ("index");
     }
 }
