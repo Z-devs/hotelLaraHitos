@@ -388,11 +388,121 @@
 
     <!-- ##### Contact Area Start ##### -->
     <section class="contact-area d-flex flex-wrap align-items-center">
-        <div class="home-map-area">
+        <div class="home-map-area opening hide-UI view-2D zoom-large data-close controls-close">
             <!-- <iframe src="https://www.solarsystemscope.com/iframe" width="600" height="400" style="min-width:500px; min-height: 400px;" allowfullscreen></iframe> -->
  
             <!-- <iframe  src="https://thumbsdb.herokuapp.com/solarsystem/" frameborder="0" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" scrolling="no"  allowfullscreen="false" allow="false"></iframe> -->
  
+            <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
+            <h1>3D Solar System<br></h1>
+            <a id="toggle-controls" href="#controls"><i class="icon-controls"></i>Controls</a>
+          </div>
+          
+          
+          <div id="universe" class="scale-stretched">
+            <div id="galaxy">
+              <div id="solar-system" class="earth">
+                <div id="mercury" class="orbit">
+                  <div class="pos">
+                    <div class="planet">
+                      <dl class="infos">
+                        <dt>Mercury</dt>
+                        <dd><span></span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div id="venus" class="orbit">
+                  <div class="pos">
+                    <div class="planet">
+                      <dl class="infos">
+                        <dt>Venus</dt>
+                        <dd><span></span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div id="earth" class="orbit">
+                  <div class="pos">
+                    <div class="orbit">
+                      <div class="pos">
+                        <div class="moon"></div>
+                      </div>
+                    </div>
+                    <div class="planet">
+                      <dl class="infos">
+                        <dt>Earth</dt>
+                        <dd><span></span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div id="mars" class="orbit">
+                  <div class="pos">
+                    <div class="planet">
+                      <dl class="infos">
+                        <dt>Mars</dt>
+                        <dd><span></span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div id="jupiter" class="orbit">
+                  <div class="pos">
+                    <div class="planet">
+                      <dl class="infos">
+                        <dt>Jupiter</dt>
+                        <dd><span></span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div id="saturn" class="orbit">
+                  <div class="pos">
+                    <div class="planet">
+                      <div class="ring"></div>
+                      <dl class="infos">
+                        <dt>Saturn</dt>
+                        <dd><span></span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div id="uranus" class="orbit">
+                  <div class="pos">
+                    <div class="planet">
+                      <dl class="infos">
+                        <dt>Uranus</dt>
+                        <dd><span></span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div id="neptune" class="orbit">
+                  <div class="pos">
+                    <div class="planet">
+                      <dl class="infos">
+                        <dt>Neptune</dt>
+                        <dd><span></span></dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div id="sun">
+                  <dl class="infos">
+                    <dt>Sun</dt>
+                    <dd><span></span></dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+          <script type="text/javascript">
+          if (typeof jQuery == 'undefined') { 
+            document.write(unescape("%3Cscript src='js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+          }
+        </script>
 
 
 
