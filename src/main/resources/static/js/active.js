@@ -177,5 +177,5 @@ var paxSum = function () {
     var b = parseInt(kidsValue);
 
     sum = a + b;
-    document.getElementById("pax").value = "PAX: " + sum;
+    document.getElementById("pax").value = sum;
 };

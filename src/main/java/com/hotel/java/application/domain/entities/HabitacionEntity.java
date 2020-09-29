@@ -14,23 +14,26 @@ public class HabitacionEntity{
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="tipo_id")
     private TipoEntity tipo;
+    private int numpersonas;
 
     /*@OneToOne (mappedBy = "habitacion", fetch = FetchType.LAZY)
     private ReservaEntity reserva;*/
 
-    public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipo) {
+    public HabitacionEntity(long id, String codigo, String descripcion, float precio, TipoEntity tipo, int numpersonas) {
         setId (id);
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
         setTipo(tipo);
+        setNumpersonas(numpersonas);
     }
 
-    public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipo) {
+    public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipo, int numpersonas) {
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
         setTipo (tipo);
+        setNumpersonas(numpersonas);
     }
 
     public HabitacionEntity() {
@@ -84,6 +87,15 @@ public class HabitacionEntity{
         this.reserva = reserva;
     }
 */
+
+    public int getNumpersonas() {
+        return numpersonas;
+    }
+
+    public void setNumpersonas(int numpersonas) {
+        this.numpersonas = numpersonas;
+    }
+
     @Override
     public String toString() {
         return "HabitacionEntity{" +

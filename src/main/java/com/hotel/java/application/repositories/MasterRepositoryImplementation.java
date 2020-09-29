@@ -89,7 +89,7 @@ public class MasterRepositoryImplementation implements MasterRepository{
             CriteriaQuery<Object> q = cb.createQuery (classEntity);
             Root<Object> from = q.from (classEntity);
             q.select (from);
-            q.where (cb.gt (from.get (campo), valor));
+            q.where (cb.gt (from.get (campo), valor-1));
             objects = session.createQuery (q).getResultList ();
         } catch (Throwable ex) {
             ex.printStackTrace();

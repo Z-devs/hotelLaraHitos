@@ -8,20 +8,23 @@ public class HabitacionModel {
     private String descripcion;
     private float precio;
     TipoModel tipoModel;
+    private int numpersonas;
 
-    public HabitacionModel(String codigo, String descripcion, float precio, TipoModel tipoModel) {
+    public HabitacionModel(String codigo, String descripcion, float precio, TipoModel tipoModel, int numpersonas) {
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
         setTipoModel (tipoModel);
+        setNumpersonas(numpersonas);
     }
 
-    public HabitacionModel(long id, String codigo, String descripcion, float precio, TipoModel tipoModel) {
+    public HabitacionModel(long id, String codigo, String descripcion, float precio, TipoModel tipoModel, int numpersonas) {
         setId (id);
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
         setTipoModel (tipoModel);
+        setNumpersonas(numpersonas);
     }
 
     public long getId() {
@@ -62,6 +65,14 @@ public class HabitacionModel {
 
     public void setTipoModel(TipoModel tipoModel) {
         this.tipoModel = tipoModel;
+    }
+
+    public int getNumpersonas() {
+        return numpersonas;
+    }
+
+    public void setNumpersonas(int numpersonas) {
+        this.numpersonas = numpersonas;
     }
 
     @Override

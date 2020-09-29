@@ -21,7 +21,8 @@ public class HabitacionFactory {
                         habitacionModel.getCodigo (),
                         habitacionModel.getDescripcion (),
                         habitacionModel.getPrecio (),
-                        tipoFactory.tipoModel2Entity(habitacionModel.getTipoModel ())
+                        tipoFactory.tipoModel2Entity(habitacionModel.getTipoModel ()),
+                        habitacionModel.getNumpersonas()
                 );
         return habitacionEntity;
     }
@@ -33,7 +34,8 @@ public class HabitacionFactory {
                         habitacionEntity.getCodigo (),
                         habitacionEntity.getDescripcion (),
                         habitacionEntity.getPrecio (),
-                        tipoFactory.tipoEntity2Model(habitacionEntity.getTipo ())
+                        tipoFactory.tipoEntity2Model(habitacionEntity.getTipo ()),
+                        habitacionEntity.getNumpersonas()
                 );
         return habitacionModel;
     }
@@ -47,7 +49,8 @@ public class HabitacionFactory {
                             habitacion.getCodigo (),
                             habitacion.getDescripcion (),
                             habitacion.getPrecio (),
-                            tipoFactory.tipoEntity2Model (habitacion.getTipo ())
+                            tipoFactory.tipoEntity2Model (habitacion.getTipo ()),
+                            habitacion.getNumpersonas()
                     );
             habitacionModels.add (habitacionModel);
         }

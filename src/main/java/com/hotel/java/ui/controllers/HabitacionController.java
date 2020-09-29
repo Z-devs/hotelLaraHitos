@@ -34,7 +34,7 @@ public class HabitacionController {
         return model;
     }
 
-    @PostMapping("/showByGuest/{numguest}")
+    @GetMapping("/showByGuest/{numguest}")
     public ModelAndView showbByGuest(@PathVariable("numguest") int numguest) {
         List<HabitacionModel> habitaciones = habitacionService.showHabitacionesByGuest (numguest);
         ModelAndView model = new ModelAndView ("habitacion");

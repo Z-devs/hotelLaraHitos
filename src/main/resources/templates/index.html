@@ -63,7 +63,7 @@
 
                             <!-- Nav Start -->
                                 <div class="classynav">
-                                    <p style="text-transform: uppercase; color: white; text-align: right;" th:text ="${#authentication.getPrincipal().username} + ' logged In'"></p>
+                                    <p sec:authorize="hasRole('USER')" style="text-transform: uppercase; color: white; text-align: right;" th:text ="${#authentication.getPrincipal().username} + ' logged In'"></p>
                                    
                                     
                                 <!-- <ul>
@@ -212,7 +212,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="book-now-form">
-                        <form th:action="@{/}">
+                        <form th:action="@{/habitaciones/showByGuest/numguest}" method="get">
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select1">Check In</label>
@@ -231,8 +231,9 @@
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label for="select3">Adultos</label>
+                                <label for="adults">Adultos</label>
                                 <select class="form-control" id="adults" th:name="adults" onchange="paxSum()">
+                                  <option value="1" selected>01</option>
                                   <option value="2">02</option>
                                   <option value="3">03</option>
                                   <option value="4">04</option>
@@ -243,8 +244,9 @@
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label for="select4">Niños</label>
+                                <label for="kids">Niños</label>
                                 <select class="form-control" id="kids" th:name="kids" onchange="paxSum()">
+                                  <option value="0" selected>00</option>
                                   <option value="1">01</option>
                                   <option value="2">02</option>
                                   <option value="3">03</option>
@@ -255,7 +257,7 @@
 
                             <!-- Button -->
                             <button type="submit">Book Now</button>
-                            <input id="pax" value="" readonly style="border: 0px">
+                            <input id="pax" value="1" th:name="numguest" readonly style="visibility: hidden; border: 0px">
                         </form>
                     </div>
                 </div>
@@ -362,18 +364,19 @@
 		<div class="row justify-content-center">
 
 			<!-- Single Rooms Area -->
-			<div th:each="hab: ${habitaciones}" class="col-12 col-md-6 col-lg-4">
+			<div th:each="tipo: ${tipos}" class="col-12 col-md-6 col-lg-4">
 				<div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
 					<!-- Thumbnail -->
 					
-					<div class="bg-thumbnail bg-img" th:style="'background-image: url(/img/bg-img/hab/' + ${hab.getTipoModel().getId()} + '.jpg)'"></div>
+					<div class="bg-thumbnail bg-img" th:style="'background-image: url(/img/bg-img/hab/' + ${tipo.getId()} + '.jpg)'"></div>
 					<!-- Price  -->
 					<!-- <p class="price-from" th:text="'Desde ' + ${#numbers.formatDecimal(hab.getPrecio(),3,'POINT',0,'COMMA')} + ' €/noche'"></p> -->
-					<!-- Rooms Text -->
+                    <p class="price-from" th:text="'Desde ' + ${tipo.getId()} + '00 €/noche'"></p>
+                    <!-- Rooms Text -->
 					<div class="rooms-text">
 						<div class="line"></div>
-						<h4 th:text="${hab.getTipoModel().getNombre()}"></h4>
-						<p th:text="${hab.getTipoModel().getDescripcion()}"></p>
+						<h4 th:text="${tipo.getNombre()}"></h4>
+						<p th:text="${tipo.getDescripcion()}"></p>
 					
 					</div>
 					<!-- Book Room -->
