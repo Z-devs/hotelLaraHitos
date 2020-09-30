@@ -212,12 +212,12 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="book-now-form">
-                        <form th:action="@{/habitaciones/showByGuest/numguest}" method="get">
+                        <form method="get">
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select1">Check In</label>
                                 <select class="form-control" id="select1">
-                                    <input type="date" class="form-control" id="CheckIn" th:name="CheckIn">
+                                    <input type="date" class="form-control" id="CheckIn" th:name="checkIn">
                                 </select>
                             </div>
 
@@ -225,14 +225,14 @@
                             <div class="form-group">
                                 <label for="select2">Check Out</label>
                                 <select class="form-control" id="select2">
-                                    <input type="date" class="form-control" id="CheckOut" th:name="CheckOut">
+                                    <input type="date" class="form-control" id="CheckOut" th:name="checkOut">
                                 </select>
                             </div>
 
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="adults">Adultos</label>
-                                <select class="form-control" id="adults" th:name="adults" onchange="paxSum()">
+                                <select class="form-control" id="adults" onchange="paxSum()">
                                   <option value="1" selected>01</option>
                                   <option value="2">02</option>
                                   <option value="3">03</option>
@@ -245,7 +245,7 @@
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="kids">Niños</label>
-                                <select class="form-control" id="kids" th:name="kids" onchange="paxSum()">
+                                <select class="form-control" id="kids" onchange="paxSum()">
                                   <option value="0" selected>00</option>
                                   <option value="1">01</option>
                                   <option value="2">02</option>
@@ -256,8 +256,8 @@
                             </div>
 
                             <!-- Button -->
-                            <button type="submit">Book Now</button>
-                            <input id="pax" value="1" th:name="numguest" readonly style="visibility: hidden; border: 0px">
+                            <a th:href="@{/habitaciones/showByGuest/{numguest}(numguest=${numguest})}">Book Now</a>
+                            <input id="pax" th:value="${numguest}" readonly style="visibility: hidden; border: 0px">
                         </form>
                     </div>
                 </div>

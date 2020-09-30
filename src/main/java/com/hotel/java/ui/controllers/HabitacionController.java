@@ -31,6 +31,7 @@ public class HabitacionController {
         }
         ModelAndView model = new ModelAndView ("habitaciones");
         model.addObject ("habitaciones", habitaciones);
+
         return model;
     }
 
