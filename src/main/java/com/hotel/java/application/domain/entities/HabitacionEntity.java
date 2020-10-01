@@ -28,13 +28,13 @@ public class HabitacionEntity{
         setNumpersonas(numpersonas);
     }
 
-    public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipo, int numpersonas) {
+    /*public HabitacionEntity(String codigo, String descripcion, float precio, TipoEntity tipo, int numpersonas) {
         setCodigo (codigo);
         setDescripcion (descripcion);
         setPrecio (precio);
         setTipo (tipo);
         setNumpersonas(numpersonas);
-    }
+    }*/
 
     public HabitacionEntity() {
     }

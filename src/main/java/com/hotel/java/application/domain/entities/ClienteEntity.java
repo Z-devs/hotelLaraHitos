@@ -2,7 +2,6 @@ package com.hotel.java.application.domain.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,8 +17,8 @@ public class ClienteEntity implements Serializable {
     @OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
     private Set<ReservaEntity> reservas;
 
-    @OneToOne(mappedBy="cliente", fetch=FetchType.EAGER)
-    private LoginEntity login;
+    /*@OneToOne(mappedBy="cliente", fetch=FetchType.EAGER)
+    private LoginEntity login;*/
 
     public ClienteEntity(long id, String nombre, String apellido, String email) {
         setId (id);
@@ -71,21 +70,21 @@ public class ClienteEntity implements Serializable {
         this.email = email;
     }
 
-    public Set<ReservaEntity> getReservaEntities() {
+    /*public Set<ReservaEntity> getReservaEntities() {
         return reservas;
-    }
+    }*/
 
     public void setReservaEntities(Set<ReservaEntity> reservas_id) {
         this.reservas = reservas_id;
     }
 
-    public LoginEntity getLoginEntity() {
+    /*public LoginEntity getLoginEntity() {
         return login;
     }
 
     public void setLoginEntity(LoginEntity login) {
         this.login = login;
-    }
+    }*/
 
     @Override
     public String toString() {
