@@ -179,3 +179,17 @@ var paxSum = function () {
     sum = a + b;
     document.getElementById("pax").value = sum;
 };
+
+var dateToday = new Date();
+var dates = $("#CheckIn, #CheckOut").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 3,
+    minDate: dateToday,
+    onSelect: function(selectedDate) {
+        var option = this.id == "from" ? "minDate" : "maxDate",
+            instance = $(this).data("datepicker"),
+            date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
+        dates.not(this).datepicker("option", option, date);
+    }
+});

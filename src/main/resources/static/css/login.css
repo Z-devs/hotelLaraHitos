@@ -187,9 +187,17 @@ body {
     transition: all .5s ease
 }
 
+#personalData {
+    display: inline-block;
+}
+
+#loginData {
+    display: inline-block;
+}
+
 .frame-long {
-    height: 815px;
-    width: 800px;
+    height: 800px;
+    width: 430px;
 }
 
 .frame-short {
@@ -304,7 +312,7 @@ li {
     height: 150px;
     text-align: center;
     position: relative;
-    top: -890px;
+    top: -790px;
     left: 450px;
     opacity: .0;
     transition: all .8s .4s ease
@@ -472,12 +480,12 @@ textarea:focus {
     font-weight: bold;
     text-align: center;
     color: #ffffff;
-    padding-top: 10px;
+    padding-top: 4px;
     width: 100%;
     height: 35px;
     border: none;
     border-radius: 20px;
-    margin-top: 23px;
+    margin-top: 10px;
     background-color: #ff8410
 }
 
@@ -488,7 +496,7 @@ textarea:focus {
     height: 35px;
     border: none;
     border-radius: 15px;
-    margin-top: -8px;
+    margin-top: 0px;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;

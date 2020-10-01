@@ -47,24 +47,28 @@
                     <input class="form-styling" type="text" id="username" name="username" placeholder="" />
                     <label for="password">Password</label>
                     <input class="form-styling" type="password" id="password" name="password" placeholder="" />
+                    
                     <div class="btn-animate">
                         <button type="submit" class="btn-signin">Sign In</button>
                     </div>
 
                 </form>
                 <form class="form-signup" method="post" th:action="@{/newUser}" modelAttribute="signUP" name="form2">
-                    <label for="nombre">Nombre</label>
-                    <input class="form-styling" type="text" name="nombre" id="nombre" placeholder="" />
-                    <label for="apellido">Apellidos</label>
-                    <input class="form-styling" type="text" name="apellido" id="apellido" placeholder="" />
-                    <label for="email">Email</label>
-                    <input class="form-styling" type="email" name="email" id="email" placeholder="" />
-                    <label for="newUsername">Usuario</label>
-                    <input class="form-styling" type="text" name="newUsername" id="newUsername" placeholder="" />
-                    <label for="newPassword">Password</label>
-                    <input class="form-styling" type="password" id="newPassword" name="newPassword" placeholder="" />
-                    <label for="confirmpassword">Confirma el password</label>
-                    <input class="form-styling" type="password" name="confirmpassword" id="confirmpassword" placeholder="" />
+                
+                         <label for="nombre">Nombre</label>
+                         <input class="form-styling" type="text" name="nombre" id="nombre" placeholder="" />
+                        <label for="apellido">Apellidos</label>
+                        <input class="form-styling" type="text" name="apellido" id="apellido" placeholder="" />
+                        <label for="email">Email</label>               
+                        <input class="form-styling" type="email" name="email" id="email" placeholder="" />
+                        <hr><br>
+                        <label for="newUsername">Usuario</label>
+                        <input class="form-styling" type="text" name="newUsername" id="newUsername" placeholder="" />
+                        <label for="newPassword">Password</label>
+                        <input class="form-styling" type="password" id="newPassword" name="newPassword" placeholder="" />
+                        <label for="confirmpassword">Confirma el password</label>
+                        <input class="form-styling" type="password" name="confirmpassword" id="confirmpassword" placeholder="" />
+                        <hr>
                     <div>
                         <button type="submit" class="btn-signup">Sign UP</button>
                     </div>
