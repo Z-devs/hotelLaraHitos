@@ -34,7 +34,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
         if (roles.contains("ROLE_USER")) {
             //redireccion directa cuando se accede directamente a sigin
-            httpServletResponse.sendRedirect("/index/");
+            httpServletResponse.sendRedirect("/");
         }
     }
 }

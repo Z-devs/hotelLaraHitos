@@ -46,7 +46,7 @@ public class LoginController {
         return "redirect:/login?q=Registrado+Correctamente!";
     }
 
-    @GetMapping("index")
+    @GetMapping
     public ModelAndView index() {
         List<TipoModel> tipos = this.tipoService.showAllTipos ();
         System.out.println (tipos);
