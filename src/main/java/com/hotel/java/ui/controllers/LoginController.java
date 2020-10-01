@@ -31,7 +31,7 @@ public class LoginController {
         this.tipoService = tipoService;
     }
 
-    @GetMapping("loginMain")
+    @GetMapping("login")
     public ModelAndView login() {
         return new ModelAndView ("login");
     }
@@ -43,10 +43,10 @@ public class LoginController {
         cliente.setId (res);
         LoginModel login = new LoginModel (signupFormDtoModel.getNewUsername (), signupFormDtoModel.getNewPassword (), "ROLE_USER", true, cliente);
         loginService.createLogin(login);
-        return "redirect:/loginMain?q=Registrado+Correctamente!";
+        return "redirect:/login?q=Registrado+Correctamente!";
     }
 
-    @GetMapping
+    @GetMapping("index")
     public ModelAndView index() {
         List<TipoModel> tipos = this.tipoService.showAllTipos ();
         System.out.println (tipos);
