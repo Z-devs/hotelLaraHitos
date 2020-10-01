@@ -4,13 +4,14 @@ import com.hotel.java.application.models.HabitacionModel;
 import com.hotel.java.application.services.HabitacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,14 +32,35 @@ public class HabitacionController {
         }
         ModelAndView model = new ModelAndView ("habitaciones");
         model.addObject ("habitaciones", habitaciones);
+
         return model;
     }
 
-    @GetMapping("/showByGuest/{numguest}")
-    public ModelAndView showbByGuest(@PathVariable("numguest") int numguest) {
+    @GetMapping("/showByGuest/")
+    public ModelAndView showbByGuest(
+            ModelMap model2,
+            @RequestParam(value="checkIn")String checkIn,
+            @RequestParam(value="checkOut")String checkOut,
+            @RequestParam(value="numguest") int numguest) {
+        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd");
+        Date check_In = null;
+        Date check_Out = null;
+        try {
+            check_In = formatter.parse(checkIn);
+            check_Out = formatter.parse(checkOut);
+        } catch (ParseException e) {
+            e.printStackTrace ();
+        }
         List<HabitacionModel> habitaciones = habitacionService.showHabitacionesByGuest (numguest);
+        long diffInMillis = check_Out.getTime () - check_In.getTime ();
         ModelAndView model = new ModelAndView ("habitacion");
+        System.out.println ("CheckIn: " + check_In + "\nCheckOut: " + check_Out);
+        if (diffInMillis<0) {
+            model2.addAttribute ("fechaErronea", "Fechas erroneas");
+            return new ModelAndView ("redirect:/", model2);
+        }
         model.addObject ("habitacion", habitaciones);
+
         return model;
     }
 }

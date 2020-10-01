@@ -1,12 +1,10 @@
 package com.hotel.java.ui.controllers;
 
 import com.hotel.java.application.models.ClienteModel;
-import com.hotel.java.application.models.HabitacionModel;
 import com.hotel.java.application.models.LoginModel;
-import com.hotel.java.application.dto.SignupFormModel;
+import com.hotel.java.application.dto.SignupFormDtoModel;
 import com.hotel.java.application.models.TipoModel;
 import com.hotel.java.application.services.ClienteService;
-import com.hotel.java.application.services.HabitacionService;
 import com.hotel.java.application.services.LoginService;
 import com.hotel.java.application.services.TipoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,16 +37,16 @@ public class LoginController {
     }
 
     @PostMapping("newUser")
-    public String submit(@Valid @ModelAttribute("signUP") SignupFormModel signupFormModel){
-        ClienteModel cliente = new ClienteModel (signupFormModel.getNombre (), signupFormModel.getApellido (), signupFormModel.getEmail ());
+    public String submit(@Valid @ModelAttribute("signUP") SignupFormDtoModel signupFormDtoModel){
+        ClienteModel cliente = new ClienteModel (signupFormDtoModel.getNombre (), signupFormDtoModel.getApellido (), signupFormDtoModel.getEmail ());
         long res = clienteService.createCliente (cliente);
         cliente.setId (res);
-        LoginModel login = new LoginModel (signupFormModel.getNewUsername (), signupFormModel.getNewPassword (), "ROLE_USER", true, cliente);
+        LoginModel login = new LoginModel (signupFormDtoModel.getNewUsername (), signupFormDtoModel.getNewPassword (), "ROLE_USER", true, cliente);
         loginService.createLogin(login);
         return "redirect:/loginMain?q=Registrado+Correctamente!";
     }
 
-    @GetMapping("index")
+    @GetMapping
     public ModelAndView index() {
         List<TipoModel> tipos = this.tipoService.showAllTipos ();
         System.out.println (tipos);

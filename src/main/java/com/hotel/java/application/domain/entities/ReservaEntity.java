@@ -2,8 +2,6 @@ package com.hotel.java.application.domain.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name = "reserva")
@@ -11,8 +9,8 @@ public class ReservaEntity implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
-    private Timestamp fechaIn;
-    private Timestamp fechaOut;
+    private java.sql.Date fechaIn;
+    private java.sql.Date fechaOut;
     private float precioTotal;
 
     @ManyToOne(fetch=FetchType.EAGER)
@@ -23,7 +21,7 @@ public class ReservaEntity implements Serializable {
     @JoinColumn(name="id_habitacion")
     private HabitacionEntity habitacion;
 
-    public ReservaEntity(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacion) {
+    public ReservaEntity(long id, java.sql.Date fechaIn, java.sql.Date fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacion) {
         setId (id);
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
@@ -32,7 +30,7 @@ public class ReservaEntity implements Serializable {
         setHabitacionEntity_id (habitacion);
     }
 
-    public ReservaEntity(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacionEntity) {
+    public ReservaEntity(java.sql.Date fechaIn, java.sql.Date fechaOut, float precioTotal, ClienteEntity clienteEntity_id, HabitacionEntity habitacionEntity) {
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
@@ -51,19 +49,19 @@ public class ReservaEntity implements Serializable {
         this.id = id;
     }
 
-    public Timestamp getFechaIn() {
+    public java.sql.Date getFechaIn() {
         return fechaIn;
     }
 
-    public void setFechaIn(Timestamp fechaIn) {
+    public void setFechaIn(java.sql.Date fechaIn) {
         this.fechaIn = fechaIn;
     }
 
-    public Timestamp getFechaOut() {
+    public java.sql.Date getFechaOut() {
         return fechaOut;
     }
 
-    public void setFechaOut(Timestamp fechaOut) {
+    public void setFechaOut(java.sql.Date fechaOut) {
         this.fechaOut = fechaOut;
     }
 
