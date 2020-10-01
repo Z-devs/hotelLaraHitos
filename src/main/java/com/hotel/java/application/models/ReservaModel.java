@@ -1,16 +1,14 @@
 package com.hotel.java.application.models;
 
-import java.sql.Timestamp;
-
 public class ReservaModel {
     private long id;
-    private java.sql.Timestamp fechaIn;
-    private java.sql.Timestamp fechaOut;
+    private java.sql.Date fechaIn;
+    private java.sql.Date fechaOut;
     private float precioTotal;
     ClienteModel cliente;
     HabitacionModel habitacion;
 
-    public ReservaModel(Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteModel cliente, HabitacionModel habitacion) {
+    public ReservaModel(java.sql.Date fechaIn, java.sql.Date fechaOut, float precioTotal, ClienteModel cliente, HabitacionModel habitacion) {
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
         setPrecioTotal (precioTotal);
@@ -18,7 +16,7 @@ public class ReservaModel {
         setHabitacion (habitacion);
     }
 
-    public ReservaModel(long id, Timestamp fechaIn, Timestamp fechaOut, float precioTotal, ClienteModel cliente, HabitacionModel habitacion) {
+    public ReservaModel(long id, java.sql.Date fechaIn, java.sql.Date fechaOut, float precioTotal, ClienteModel cliente, HabitacionModel habitacion) {
         setId (id);
         setFechaIn (fechaIn);
         setFechaOut (fechaOut);
@@ -38,19 +36,19 @@ public class ReservaModel {
         this.id = id;
     }
 
-    public Timestamp getFechaIn() {
+    public java.sql.Date getFechaIn() {
         return fechaIn;
     }
 
-    public void setFechaIn(Timestamp fechaIn) {
+    public void setFechaIn(java.sql.Date fechaIn) {
         this.fechaIn = fechaIn;
     }
 
-    public Timestamp getFechaOut() {
+    public java.sql.Date getFechaOut() {
         return fechaOut;
     }
 
-    public void setFechaOut(Timestamp fechaOut) {
+    public void setFechaOut(java.sql.Date fechaOut) {
         this.fechaOut = fechaOut;
     }
 

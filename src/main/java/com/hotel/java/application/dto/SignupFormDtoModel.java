@@ -1,6 +1,6 @@
 package com.hotel.java.application.dto;
 
-public class SignupFormModel {
+public class SignupFormDtoModel {
     private String nombre;
     private String apellido;
     private String email;

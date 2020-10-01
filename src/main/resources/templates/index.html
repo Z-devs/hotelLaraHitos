@@ -212,7 +212,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="book-now-form">
-                        <form method="get">
+                        <form method="get" th:action="@{/habitaciones/showByGuest/}">
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="select1">Check In</label>
@@ -228,7 +228,6 @@
                                     <input type="date" class="form-control" id="CheckOut" th:name="checkOut">
                                 </select>
                             </div>
-
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="adults">Adultos</label>
@@ -256,8 +255,9 @@
                             </div>
 
                             <!-- Button -->
-                            <a th:href="@{/habitaciones/showByGuest/{numguest}(numguest=${numguest})}">Book Now</a>
-                            <input id="pax" th:value="${numguest}" readonly style="visibility: hidden; border: 0px">
+                            <button type="submit">Book Now</button>
+                            <input th:value="${fechaErronea}"></input>
+                            <input id="pax" value="1" th:name="numguest" readonly style="visibility: hidden; border: 0px">
                         </form>
                     </div>
                 </div>
