@@ -17,6 +17,7 @@ public class HabitacionServiceImplementation implements HabitacionService{
     private final HabitacionFactory habitacionFactory ;
     private List<HabitacionEntity> habitacionEntities;
     private List<HabitacionModel> habitacionModels;
+    private HabitacionEntity habitacionEntity;
 
     @Autowired
     public HabitacionServiceImplementation(MasterRepository masterRepository,
@@ -53,5 +54,13 @@ public class HabitacionServiceImplementation implements HabitacionService{
         List<HabitacionModel> habitacionModels = this.habitacionFactory.habitacionListEntity2Model (habitacionEntities);
         return habitacionModels;
     }
+
+    @Override
+    public HabitacionModel showHabitacionByID(long hab_id) {
+        habitacionEntity = (HabitacionEntity) this.masterRepository.listarById(hab_id, HabitacionEntity.class);
+        HabitacionModel habitacionModel = this.habitacionFactory.habitacionEntity2Model(habitacionEntity);
+        return habitacionModel;
+    }
+
 
 }

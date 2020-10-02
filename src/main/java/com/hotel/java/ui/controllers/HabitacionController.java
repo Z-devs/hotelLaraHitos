@@ -76,4 +76,13 @@ public class HabitacionController {
 
         return model;
     }
+
+    @GetMapping("/showRoom/{id}")
+    public ModelAndView showRoom(@PathVariable ("id") long hab_id) {
+        HabitacionModel habitacion = habitacionService.showHabitacionByID(hab_id);
+        ModelAndView model = new ModelAndView ("hab_final");
+        model.addObject ("habitacion", habitacion);
+
+        return model;
+    }
 }
