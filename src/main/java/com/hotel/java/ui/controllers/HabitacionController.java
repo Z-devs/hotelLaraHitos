@@ -71,8 +71,8 @@ public class HabitacionController {
         for (HabitacionModel up: habitaciones){
             System.out.println(up.getTipoModel());
         }
-        ModelAndView model = new ModelAndView ("habitaciones");
-        model.addObject ("habitaciones", habitaciones);
+        ModelAndView model = new ModelAndView ("habitacion");
+        model.addObject ("habitacion", habitaciones);
 
         return model;
     }
