@@ -8,4 +8,5 @@ public interface HabitacionService {
     List<HabitacionModel> showAllHabitaciones();
     List<HabitacionModel> showHabitacionesByGuest(int numGuest);
     List<HabitacionModel> showHabitacionesByTipo();
+    List<HabitacionModel> showHabitacionesByTipoID(long id);
 }

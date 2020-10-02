@@ -63,4 +63,17 @@ public class HabitacionController {
 
         return model;
     }
+
+    @GetMapping("/showByType/{id}")
+    public ModelAndView showByType(@PathVariable ("id") long tipo_id) {
+
+        List<HabitacionModel> habitaciones = habitacionService.showHabitacionesByTipoID(tipo_id);
+        for (HabitacionModel up: habitaciones){
+            System.out.println(up.getTipoModel());
+        }
+        ModelAndView model = new ModelAndView ("habitaciones");
+        model.addObject ("habitaciones", habitaciones);
+
+        return model;
+    }
 }

@@ -1,5 +1,7 @@
 package com.hotel.java.application.repositories;
 
+import com.hotel.java.application.domain.entities.HabitacionEntity;
+
 import java.util.List;
 
 public interface MasterRepository {
@@ -10,4 +12,5 @@ public interface MasterRepository {
     List<Object> listCampoLT(Class classEntity, int valor, String campo);
     long newSignUp(Object object);
     List<Object> showByType(Class classEntity, String campo);
+    List<Object> showByTypeID(Class classEntity, long valor, String campo);
 }

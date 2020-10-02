@@ -47,5 +47,11 @@ public class HabitacionServiceImplementation implements HabitacionService{
         return habitacionModels;
     }
 
+    @Override
+    public List<HabitacionModel> showHabitacionesByTipoID(long id) {
+        habitacionEntities = (List<HabitacionEntity>)(List<?>)this.masterRepository.showByTypeID(HabitacionEntity.class, id,"tipo_id");
+        List<HabitacionModel> habitacionModels = this.habitacionFactory.habitacionListEntity2Model (habitacionEntities);
+        return habitacionModels;
+    }
 
 }
