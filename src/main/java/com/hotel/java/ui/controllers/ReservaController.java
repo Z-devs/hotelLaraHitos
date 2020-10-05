@@ -43,4 +43,5 @@ public class ReservaController {
     public void newReserva(@Valid @ModelAttribute("reserva") ReservaModel reservaModel) {
         this.reservaService.operateReserva (reservaModel, "new");
     }
+
 }
