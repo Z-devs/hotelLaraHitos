@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
@@ -47,18 +48,14 @@
                         <form method="get" th:action="@{/reservas/newReserva/}">
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label for="select1">Check In</label>
-                                <select class="form-control" id="select1">
+                                <label>Check In</label>
                                     <input type="date" class="form-control" id="CheckIn" th:name="checkIn">
-                                </select>
                             </div>
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label for="select2">Check Out</label>
-                                <select class="form-control" id="select2">
+                                <label>Check Out</label>
                                     <input type="date" class="form-control" id="CheckOut" th:name="checkOut">
-                                </select>
                             </div>
                             <!-- Form Group -->
                             <div class="form-group">
@@ -76,7 +73,7 @@
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label for="kids">Niños</label>
-                                <select class="form-control" id="kids" th:name="kids" onchange="paxSum()">
+                                <select class="form-control" id="kids" onchange="paxSum()">
                                   <option value="0" selected>00</option>
                                   <option value="1">01</option>
                                   <option value="2">02</option>
@@ -88,7 +85,12 @@
 
                             <!-- Button -->
                             <button type="submit">Book Now</button>
-                            <input id="pax" value="1" th:name="numguest" readonly style="visibility: hidden; border: 0px">
+                            <input id="labelPrecio" value=""    ></input>
+                            <label th:text="@{habitacion.precio}" hidden></label><br>
+                            <label th:text="@{habitacion.id}" hidden></label><br>
+                            <!-- falta label con precio total por noche
+                                falta que envíe el id_cliente -->
+                            <p hidden sec:authorize="hasRole('USER')" th:text="${#authentication.getPrincipal().id_cliente}"></p><br>
                         </form>
                     </div>
                 </div>
@@ -96,6 +98,5 @@
         </div>
     </div>
     <!-- ##### Book Now Area End ##### -->
-
   </body>
 </html>
