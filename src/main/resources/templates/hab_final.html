@@ -19,22 +19,83 @@
     <title>Hab Final</title>
 </head>
 <body>
-
-    <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
+    <div class="col-12 col-md-6 col-lg-4 mt-5 px-5">
+      <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
         <!-- Thumbnail -->
 
         <div class="bg-thumbnail bg-img" th:style="'background-image: url(/img/bg-img/hab/' + ${habitacion.getTipoModel().getId()} + '.jpg)'"></div>
         <!-- Price  -->
-        <p class="price-from" th:text="'Desde ' + ${#numbers.formatDecimal(habitacion.getPrecio(),3,'POINT',0,'COMMA')} + ' €/noche'"></p>
+        <p class="price-from-final" th:text="${habitacion.getTipoModel().getNombre()}"></p>
         <!-- Rooms Text -->
         <div class="rooms-text">
             <div class="line"></div>
-            <h4 th:text="${habitacion.getTipoModel().getNombre()}"></h4>
+            <!-- <h4 th:text="${habitacion.getTipoModel().getNombre()}"></h4> -->
             <p th:text="${habitacion.getTipoModel().getDescripcion()}"></p>
 
         </div>
-        <!-- Book Room -->
+    
+      </div>
+   </div>
+   <!-- Book Room -->
+
+     <!-- ##### Book Now Area Start ##### -->
+     <div class="book-now-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="book-now-form">
+                        <form method="get" th:action="@{/reservas/newReserva/}">
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <label for="select1">Check In</label>
+                                <select class="form-control" id="select1">
+                                    <input type="date" class="form-control" id="CheckIn" th:name="checkIn">
+                                </select>
+                            </div>
+
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <label for="select2">Check Out</label>
+                                <select class="form-control" id="select2">
+                                    <input type="date" class="form-control" id="CheckOut" th:name="checkOut">
+                                </select>
+                            </div>
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <label for="adults">Adultos</label>
+                                <select class="form-control" id="adults" onchange="paxSum()">
+                                  <option value="1" selected>01</option>
+                                  <option value="2">02</option>
+                                  <option value="3">03</option>
+                                  <option value="4">04</option>
+                                  <option value="5">05</option>
+                                  <option value="6">06</option>
+                                </select>
+                            </div>
+
+                            <!-- Form Group -->
+                            <div class="form-group">
+                                <label for="kids">Niños</label>
+                                <select class="form-control" id="kids" th:name="kids" onchange="paxSum()">
+                                  <option value="0" selected>00</option>
+                                  <option value="1">01</option>
+                                  <option value="2">02</option>
+                                  <option value="3">03</option>
+                                  <option value="4">04</option>
+                                  <option value="5">05</option>
+                                </select>
+                            </div>
+
+                            <!-- Button -->
+                            <button type="submit">Book Now</button>
+                            <input id="pax" value="1" th:name="numguest" readonly style="visibility: hidden; border: 0px">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</body>
+    <!-- ##### Book Now Area End ##### -->
+
+  </body>
 </html>

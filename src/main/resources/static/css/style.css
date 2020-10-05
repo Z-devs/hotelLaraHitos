@@ -967,6 +967,24 @@ input:focus {
     line-height: 1;
     color: #ffffff;
     font-size: 14px; }
+
+    .price-from-final {
+      position: absolute;
+      z-index: 20;
+      top: 10px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      padding: 10px 15px;
+      background-color: #181818;
+      border: 2px solid #f08306;
+      display: inline-block;
+      margin-bottom: 0;
+      line-height: 1;
+      color: #ffffff;
+      font-size: 25px; 
+      text-align: center;}
+
   .single-rooms-area .rooms-text {
     position: absolute;
     z-index: 30;
