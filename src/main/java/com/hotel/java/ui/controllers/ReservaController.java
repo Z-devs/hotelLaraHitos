@@ -1,6 +1,12 @@
 package com.hotel.java.ui.controllers;
 
+import com.hotel.java.application.dto.ReservaDtoModel;
+import com.hotel.java.application.models.ClienteModel;
+import com.hotel.java.application.models.HabitacionModel;
 import com.hotel.java.application.models.ReservaModel;
+import com.hotel.java.application.services.DateDiffService;
+import com.hotel.java.application.services.HabitacionService;
+import com.hotel.java.application.services.LoginService;
 import com.hotel.java.application.services.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,10 +24,16 @@ import java.util.List;
 public class ReservaController {
 
     private final ReservaService reservaService;
+    private final DateDiffService dateDiffService;
+    private final LoginService loginService;
+    private final HabitacionService habitacionService;
 
     @Autowired
-    public ReservaController(ReservaService reservaService) {
+    public ReservaController(ReservaService reservaService, DateDiffService dateDiffService, LoginService loginService, HabitacionService habitacionService) {
         this.reservaService = reservaService;
+        this.dateDiffService = dateDiffService;
+        this.loginService = loginService;
+        this.habitacionService = habitacionService;
     }
 
     @GetMapping
@@ -40,7 +52,11 @@ public class ReservaController {
     }
 
     @GetMapping("newReserva")
-    public void newReserva(@Valid @ModelAttribute("reserva") ReservaModel reservaModel) {
+    public void newReserva(@Valid @ModelAttribute("reserva")ReservaDtoModel reservaDtoModel) {
+        float precioTotal = (float) dateDiffService.calculateTotalPrice (reservaDtoModel.getCheckIn (), reservaDtoModel.getCheckOut (), reservaDtoModel.getPrecioHab ());
+        ClienteModel clienteReserva = loginService.buscaClientIdFromUsername (reservaDtoModel.getClienteUsername ());
+        HabitacionModel habitacionModel = habitacionService.showHabitacionByID (reservaDtoModel.getHabId ());
+        ReservaModel reservaModel = new ReservaModel (reservaDtoModel.getCheckIn (), reservaDtoModel.getCheckOut (), precioTotal, clienteReserva, habitacionModel);
         this.reservaService.operateReserva (reservaModel, "new");
     }
 

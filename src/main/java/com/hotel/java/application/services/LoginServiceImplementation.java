@@ -1,8 +1,10 @@
 package com.hotel.java.application.services;
 
+import com.hotel.java.application.domain.entities.ClienteEntity;
 import com.hotel.java.application.domain.entities.LoginEntity;
 import com.hotel.java.application.domain.factories.ClienteFactory;
 import com.hotel.java.application.domain.factories.LoginFactory;
+import com.hotel.java.application.models.ClienteModel;
 import com.hotel.java.application.models.LoginModel;
 import com.hotel.java.application.repositories.MasterRepository;
 import org.springframework.stereotype.Service;
@@ -24,5 +26,12 @@ public class LoginServiceImplementation implements LoginService{
     public void createLogin(LoginModel loginmodel) {
         loginEntity = this.loginFactory.loginModel2Entity(loginmodel);
         this.masterRepository.newObject (loginEntity, true);
+    }
+
+    @Override
+    public ClienteModel buscaClientIdFromUsername(String username){
+        ClienteEntity clienteEntity = (ClienteEntity) this.masterRepository.listarCampo (username, LoginEntity.class);
+        ClienteModel clienteModel = clienteFactory.clienteEntity2Model (clienteEntity);
+        return clienteModel;
     }
 }

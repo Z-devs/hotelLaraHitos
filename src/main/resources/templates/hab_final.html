@@ -45,17 +45,17 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="book-now-form">
-                        <form method="get" th:action="@{/reservas/newReserva/}">
+                        <form method="get" th:action="@{/reservas/newReserva/}" modelAttribute="reserva">
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label>Check In</label>
-                                    <input type="date" class="form-control" id="CheckIn" th:name="checkIn">
+                                    <input type="date" class="form-control" id="CheckIn" name="checkIn">
                             </div>
 
                             <!-- Form Group -->
                             <div class="form-group">
                                 <label>Check Out</label>
-                                    <input type="date" class="form-control" id="CheckOut" th:name="checkOut">
+                                    <input type="date" class="form-control" id="CheckOut" name="checkOut">
                             </div>
                             <!-- Form Group -->
                             <div class="form-group">
@@ -86,11 +86,11 @@
                             <!-- Button -->
                             <button type="submit">Book Now</button>
                             <input id="labelPrecio" value=""    ></input>
-                            <label th:text="@{habitacion.precio}" hidden></label><br>
-                            <label th:text="@{habitacion.id}" hidden></label><br>
+                            <label name="precioHab" th:text="@{habitacion.precio}" hidden></label><br>
+                            <label name="habId" th:text="@{habitacion.id}" hidden></label><br>
                             <!-- falta label con precio total por noche
                                 falta que envíe el id_cliente -->
-                            <p hidden sec:authorize="hasRole('USER')" th:text="${#authentication.getPrincipal().id_cliente}"></p><br>
+                            <p hidden name="username" sec:authorize="hasRole('USER')" th:text="${#authentication.getPrincipal().username}"></p><br>
                         </form>
                     </div>
                 </div>

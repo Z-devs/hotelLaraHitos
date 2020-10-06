@@ -159,6 +159,7 @@ public class MasterRepositoryImplementation implements MasterRepository{
         return objects;
     }
 
+    @Override
     public List<Object> showByTypeID(Class classEntity, long valor, String campo) {
         List<Object> objects = new ArrayList<> ();
         session = dbConnection.openSession ();
@@ -178,4 +179,18 @@ public class MasterRepositoryImplementation implements MasterRepository{
         return objects;
     }
 
+    @Override
+    public Object listarCampo(String campo, Class classEntity) {
+        Object object = null;
+        session = dbConnection.openSession ();
+        try{
+            object = session.get(classEntity, campo);
+        }catch (Throwable ex) {
+            ex.printStackTrace ();
+        }
+        finally {
+            session.close();
+        }
+        return object;
+    }
 }
