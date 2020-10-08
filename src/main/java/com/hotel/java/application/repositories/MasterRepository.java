@@ -13,6 +13,6 @@ public interface MasterRepository {
     long newSignUp(Object object);
     List<Object> showByType(Class classEntity, String campo);
     List<Object> showByTypeID(Class classEntity, long valor, String campo);
-    Object listarCampo(String campo, Class classEntity);
+    Object listarCampo(String campo, Class classEntity, String valor);
 
 }

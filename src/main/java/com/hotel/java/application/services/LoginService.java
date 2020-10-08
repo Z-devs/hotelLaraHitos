@@ -5,5 +5,5 @@ import com.hotel.java.application.models.LoginModel;
 
 public interface LoginService {
    void createLogin(LoginModel loginmodel);
-   ClienteModel buscaClientIdFromUsername(String username);
+   LoginModel buscaClientIdFromUsername(String username);
 }

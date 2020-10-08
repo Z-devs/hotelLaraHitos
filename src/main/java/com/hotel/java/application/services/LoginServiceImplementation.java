@@ -29,9 +29,9 @@ public class LoginServiceImplementation implements LoginService{
     }
 
     @Override
-    public ClienteModel buscaClientIdFromUsername(String username){
-        ClienteEntity clienteEntity = (ClienteEntity) this.masterRepository.listarCampo (username, LoginEntity.class);
-        ClienteModel clienteModel = clienteFactory.clienteEntity2Model (clienteEntity);
-        return clienteModel;
+    public LoginModel buscaClientIdFromUsername(String username){
+        LoginEntity loginEntity = (LoginEntity) this.masterRepository.listarCampo ("username", LoginEntity.class, username);
+        LoginModel loginModel = loginFactory.loginEntity2Model (loginEntity);
+        return loginModel;
     }
 }

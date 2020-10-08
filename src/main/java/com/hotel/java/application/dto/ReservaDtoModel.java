@@ -1,7 +1,5 @@
 package com.hotel.java.application.dto;
 
-import com.hotel.java.application.services.DateDiffService;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
@@ -18,24 +16,23 @@ public class ReservaDtoModel {
 
     @NotNull
     @NotEmpty
-    float precioHab;
-
-
-    @NotNull
-    @NotEmpty
-    long habId;
+    String precioHab;
 
     @NotNull
     @NotEmpty
-    String clienteUsername;
+    String habId;
+
+    @NotNull
+    @NotEmpty
+    String username;
 
 
-    public String getClienteUsername() {
-        return clienteUsername;
+    public String getUsername() {
+        return username;
     }
 
-    public void setClienteUsername(String clienteUsername) {
-        this.clienteUsername = clienteUsername;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Date getCheckIn() {
@@ -54,20 +51,19 @@ public class ReservaDtoModel {
         this.checkOut = checkOut;
     }
 
-    public float getPrecioHab() {
-        return precioHab;
+    public Float getPrecioHab() {
+        return Float.parseFloat (precioHab);
     }
 
-    public void setPrecioHab(float precioHab) {
-        this.precioHab = precioHab;
+    public void setPrecioHab(Float precioHab) {
+        this.precioHab = String.valueOf (precioHab);
     }
 
-    public long getHabId() {
-        return habId;
+    public Long getHabId() {
+        return Long.parseLong (habId);
     }
 
-    public void setHabId(long habId) {
-        this.habId = habId;
+    public void setHabId(Long habId) {
+        this.habId = String.valueOf (habId);
     }
-
 }

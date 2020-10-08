@@ -18,12 +18,15 @@ public class LoginModel {
         setClienteModel (clienteModel);
     }
 
-    public LoginModel(long id, String username, String password, ClienteModel clienteModel) {
+    public LoginModel(long id, String username, String password, String role, boolean enabled, ClienteModel clienteModel) {
         setId(id);
         setUsername (username);
         setPassword (password);
+        setRole (role);
+        setEnabled (enabled);
         setClienteModel (clienteModel);
     }
+
 
     public long getId() {
         return id;

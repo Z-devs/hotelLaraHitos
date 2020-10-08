@@ -4,10 +4,7 @@ import com.hotel.java.application.dto.ReservaDtoModel;
 import com.hotel.java.application.models.ClienteModel;
 import com.hotel.java.application.models.HabitacionModel;
 import com.hotel.java.application.models.ReservaModel;
-import com.hotel.java.application.services.DateDiffService;
-import com.hotel.java.application.services.HabitacionService;
-import com.hotel.java.application.services.LoginService;
-import com.hotel.java.application.services.ReservaService;
+import com.hotel.java.application.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,13 +24,15 @@ public class ReservaController {
     private final DateDiffService dateDiffService;
     private final LoginService loginService;
     private final HabitacionService habitacionService;
+    private final ClienteService clienteService;
 
     @Autowired
-    public ReservaController(ReservaService reservaService, DateDiffService dateDiffService, LoginService loginService, HabitacionService habitacionService) {
+    public ReservaController(ReservaService reservaService, DateDiffService dateDiffService, LoginService loginService, HabitacionService habitacionService, ClienteService clienteService) {
         this.reservaService = reservaService;
         this.dateDiffService = dateDiffService;
         this.loginService = loginService;
         this.habitacionService = habitacionService;
+        this.clienteService = clienteService;
     }
 
     @GetMapping
@@ -52,12 +51,14 @@ public class ReservaController {
     }
 
     @GetMapping("newReserva")
-    public void newReserva(@Valid @ModelAttribute("reserva")ReservaDtoModel reservaDtoModel) {
+    public ModelAndView newReserva(@Valid @ModelAttribute("reserva")ReservaDtoModel reservaDtoModel) {
         float precioTotal = (float) dateDiffService.calculateTotalPrice (reservaDtoModel.getCheckIn (), reservaDtoModel.getCheckOut (), reservaDtoModel.getPrecioHab ());
-        ClienteModel clienteReserva = loginService.buscaClientIdFromUsername (reservaDtoModel.getClienteUsername ());
+        ClienteModel clienteReserva = clienteService.buscaId (loginService.buscaClientIdFromUsername (reservaDtoModel.getUsername ()).getId ());
         HabitacionModel habitacionModel = habitacionService.showHabitacionByID (reservaDtoModel.getHabId ());
         ReservaModel reservaModel = new ReservaModel (reservaDtoModel.getCheckIn (), reservaDtoModel.getCheckOut (), precioTotal, clienteReserva, habitacionModel);
         this.reservaService.operateReserva (reservaModel, "new");
+        return new ModelAndView ("index");
     }
+
 
 }

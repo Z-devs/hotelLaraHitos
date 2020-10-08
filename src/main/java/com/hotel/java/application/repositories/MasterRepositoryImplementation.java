@@ -180,10 +180,16 @@ public class MasterRepositoryImplementation implements MasterRepository{
     }
 
     @Override
-    public Object listarCampo(String campo, Class classEntity) {
+    public Object listarCampo(String campo, Class classEntity, String valor) {
         Object object = null;
         session = dbConnection.openSession ();
+        cb = session.getCriteriaBuilder();
         try{
+            CriteriaQuery<Object> q = cb.createQuery (classEntity);
+            Root<Object> from = q.from (classEntity);
+            q.select (from);
+            q.where (cb.equal (from.get (campo), valor));
+            object = session.createQuery (q).getSingleResult ();
             object = session.get(classEntity, campo);
         }catch (Throwable ex) {
             ex.printStackTrace ();

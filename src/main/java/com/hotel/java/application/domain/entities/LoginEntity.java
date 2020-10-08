@@ -1,5 +1,7 @@
 package com.hotel.java.application.domain.entities;
 
+import com.hotel.java.application.models.ClienteModel;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,8 @@ public class LoginEntity {
     private String password;
     private String role;
     private boolean enabled;
+
+
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="id_cliente")

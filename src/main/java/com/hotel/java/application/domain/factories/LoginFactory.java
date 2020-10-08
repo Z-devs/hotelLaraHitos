@@ -24,4 +24,17 @@ public class LoginFactory {
         return loginEntity;
     }
 
+
+    public LoginModel loginEntity2Model (LoginEntity loginEntity){
+        LoginModel loginModel = new LoginModel (
+                loginEntity.getId (),
+                loginEntity.getUsername (),
+                loginEntity.getPassword (),
+                loginEntity.getRole (),
+                loginEntity.isEnabled (),
+                clienteFactory.clienteEntity2Model (loginEntity.getClienteEntity ())
+        );
+        return loginModel;
+    }
+
 }

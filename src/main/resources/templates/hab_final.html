@@ -85,12 +85,11 @@
 
                             <!-- Button -->
                             <button type="submit">Book Now</button>
-                            <input id="labelPrecio" value=""    ></input>
-                            <label name="precioHab" th:text="@{habitacion.precio}" hidden></label><br>
-                            <label name="habId" th:text="@{habitacion.id}" hidden></label><br>
+                            <input name="precioHab" th:value="${habitacion.precio}"></input><br>
+                            <input name="habId" th:value="${habitacion.id}"></input><br>
                             <!-- falta label con precio total por noche
                                 falta que envíe el id_cliente -->
-                            <p hidden name="username" sec:authorize="hasRole('USER')" th:text="${#authentication.getPrincipal().username}"></p><br>
+                            <input name="username" sec:authorize="hasRole('USER')" th:value="${#authentication.getPrincipal().username}"></p><br>
                         </form>
                     </div>
                 </div>
